@@ -11,6 +11,7 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   bool _showPassword = false;
+  bool _showPassword1 = false;
   TextEditingController fnController = TextEditingController();
   TextEditingController lnController = TextEditingController();
   TextEditingController emailController = TextEditingController();
@@ -160,7 +161,7 @@ class _SignUpState extends State<SignUp> {
               SizedBox(height: 20),
               TextFormField(
                 controller: pass1Controller,
-                obscureText: true,
+                obscureText: _showPassword ? false : true,
                 style: TextStyle(
                   fontSize: 17,
                   height: 1.3,
@@ -198,7 +199,7 @@ class _SignUpState extends State<SignUp> {
               SizedBox(height: 20),
               TextFormField(
                 controller: pass2Controller,
-                obscureText: true,
+                obscureText: _showPassword1 ? false : true,
                 style: TextStyle(
                   fontSize: 17,
                   height: 1.3,
@@ -217,11 +218,11 @@ class _SignUpState extends State<SignUp> {
                   suffixIcon: GestureDetector(
                     onTap: () {
                       setState(() {
-                        _showPassword = !_showPassword;
+                        _showPassword1 = !_showPassword1;
                       });
                     },
                     child: Icon(
-                      _showPassword ? Icons.visibility : Icons.visibility_off,
+                      _showPassword1 ? Icons.visibility : Icons.visibility_off,
                       color: Colors.grey,
                     ),
                   ),

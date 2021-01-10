@@ -53,7 +53,7 @@ class _LoginInputsState extends State<LoginInputs> {
         SizedBox(height: 20),
         TextFormField(
           controller: passwordController,
-          obscureText: true,
+          obscureText: _showPassword ? false : true,
           style: TextStyle(
             fontSize: 17,
             height: 1.3,
