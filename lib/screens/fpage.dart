@@ -86,9 +86,17 @@ class _FpageState extends State<Fpage> {
                     },
                   ).toList(),
                   onChanged: (String input) {
-                    setState(() {
-                      language = input;
-                    });
+                    if (input == "English") {
+                      setState(() {
+                        EasyLocalization.of(context).locale =
+                            Locale('en', 'EN');
+                      });
+                    } else if (input == "Amharic") {
+                      setState(() {
+                        EasyLocalization.of(context).locale =
+                            Locale('am', 'AM');
+                      });
+                    }
                   },
                 ),
               ),
@@ -109,22 +117,6 @@ class _FpageState extends State<Fpage> {
               ),
               color: Theme.of(context).primaryColor,
             ),
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  EasyLocalization.of(context).locale = Locale('en', 'EN');
-                });
-              },
-              child: Text("English"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  EasyLocalization.of(context).locale = Locale('am', 'AM');
-                });
-              },
-              child: Text("Amharic"),
-            )
           ],
         ),
       ),
