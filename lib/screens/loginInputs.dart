@@ -43,7 +43,7 @@ class _LoginInputsState extends State<LoginInputs> {
               enabledBorder: InputBorder.none,
               focusedBorder: InputBorder.none,
             ),
-            keyboardType: TextInputType.text,
+            keyboardType: TextInputType.number,
             initialCountryCode: 'ET',
             onChanged: (phone) {
               countrycode = phone.countryCode;

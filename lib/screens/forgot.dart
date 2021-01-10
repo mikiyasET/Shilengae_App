@@ -1,5 +1,6 @@
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class ForgetPassword extends StatefulWidget {
   @override
@@ -7,6 +8,8 @@ class ForgetPassword extends StatefulWidget {
 }
 
 class _ForgetPasswordState extends State<ForgetPassword> {
+  TextEditingController phoneController = TextEditingController();
+  String countrycode;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,56 +25,47 @@ class _ForgetPasswordState extends State<ForgetPassword> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Forgot Password",
+                "forgotPassword".tr().toString(),
                 style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.w500),
               ),
               SizedBox(height: 20),
               Text(
-                "Mobile Number",
+                "mobileNumber".tr().toString(),
                 style: TextStyle(
                   color: Color(0xff808080),
                   fontWeight: FontWeight.w600,
                   fontSize: 17,
                 ),
               ),
-              TextField(
-                style: TextStyle(
-                    fontSize: 17, height: 1.3, fontWeight: FontWeight.w700),
-                keyboardType: TextInputType.number,
-                cursorColor: Colors.teal,
-                scrollPadding: EdgeInsets.only(left: 40.0),
-                decoration: InputDecoration(
-                  border: UnderlineInputBorder(
-                    borderSide: new BorderSide(
-                      color: Colors.grey[300],
-                    ),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(
+                        color: Theme.of(context).secondaryHeaderColor),
                   ),
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: new BorderSide(
-                      color: Colors.grey[300],
-                    ),
+                ),
+                child: IntlPhoneField(
+                  onSubmitted: (ass) {
+                    print("ssdsooo");
+                  },
+                  onSaved: (val) {
+                    print("hooo");
+                  },
+                  onTap: () {
+                    print("hi");
+                  },
+                  controller: phoneController,
+                  showDropdownIcon: false,
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    enabledBorder: InputBorder.none,
+                    focusedBorder: InputBorder.none,
                   ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: new BorderSide(
-                      color: Colors.grey[300],
-                    ),
-                  ),
-                  prefixIcon: Padding(
-                    padding: const EdgeInsets.only(right: 5.0),
-                    child: IntlPhoneField(
-                      onTap: () {},
-                      decoration: InputDecoration(
-                        labelText: 'Phone Number',
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide(),
-                        ),
-                      ),
-                      initialCountryCode: "+251",
-                      onChanged: (phone) {
-                        print(phone.completeNumber);
-                      },
-                    ),
-                  ),
+                  keyboardType: TextInputType.number,
+                  initialCountryCode: 'ET',
+                  onChanged: (phone) {
+                    countrycode = phone.countryCode;
+                  },
                 ),
               ),
               SizedBox(height: 40),
@@ -83,7 +77,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                   minWidth: MediaQuery.of(context).size.width,
                   onPressed: () {},
                   child: Text(
-                    "Continue",
+                    "continue".tr().toString(),
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 18.0,
