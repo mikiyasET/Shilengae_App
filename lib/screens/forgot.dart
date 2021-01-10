@@ -1,6 +1,7 @@
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:shilingae/blocs/forgotc.dart';
 
 class ForgetPassword extends StatefulWidget {
   @override
@@ -75,7 +76,9 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                 child: FlatButton(
                   height: 55,
                   minWidth: MediaQuery.of(context).size.width,
-                  onPressed: () {},
+                  onPressed: () {
+                    ForgotBloc.password(context, phoneController, countrycode);
+                  },
                   child: Text(
                     "continue".tr().toString(),
                     style: TextStyle(
