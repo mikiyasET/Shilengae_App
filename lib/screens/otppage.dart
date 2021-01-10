@@ -68,6 +68,7 @@ class _otpPageState extends State<otpPage> {
             ),
             SizedBox(height: 80),
             PinCodeTextField(
+              onChanged: (v) {},
               appContext: context,
               pastedTextStyle: TextStyle(
                 color: Colors.grey[300],
