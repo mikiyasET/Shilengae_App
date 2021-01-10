@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class Choose extends StatefulWidget {
   @override
@@ -66,10 +67,10 @@ class _ChooseState extends State<Choose> {
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 20.0),
+                          Expanded(
                             child: Text(
-                              "Continue using Facebook",
+                              "connectToFacebook".tr().toString(),
+                              textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 17,
@@ -95,7 +96,7 @@ class _ChooseState extends State<Choose> {
                         color: Theme.of(context).primaryColor,
                       )),
                   child: Text(
-                    "Login",
+                    "login".tr().toString(),
                     style: TextStyle(
                         color: Theme.of(context).primaryColor,
                         fontSize: 17,
@@ -108,15 +109,16 @@ class _ChooseState extends State<Choose> {
               SizedBox(height: 50),
               RichText(
                 text: TextSpan(
-                  text: "New Account?",
+                  text: "newAccount".tr().toString(),
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
                     fontSize: 14,
                   ),
                   children: <TextSpan>[
+                    TextSpan(text: " "),
                     TextSpan(
-                        text: ' Register',
+                        text: 'register'.tr().toString(),
                         recognizer: TapGestureRecognizer()
                           ..onTap =
                               () => Navigator.pushNamed(context, '/signup'),
@@ -132,28 +134,31 @@ class _ChooseState extends State<Choose> {
               RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
-                  text: "By signing up you agree to our ?",
+                  text: "bySigningup".tr().toString(),
                   style: TextStyle(
                     fontSize: 14,
                     color: Color(0xff686866),
                     fontWeight: FontWeight.w600,
                   ),
                   children: <TextSpan>[
+                    TextSpan(text: " "),
                     TextSpan(
-                      text: ' Terms & Conditions ',
+                      text: 'termsAndCondition'.tr().toString(),
                       style: TextStyle(
                         color: Theme.of(context).primaryColor,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
+                    TextSpan(text: " "),
                     TextSpan(
-                      text: ' and ',
+                      text: 'and'.tr().toString(),
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
                       ),
                     ),
+                    TextSpan(text: " "),
                     TextSpan(
-                      text: ' Privacy Policy ',
+                      text: 'privacyPolicy'.tr().toString(),
                       style: TextStyle(
                         color: Colors.red,
                         fontWeight: FontWeight.w500,

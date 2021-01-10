@@ -3,6 +3,7 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shilingae/blocs/loginbloc.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class LoginInputs extends StatefulWidget {
   @override
@@ -61,7 +62,7 @@ class _LoginInputsState extends State<LoginInputs> {
           cursorColor: Colors.teal,
           scrollPadding: EdgeInsets.only(left: 40.0),
           decoration: InputDecoration(
-            labelText: 'Password',
+            labelText: 'password'.tr().toString(),
             floatingLabelBehavior: FloatingLabelBehavior.always,
             labelStyle: TextStyle(
               fontWeight: FontWeight.w600,
@@ -93,7 +94,7 @@ class _LoginInputsState extends State<LoginInputs> {
           child: Container(
             width: MediaQuery.of(context).size.width,
             child: Text(
-              "Forgot Password ?",
+              "forgotPassword".tr().toString(),
               style: TextStyle(
                 color: Color(0xffE33134),
                 fontWeight: FontWeight.w600,
@@ -113,7 +114,7 @@ class _LoginInputsState extends State<LoginInputs> {
               LoginBloc.LogIn(countrycode, phoneController, passwordController);
             },
             child: Text(
-              "Log in",
+              "login".tr().toString(),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 18.0,
@@ -128,15 +129,16 @@ class _LoginInputsState extends State<LoginInputs> {
           child: RichText(
             textAlign: TextAlign.center,
             text: TextSpan(
-              text: "Don't have an account?",
+              text: "dontHaveAccount".tr().toString(),
               style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.w600,
                 fontSize: 17,
               ),
               children: [
+                TextSpan(text: " "),
                 TextSpan(
-                  text: ' Sign up',
+                  text: 'signup'.tr().toString(),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () => Navigator.pushNamed(context, '/signup'),
                   style: TextStyle(

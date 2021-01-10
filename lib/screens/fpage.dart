@@ -30,7 +30,7 @@ class _FpageState extends State<Fpage> {
               ),
             ),
             SizedBox(height: 50),
-            Container(
+            /*Container(
               padding: EdgeInsets.symmetric(horizontal: 15.0),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5.0),
@@ -60,7 +60,7 @@ class _FpageState extends State<Fpage> {
                   },
                 ),
               ),
-            ),
+            ),*/
             SizedBox(height: 10),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 15.0),
@@ -86,12 +86,13 @@ class _FpageState extends State<Fpage> {
                     },
                   ).toList(),
                   onChanged: (String input) {
-                    if (input == "English") {
+                    language = input;
+                    if (language == "English") {
                       setState(() {
                         EasyLocalization.of(context).locale =
                             Locale('en', 'EN');
                       });
-                    } else if (input == "Amharic") {
+                    } else if (language == "አማርኛ") {
                       setState(() {
                         EasyLocalization.of(context).locale =
                             Locale('am', 'AM');
@@ -106,10 +107,19 @@ class _FpageState extends State<Fpage> {
               height: 55,
               minWidth: MediaQuery.of(context).size.width,
               onPressed: () {
+                if (language == "English") {
+                  setState(() {
+                    EasyLocalization.of(context).locale = Locale('en', 'EN');
+                  });
+                } else if (language == "አማርኛ") {
+                  setState(() {
+                    EasyLocalization.of(context).locale = Locale('am', 'AM');
+                  });
+                }
                 Navigator.pushNamed(context, '/choose');
               },
               child: Text(
-                "Continue".tr().toString(),
+                "continue".tr().toString(),
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18.0,

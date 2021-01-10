@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:shilingae/blocs/signupc.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -30,12 +31,12 @@ class _SignUpState extends State<SignUp> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          margin: EdgeInsets.symmetric(vertical: 50, horizontal: 25),
+          margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Sign up",
+                "signup".tr().toString(),
                 style: TextStyle(fontSize: 35.0, fontWeight: FontWeight.w500),
               ),
               SizedBox(height: 40),
@@ -49,7 +50,7 @@ class _SignUpState extends State<SignUp> {
                 cursorColor: Colors.teal,
                 scrollPadding: EdgeInsets.only(left: 40.0),
                 decoration: InputDecoration(
-                  labelText: 'First Name',
+                  labelText: 'firstName'.tr().toString(),
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   labelStyle: TextStyle(
                     fontWeight: FontWeight.w600,
@@ -75,7 +76,7 @@ class _SignUpState extends State<SignUp> {
                 cursorColor: Colors.teal,
                 scrollPadding: EdgeInsets.only(left: 40.0),
                 decoration: InputDecoration(
-                  labelText: 'Last Name',
+                  labelText: 'lastName'.tr().toString(),
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   labelStyle: TextStyle(
                     fontWeight: FontWeight.w600,
@@ -102,7 +103,7 @@ class _SignUpState extends State<SignUp> {
                 keyboardType: TextInputType.emailAddress,
                 scrollPadding: EdgeInsets.only(left: 40.0),
                 decoration: InputDecoration(
-                  labelText: 'Email',
+                  labelText: 'email'.tr().toString(),
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   labelStyle: TextStyle(
                     fontWeight: FontWeight.w600,
@@ -119,7 +120,7 @@ class _SignUpState extends State<SignUp> {
               ),
               SizedBox(height: 20),
               Text(
-                "Mobile Number",
+                "mobileNumber".tr().toString(),
                 style: TextStyle(
                   color: Color(0xff808080),
                   fontWeight: FontWeight.w600,
@@ -168,7 +169,7 @@ class _SignUpState extends State<SignUp> {
                 cursorColor: Colors.teal,
                 scrollPadding: EdgeInsets.only(left: 40.0),
                 decoration: InputDecoration(
-                  labelText: 'Password',
+                  labelText: 'password'.tr().toString(),
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   labelStyle: TextStyle(
                     fontWeight: FontWeight.w600,
@@ -206,7 +207,7 @@ class _SignUpState extends State<SignUp> {
                 cursorColor: Colors.teal,
                 scrollPadding: EdgeInsets.only(left: 40.0),
                 decoration: InputDecoration(
-                  labelText: 'Confirm Password',
+                  labelText: 'confirmNewPassword'.tr().toString(),
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   labelStyle: TextStyle(
                     fontWeight: FontWeight.w600,
@@ -252,7 +253,7 @@ class _SignUpState extends State<SignUp> {
                     );
                   },
                   child: Text(
-                    "Continue",
+                    "continue".tr().toString(),
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 18.0,
@@ -261,21 +262,22 @@ class _SignUpState extends State<SignUp> {
                   color: Color(0xffE43134),
                 ),
               ),
-              SizedBox(height: 50),
+              SizedBox(height: 20),
               Container(
                 width: MediaQuery.of(context).size.width,
                 child: RichText(
                   textAlign: TextAlign.center,
                   text: TextSpan(
-                    text: "Already have an account?",
+                    text: "alreadyHaveAccount".tr().toString(),
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.w600,
                       fontSize: 17,
                     ),
                     children: [
+                      TextSpan(text: " "),
                       TextSpan(
-                        text: ' Log in',
+                        text: 'login'.tr().toString(),
                         recognizer: TapGestureRecognizer()
                           ..onTap =
                               () => Navigator.pushNamed(context, '/login'),
