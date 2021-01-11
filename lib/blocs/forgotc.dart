@@ -22,7 +22,7 @@ class ForgotBloc {
           .post(otp_url, body: {'mobile': mobile, 'calling_code': countrycode});
       if (res.statusCode == 200 || res.statusCode == 400) {
         var jr = convert.jsonDecode(res.body);
-        if (jr['success'] == 1) {
+        if (jr['successs'] == 1) {
           Fluttertoast.showToast(
             msg: jr['msg'],
             toastLength: Toast.LENGTH_SHORT,

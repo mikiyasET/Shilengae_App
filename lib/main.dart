@@ -1,7 +1,5 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:shilingae/screens/choose.dart';
 import 'package:shilingae/screens/error.dart';
 import 'package:shilingae/screens/forgot.dart';
@@ -9,6 +7,8 @@ import 'package:shilingae/screens/fpage.dart';
 import 'package:shilingae/screens/login.dart';
 import 'package:shilingae/screens/signup.dart';
 import 'package:easy_localization/easy_localization.dart';
+
+// popup message localization tobe done
 
 void main() {
   runApp(EasyLocalization(
