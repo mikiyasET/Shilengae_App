@@ -1,3 +1,4 @@
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 import 'dart:async';
@@ -20,7 +21,7 @@ class LoginBloc {
       } else {}
 
       var url = 'https://test.shilengae.com/api/login';
-      print("Loading...");
+
       var response = await http.post(url, body: {
         'mobile': mobile,
         'password': pass,

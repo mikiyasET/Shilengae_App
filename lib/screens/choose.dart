@@ -29,13 +29,7 @@ class _ChooseState extends State<Choose> {
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                child: Text(
-                  "Shilengae",
-                  style: TextStyle(
-                    fontSize: 55,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
+                child: Image.asset("logo_fpage".tr().toString()),
               ),
               SizedBox(height: 50),
               InkWell(

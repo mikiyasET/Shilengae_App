@@ -358,5 +358,6 @@
     "contact" : "Contact",
     "Post_ad" : "Post ad",
     "sureGoback" : "Yes, I'm sure",
-    "Report_Ad" : "Report Ad"
+    "Report_Ad" : "Report Ad",
+    "logo_fpage": "assets/splash_screen_android.png"
 }

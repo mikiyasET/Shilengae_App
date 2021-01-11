@@ -14,22 +14,30 @@ class _FpageState extends State<Fpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(left: 30.0, right: 30.0, top: 200.0),
+        padding: const EdgeInsets.only(left: 30.0, right: 30.0,top:150.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: Text(
-                "SHILENGAE",
-                style: TextStyle(
-                  fontSize: 30,
-                  fontFamily: 'Copperplate',
-                  fontWeight: FontWeight.w700,
-                ),
+              child: Column(
+                children: [
+
+                  Image.asset("logo_fpage".tr().toString()),
+
+                  // Text(
+                  //   "SHILENGAE",
+                  //   style: TextStyle(
+                  //     fontSize: 30,
+                  //     fontFamily: 'Copperplate',
+                  //     fontWeight: FontWeight.w700,
+                  //   ),
+                  // ),
+
+                ],
               ),
             ),
-            SizedBox(height: 50),
+            // SizedBox(height: 5),
             /*Container(
               padding: EdgeInsets.symmetric(horizontal: 15.0),
               decoration: BoxDecoration(
@@ -61,7 +69,7 @@ class _FpageState extends State<Fpage> {
                 ),
               ),
             ),*/
-            SizedBox(height: 10),
+            // SizedBox(height: 10),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 15.0),
               decoration: BoxDecoration(
@@ -87,16 +95,18 @@ class _FpageState extends State<Fpage> {
                   ).toList(),
                   onChanged: (String input) {
                     language = input;
-                    if (language == "English") {
-                      setState(() {
-                        EasyLocalization.of(context).locale =
-                            Locale('en', 'EN');
-                      });
-                    } else if (language == "አማርኛ") {
+                    if (language == "አማርኛ") {
                       setState(() {
                         EasyLocalization.of(context).locale =
                             Locale('am', 'AM');
                       });
+                    } else if (language == "English") {
+                      setState(() {
+                        EasyLocalization.of(context).locale =
+                            Locale('en', 'EN');
+                      });
+
+
                     }
                   },
                 ),
