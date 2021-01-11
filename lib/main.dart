@@ -7,6 +7,7 @@ import 'package:shilingae/screens/fpage.dart';
 import 'package:shilingae/screens/login.dart';
 import 'package:shilingae/screens/signup.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:shilingae/screens/splash_screen.dart';
 
 // popup message localization tobe done
 
@@ -50,8 +51,10 @@ class Shilenga extends StatelessWidget {
         onGenerateRoute: (settings) {
           if (settings.name == '/') {
             // routing
+            return MaterialPageRoute(builder: (context) => SplashScreen());
+          } else if (settings.name == '/Fpage') {
             return MaterialPageRoute(builder: (context) => Fpage());
-          } else if (settings.name == '/choose') {
+          }  else if (settings.name == '/choose') {
             return MaterialPageRoute(builder: (context) => Choose());
           } else if (settings.name == '/login') {
             return MaterialPageRoute(builder: (context) => Login());
