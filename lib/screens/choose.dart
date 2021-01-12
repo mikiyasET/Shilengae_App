@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:shilingae/screens/privacy_policy.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'dart:async';
+
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 
 class Choose extends StatefulWidget {
   @override
@@ -11,6 +14,47 @@ class Choose extends StatefulWidget {
 }
 
 class _ChooseState extends State<Choose> {
+  static final FacebookLogin facebookSignIn = new FacebookLogin();
+
+  String _message = 'Log in/out by pressing the buttons below.';
+
+  Future<void> _login() async {
+    final FacebookLoginResult result = await facebookSignIn.logIn(['email']);
+
+    switch (result.status) {
+      case FacebookLoginStatus.loggedIn:
+        final FacebookAccessToken accessToken = result.accessToken;
+        _showMessage('''
+         Logged in!
+         
+         Token: ${accessToken.token}
+         User id: ${accessToken.userId}
+         Expires: ${accessToken.expires}
+         Permissions: ${accessToken.permissions}
+         Declined permissions: ${accessToken.declinedPermissions}
+         ''');
+        break;
+      case FacebookLoginStatus.cancelledByUser:
+        _showMessage('Login cancelled by the user.');
+        break;
+      case FacebookLoginStatus.error:
+        _showMessage('Something went wrong with the login process.\n'
+            'Here\'s the error Facebook gave us: ${result.errorMessage}');
+        break;
+    }
+  }
+
+  Future<Null> _logOut() async {
+    await facebookSignIn.logOut();
+    _showMessage('Logged out.');
+  }
+
+  void _showMessage(String message) {
+    setState(() {
+      _message = message;
+    });
+  }
+
   String country = "Ethiopia";
 
   String language = "English";
@@ -29,6 +73,10 @@ class _ChooseState extends State<Choose> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Text(
+                _message,
+                style: TextStyle(color: Colors.red),
+              ),
               Padding(
                 padding: const EdgeInsets.only(
                     left: 10.0, right: 10.0, bottom: 20.0),
@@ -36,7 +84,7 @@ class _ChooseState extends State<Choose> {
               ),
               // SizedBox(height: 50),
               InkWell(
-                onTap: () {},
+                onTap: _login,
                 child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(3),
@@ -140,15 +188,13 @@ class _ChooseState extends State<Choose> {
                   children: <TextSpan>[
                     TextSpan(text: " "),
                     TextSpan(
-                      text: 'termsAndCondition'.tr().toString(),
-                      style: TextStyle(
-                        color: Theme.of(context).primaryColor,
-                        fontWeight: FontWeight.w500,
-                      ),
-
+                        text: 'termsAndCondition'.tr().toString(),
+                        style: TextStyle(
+                          color: Theme.of(context).primaryColor,
+                          fontWeight: FontWeight.w500,
+                        ),
                         recognizer: new TapGestureRecognizer()
-                          ..onTap = () => _launchURL2()
-                    ),
+                          ..onTap = () => _launchURL2()),
                     TextSpan(text: " "),
                     TextSpan(
                       text: 'and'.tr().toString(),
@@ -164,10 +210,7 @@ class _ChooseState extends State<Choose> {
                           fontWeight: FontWeight.w500,
                         ),
                         recognizer: new TapGestureRecognizer()
-                          ..onTap = () => _launchURL()
-
-
-                    ),
+                          ..onTap = () => _launchURL()),
                   ],
                 ),
               ),
@@ -176,10 +219,9 @@ class _ChooseState extends State<Choose> {
         ),
       ),
     );
-
-
   }
 }
+
 _launchURL() async {
   const url = 'http://www.shilengae.com/privacy.html';
   if (await canLaunch(url)) {
