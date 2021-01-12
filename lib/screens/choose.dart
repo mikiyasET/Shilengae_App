@@ -73,13 +73,13 @@ class _ChooseState extends State<Choose> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                _message,
-                style: TextStyle(color: Colors.red),
-              ),
+              // Text(
+              //   _message,
+              //   style: TextStyle(color: Colors.red),
+              // ),
               Padding(
-                padding: const EdgeInsets.only(
-                    left: 10.0, right: 10.0, bottom: 20.0),
+                padding:
+                    const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 0.0),
                 child: Image.asset("logo_fpage".tr().toString()),
               ),
               // SizedBox(height: 50),

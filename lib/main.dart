@@ -17,8 +17,8 @@ void main() {
     child: Shilenga(),
     saveLocale: true,
     supportedLocales: [
-      Locale('am', 'AM'),
       Locale('en', 'EN'),
+      Locale('am', 'AM'),
     ],
   ));
 }
@@ -27,7 +27,6 @@ class Shilenga extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
         localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
         locale: context.locale,
@@ -55,7 +54,7 @@ class Shilenga extends StatelessWidget {
             return MaterialPageRoute(builder: (context) => SplashScreen());
           } else if (settings.name == '/Fpage') {
             return MaterialPageRoute(builder: (context) => Fpage());
-          }  else if (settings.name == '/choose') {
+          } else if (settings.name == '/choose') {
             return MaterialPageRoute(builder: (context) => Choose());
           } else if (settings.name == '/login') {
             return MaterialPageRoute(builder: (context) => Login());

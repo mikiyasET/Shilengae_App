@@ -21,7 +21,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          margin: EdgeInsets.symmetric(vertical: 50, horizontal: 25),
+          margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
