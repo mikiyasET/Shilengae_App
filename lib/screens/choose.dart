@@ -23,7 +23,7 @@ class _ChooseState extends State<Choose> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 120.0),
+          padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [

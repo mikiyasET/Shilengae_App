@@ -56,6 +56,7 @@ class StartState extends State<SplashScreen> {
             CircularProgressIndicator(
               backgroundColor: Colors.black,
               strokeWidth: 1,
+              valueColor: new AlwaysStoppedAnimation<Color>(Colors.red),
             )
           ],
         ),
