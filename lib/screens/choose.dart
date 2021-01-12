@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:shilingae/screens/privacy_policy.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Choose extends StatefulWidget {
   @override
@@ -28,7 +30,8 @@ class _ChooseState extends State<Choose> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                padding: const EdgeInsets.only(
+                    left: 10.0, right: 10.0, bottom: 20.0),
                 child: Image.asset("logo_fpage".tr().toString()),
               ),
               // SizedBox(height: 50),
@@ -142,6 +145,9 @@ class _ChooseState extends State<Choose> {
                         color: Theme.of(context).primaryColor,
                         fontWeight: FontWeight.w500,
                       ),
+
+                        recognizer: new TapGestureRecognizer()
+                          ..onTap = () => _launchURL2()
                     ),
                     TextSpan(text: " "),
                     TextSpan(
@@ -152,11 +158,15 @@ class _ChooseState extends State<Choose> {
                     ),
                     TextSpan(text: " "),
                     TextSpan(
-                      text: 'privacyPolicy'.tr().toString(),
-                      style: TextStyle(
-                        color: Colors.red,
-                        fontWeight: FontWeight.w500,
-                      ),
+                        text: 'privacyPolicy'.tr().toString(),
+                        style: TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        recognizer: new TapGestureRecognizer()
+                          ..onTap = () => _launchURL()
+
+
                     ),
                   ],
                 ),
@@ -166,5 +176,24 @@ class _ChooseState extends State<Choose> {
         ),
       ),
     );
+
+
+  }
+}
+_launchURL() async {
+  const url = 'http://www.shilengae.com/privacy.html';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+_launchURL2() async {
+  const url = 'http://www.shilengae.com/terms-conditions.html';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }
