@@ -49,7 +49,7 @@ class SignupBloc {
           timeInSecForIosWeb: 1,
           fontSize: 16.0,
         );
-      } else if (!RegExp(r'(^(?:[+0]9)?[0-9]{9,12}$)').hasMatch(mobile)) {
+      } else if (!RegExp(r'(^(?:[+0]9)?[0-9]{7,12}$)').hasMatch(mobile)) {
         Fluttertoast.showToast(
           msg: "Please enter a valid Mobile Number",
           toastLength: Toast.LENGTH_SHORT,
@@ -93,6 +93,8 @@ class SignupBloc {
           mobile = number.substring(countrycode.length + 1, number.length);
         } else if (mobile.startsWith('251', 0)) {
           mobile = number.substring(3, number.length);
+
+          
         }
         var otp_url = 'https://test.shilengae.com/api/sendOtp';
         var res = await http.post(otp_url, body: {
