@@ -55,7 +55,7 @@ flutter:
   assets:
     - assets/ic_facebook_logo@3x.png
     - assets/splash_screen_android.png
-    - assets/amharic_logo.jpg
+    - assets/amharic_logo.png
     - resources/langs/en-EN.json
     - resources/langs/am-AM.json
 
