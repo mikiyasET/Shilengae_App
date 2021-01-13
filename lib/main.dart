@@ -32,6 +32,7 @@ class Shilenga extends StatelessWidget {
         supportedLocales: context.supportedLocales,
         locale: context.locale,
         debugShowCheckedModeBanner: false,
+        darkTheme: ThemeData.dark(),
         // theme: ThemeData(
         //   primaryColor: Color(0xffE33134),
         //   secondaryHeaderColor: Color(0xffD8D8D8),
