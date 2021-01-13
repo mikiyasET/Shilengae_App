@@ -46,15 +46,16 @@ class _otpPageState extends State<otpPage> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
-          color: Colors.black, //change your color here
+          color:
+              Theme.of(context).secondaryHeaderColor, //change your color here
         ),
         elevation: 0,
         title: Text(
           "OTP verification",
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Theme.of(context).secondaryHeaderColor),
         ),
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).textSelectionColor,
       ),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -64,14 +65,15 @@ class _otpPageState extends State<otpPage> {
               "Enter 6-digit OTP code sent to your mobile no +" +
                   widget.calling_code +
                   widget.mobile,
-              style: TextStyle(fontSize: 18),
+              style: TextStyle(
+                  color: Theme.of(context).secondaryHeaderColor, fontSize: 18),
             ),
             SizedBox(height: 80),
             PinCodeTextField(
               onChanged: (v) {},
               appContext: context,
               pastedTextStyle: TextStyle(
-                color: Colors.grey[300],
+                color: Theme.of(context).dividerColor,
                 fontWeight: FontWeight.bold,
               ),
               length: 6,
@@ -79,15 +81,15 @@ class _otpPageState extends State<otpPage> {
               animationType: AnimationType.fade,
               pinTheme: PinTheme(
                 shape: PinCodeFieldShape.underline,
-                inactiveColor: Colors.grey[300],
-                activeColor: Colors.grey[300],
-                selectedColor: Colors.red,
-                disabledColor: Colors.grey,
+                inactiveColor: Theme.of(context).dividerColor,
+                activeColor: Theme.of(context).dividerColor,
+                selectedColor: Theme.of(context).primaryColor,
+                disabledColor: Theme.of(context).dividerColor,
               ),
-              cursorColor: Colors.black,
+              cursorColor: Theme.of(context).secondaryHeaderColor,
               animationDuration: Duration(milliseconds: 300),
               textStyle: TextStyle(fontSize: 30, height: 1.6),
-              backgroundColor: Colors.white,
+              backgroundColor: Theme.of(context).textSelectionColor,
               enableActiveFill: false,
               controller: otpController,
               keyboardType: TextInputType.number,
@@ -100,7 +102,7 @@ class _otpPageState extends State<otpPage> {
               children: [
                 Text(
                   "Re-send OTP",
-                  style: TextStyle(color: Colors.red),
+                  style: TextStyle(color: Theme.of(context).primaryColor),
                 ),
               ],
             ),
@@ -126,11 +128,11 @@ class _otpPageState extends State<otpPage> {
                 child: Text(
                   "Verify",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Theme.of(context).textSelectionColor,
                     fontSize: 18.0,
                   ),
                 ),
-                color: Color(0xffE43134),
+                color: Theme.of(context).primaryColor,
               ),
             ),
             SizedBox(height: 20),
@@ -140,7 +142,7 @@ class _otpPageState extends State<otpPage> {
                 text: TextSpan(
                   text: "Didn't receive an OTP yet ?",
                   style: TextStyle(
-                    color: Colors.grey,
+                    color: Theme.of(context).accentColor,
                     fontWeight: FontWeight.w600,
                     fontSize: 17,
                   ),
@@ -150,7 +152,7 @@ class _otpPageState extends State<otpPage> {
                       recognizer: TapGestureRecognizer()
                         ..onTap = () => Navigator.pushNamed(context, '/login'),
                       style: TextStyle(
-                        color: Colors.red,
+                        color: Theme.of(context).primaryColor,
                         fontWeight: FontWeight.w600,
                         fontSize: 17,
                       ),

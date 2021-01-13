@@ -14,7 +14,7 @@ class _FpageState extends State<Fpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(left: 30.0, right: 30.0,top:50.0),
+        padding: const EdgeInsets.only(left: 30.0, right: 30.0, top: 50.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -22,21 +22,11 @@ class _FpageState extends State<Fpage> {
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Column(
                 children: [
-
                   Image.asset("logo_fpage".tr().toString()),
-
-                  // Text(
-                  //   "SHILENGAE",
-                  //   style: TextStyle(
-                  //     fontSize: 30,
-                  //     fontFamily: 'Copperplate',
-                  //     fontWeight: FontWeight.w700,
-                  //   ),
-                  // ),
-
                 ],
               ),
             ),
+
             // SizedBox(height: 5),
             /*Container(
               padding: EdgeInsets.symmetric(horizontal: 15.0),
@@ -105,8 +95,6 @@ class _FpageState extends State<Fpage> {
                         EasyLocalization.of(context).locale =
                             Locale('en', 'EN');
                       });
-
-
                     }
                   },
                 ),
@@ -131,7 +119,7 @@ class _FpageState extends State<Fpage> {
               child: Text(
                 "continue".tr().toString(),
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Theme.of(context).textSelectionColor,
                   fontSize: 18.0,
                 ),
               ),

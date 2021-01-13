@@ -16,7 +16,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: IconThemeData(color: Theme.of(context).secondaryHeaderColor),
         backgroundColor: Colors.transparent,
       ),
       body: SingleChildScrollView(
@@ -27,13 +27,17 @@ class _ForgetPasswordState extends State<ForgetPassword> {
             children: [
               Text(
                 "forgotPassword".tr().toString(),
-                style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.w500),
+                style: TextStyle(
+                  color: Theme.of(context).secondaryHeaderColor,
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
               SizedBox(height: 20),
               Text(
                 "mobileNumber".tr().toString(),
                 style: TextStyle(
-                  color: Color(0xff808080),
+                  color: Theme.of(context).accentColor,
                   fontWeight: FontWeight.w600,
                   fontSize: 17,
                 ),
@@ -41,8 +45,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
               Container(
                 decoration: BoxDecoration(
                   border: Border(
-                    bottom: BorderSide(
-                        color: Theme.of(context).secondaryHeaderColor),
+                    bottom: BorderSide(color: Theme.of(context).dividerColor),
                   ),
                 ),
                 child: IntlPhoneField(
@@ -82,11 +85,11 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                   child: Text(
                     "continue".tr().toString(),
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Theme.of(context).textSelectionColor,
                       fontSize: 18.0,
                     ),
                   ),
-                  color: Color(0xffE43134),
+                  color: Theme.of(context).primaryColor,
                 ),
               ),
             ],

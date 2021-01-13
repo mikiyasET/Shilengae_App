@@ -14,7 +14,6 @@ class StartState extends State<SplashScreen> {
     return initScreen(context);
   }
 
-
   @override
   void initState() {
     super.initState();
@@ -27,16 +26,13 @@ class StartState extends State<SplashScreen> {
   }
 
   route() {
-    Navigator.pushReplacement(context, MaterialPageRoute(
-        builder: (context) => Fpage()
-    )
-    );
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => Fpage()));
   }
 
   initScreen(BuildContext context) {
-
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).textSelectionColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -49,14 +45,15 @@ class StartState extends State<SplashScreen> {
             //   "Splash Screen",
             //   style: TextStyle(
             //       fontSize: 20.0,
-            //       color: Colors.white
+            //       color: Theme.of(context).textSelectionColor
             //   ),
             // ),
             Padding(padding: EdgeInsets.only(top: 20.0)),
             CircularProgressIndicator(
-              backgroundColor: Colors.black,
+              backgroundColor: Theme.of(context).secondaryHeaderColor,
               strokeWidth: 1,
-              valueColor: new AlwaysStoppedAnimation<Color>(Colors.red),
+              valueColor: new AlwaysStoppedAnimation<Color>(
+                  Theme.of(context).primaryColor),
             )
           ],
         ),

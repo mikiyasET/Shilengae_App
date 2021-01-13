@@ -8,6 +8,7 @@ import 'package:shilingae/screens/login.dart';
 import 'package:shilingae/screens/signup.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:shilingae/screens/splash_screen.dart';
+import 'package:shilingae/utils/theme.dart';
 
 // popup message localization tobe done
 
@@ -31,22 +32,23 @@ class Shilenga extends StatelessWidget {
         supportedLocales: context.supportedLocales,
         locale: context.locale,
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primaryColor: Color(0xffE33134),
-          secondaryHeaderColor: Color(0xffD8D8D8),
-          backgroundColor: Color(0xffE33134),
-          scaffoldBackgroundColor: Colors.white,
-          textTheme: TextTheme(
-            headline1: TextStyle(color: Color(0xffAFAFAF)), // Gray Color
-            headline2: TextStyle(color: Color(0xffFFFFFF)), // Pure White
-            headline3: TextStyle(color: Color(0xffE33134)), // Red Color
-            headline4: TextStyle(color: Color(0xffAFAFAF)), // Gray Color
-            headline5: TextStyle(color: Color(0xffFFFFFF)), // Pure White
-            headline6: TextStyle(color: Color(0xff3E5F97)), // Blue Color
-            bodyText1: TextStyle(color: Color(0xff3E5F97)), // Blue Color
-            bodyText2: TextStyle(color: Color(0xff000000)), // Blue Color
-          ),
-        ),
+        // theme: ThemeData(
+        //   primaryColor: Color(0xffE33134),
+        //   secondaryHeaderColor: Color(0xffD8D8D8),
+        //   backgroundColor: Color(0xffE33134),
+        //   scaffoldBackgroundColor: Theme.of(context).textSelectionColor,
+        //   textTheme: TextTheme(
+        //     headline1: TextStyle(color: Color(0xffAFAFAF)), // Gray Color
+        //     headline2: TextStyle(color: Color(0xffFFFFFF)), // Pure White
+        //     headline3: TextStyle(color: Color(0xffE33134)), // Red Color
+        //     headline4: TextStyle(color: Color(0xffAFAFAF)), // Gray Color
+        //     headline5: TextStyle(color: Color(0xffFFFFFF)), // Pure White
+        //     headline6: TextStyle(color: Color(0xff3E5F97)), // Blue Color
+        //     bodyText1: TextStyle(color: Color(0xff3E5F97)), // Blue Color
+        //     bodyText2: TextStyle(color: Color(0xff000000)), // Blue Color
+        //   ),
+        // ),
+        theme: basicTheme(),
         title: 'Shilenga', // Title of the app
         onGenerateRoute: (settings) {
           if (settings.name == '/') {

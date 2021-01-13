@@ -13,7 +13,7 @@ class _LoginState extends State<Login> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: IconThemeData(color: Theme.of(context).secondaryHeaderColor),
         backgroundColor: Colors.transparent,
       ),
       body: SingleChildScrollView(
@@ -24,13 +24,16 @@ class _LoginState extends State<Login> {
             children: [
               Text(
                 "login".tr().toString(),
-                style: TextStyle(fontSize: 35.0, fontWeight: FontWeight.w500),
+                style: TextStyle(
+                    color: Theme.of(context).secondaryHeaderColor,
+                    fontSize: 35.0,
+                    fontWeight: FontWeight.w500),
               ),
               SizedBox(height: 40),
               Text(
                 "mobileNumber".tr().toString(),
                 style: TextStyle(
-                  color: Color(0xff808080),
+                  color: Theme.of(context).accentColor,
                   fontWeight: FontWeight.w600,
                   fontSize: 17,
                 ),

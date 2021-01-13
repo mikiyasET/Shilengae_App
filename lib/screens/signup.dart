@@ -27,7 +27,7 @@ class _SignUpState extends State<SignUp> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: IconThemeData(color: Theme.of(context).secondaryHeaderColor),
         backgroundColor: Colors.transparent,
       ),
       body: SingleChildScrollView(
@@ -38,7 +38,10 @@ class _SignUpState extends State<SignUp> {
             children: [
               Text(
                 "signup".tr().toString(),
-                style: TextStyle(fontSize: 35.0, fontWeight: FontWeight.w500),
+                style: TextStyle(
+                    color: Theme.of(context).secondaryHeaderColor,
+                    fontSize: 35.0,
+                    fontWeight: FontWeight.w500),
               ),
               SizedBox(height: 40),
               TextFormField(
@@ -54,16 +57,20 @@ class _SignUpState extends State<SignUp> {
                   labelText: 'firstName'.tr().toString(),
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   labelStyle: TextStyle(
+                    color: Theme.of(context).accentColor,
                     fontWeight: FontWeight.w600,
                     fontSize: 23,
                     height: .6,
                   ),
                   border: UnderlineInputBorder(
-                      borderSide: new BorderSide(color: Colors.grey[300])),
+                      borderSide: new BorderSide(
+                          color: Theme.of(context).dividerColor)),
                   enabledBorder: UnderlineInputBorder(
-                      borderSide: new BorderSide(color: Colors.grey[300])),
+                      borderSide: new BorderSide(
+                          color: Theme.of(context).dividerColor)),
                   focusedBorder: UnderlineInputBorder(
-                      borderSide: new BorderSide(color: Colors.red)),
+                      borderSide: new BorderSide(
+                          color: Theme.of(context).primaryColor)),
                 ),
               ),
               SizedBox(height: 20),
@@ -80,16 +87,20 @@ class _SignUpState extends State<SignUp> {
                   labelText: 'lastName'.tr().toString(),
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   labelStyle: TextStyle(
+                    color: Theme.of(context).accentColor,
                     fontWeight: FontWeight.w600,
                     fontSize: 23,
                     height: .6,
                   ),
                   border: UnderlineInputBorder(
-                      borderSide: new BorderSide(color: Colors.grey[300])),
+                      borderSide: new BorderSide(
+                          color: Theme.of(context).dividerColor)),
                   enabledBorder: UnderlineInputBorder(
-                      borderSide: new BorderSide(color: Colors.grey[300])),
+                      borderSide: new BorderSide(
+                          color: Theme.of(context).dividerColor)),
                   focusedBorder: UnderlineInputBorder(
-                      borderSide: new BorderSide(color: Colors.red)),
+                      borderSide: new BorderSide(
+                          color: Theme.of(context).primaryColor)),
                 ),
               ),
               SizedBox(height: 20),
@@ -107,23 +118,27 @@ class _SignUpState extends State<SignUp> {
                   labelText: 'email'.tr().toString(),
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   labelStyle: TextStyle(
+                    color: Theme.of(context).accentColor,
                     fontWeight: FontWeight.w600,
                     fontSize: 23,
                     height: .6,
                   ),
                   border: UnderlineInputBorder(
-                      borderSide: new BorderSide(color: Colors.grey[300])),
+                      borderSide: new BorderSide(
+                          color: Theme.of(context).dividerColor)),
                   enabledBorder: UnderlineInputBorder(
-                      borderSide: new BorderSide(color: Colors.grey[300])),
+                      borderSide: new BorderSide(
+                          color: Theme.of(context).dividerColor)),
                   focusedBorder: UnderlineInputBorder(
-                      borderSide: new BorderSide(color: Colors.red)),
+                      borderSide: new BorderSide(
+                          color: Theme.of(context).primaryColor)),
                 ),
               ),
               SizedBox(height: 20),
               Text(
                 "mobileNumber".tr().toString(),
                 style: TextStyle(
-                  color: Color(0xff808080),
+                  color: Theme.of(context).accentColor,
                   fontWeight: FontWeight.w600,
                   fontSize: 17,
                 ),
@@ -131,8 +146,7 @@ class _SignUpState extends State<SignUp> {
               Container(
                 decoration: BoxDecoration(
                   border: Border(
-                    bottom: BorderSide(
-                        color: Theme.of(context).secondaryHeaderColor),
+                    bottom: BorderSide(color: Theme.of(context).dividerColor),
                   ),
                 ),
                 child: IntlPhoneField(
@@ -173,6 +187,7 @@ class _SignUpState extends State<SignUp> {
                   labelText: 'password'.tr().toString(),
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   labelStyle: TextStyle(
+                    color: Theme.of(context).accentColor,
                     fontWeight: FontWeight.w600,
                     fontSize: 23,
                     height: 0,
@@ -185,15 +200,18 @@ class _SignUpState extends State<SignUp> {
                     },
                     child: Icon(
                       _showPassword ? Icons.visibility : Icons.visibility_off,
-                      color: Colors.grey,
+                      color: Theme.of(context).dividerColor,
                     ),
                   ),
                   border: UnderlineInputBorder(
-                      borderSide: new BorderSide(color: Colors.grey[300])),
+                      borderSide: new BorderSide(
+                          color: Theme.of(context).dividerColor)),
                   enabledBorder: UnderlineInputBorder(
-                      borderSide: new BorderSide(color: Colors.grey[300])),
+                      borderSide: new BorderSide(
+                          color: Theme.of(context).dividerColor)),
                   focusedBorder: UnderlineInputBorder(
-                      borderSide: new BorderSide(color: Colors.red)),
+                      borderSide: new BorderSide(
+                          color: Theme.of(context).primaryColor)),
                 ),
               ),
               SizedBox(height: 20),
@@ -211,6 +229,7 @@ class _SignUpState extends State<SignUp> {
                   labelText: 'confirmNewPassword'.tr().toString(),
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   labelStyle: TextStyle(
+                    color: Theme.of(context).accentColor,
                     fontWeight: FontWeight.w600,
                     fontSize: 23,
                     height: 0,
@@ -223,15 +242,18 @@ class _SignUpState extends State<SignUp> {
                     },
                     child: Icon(
                       _showPassword1 ? Icons.visibility : Icons.visibility_off,
-                      color: Colors.grey,
+                      color: Theme.of(context).dividerColor,
                     ),
                   ),
                   border: UnderlineInputBorder(
-                      borderSide: new BorderSide(color: Colors.grey[300])),
+                      borderSide: new BorderSide(
+                          color: Theme.of(context).dividerColor)),
                   enabledBorder: UnderlineInputBorder(
-                      borderSide: new BorderSide(color: Colors.grey[300])),
+                      borderSide: new BorderSide(
+                          color: Theme.of(context).dividerColor)),
                   focusedBorder: UnderlineInputBorder(
-                      borderSide: new BorderSide(color: Colors.red)),
+                      borderSide: new BorderSide(
+                          color: Theme.of(context).primaryColor)),
                 ),
               ),
               SizedBox(height: 40),
@@ -256,11 +278,11 @@ class _SignUpState extends State<SignUp> {
                   child: Text(
                     "continue".tr().toString(),
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Theme.of(context).textSelectionColor,
                       fontSize: 18.0,
                     ),
                   ),
-                  color: Color(0xffE43134),
+                  color: Theme.of(context).primaryColor,
                 ),
               ),
               SizedBox(height: 20),
@@ -271,7 +293,7 @@ class _SignUpState extends State<SignUp> {
                   text: TextSpan(
                     text: "alreadyHaveAccount".tr().toString(),
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Theme.of(context).secondaryHeaderColor,
                       fontWeight: FontWeight.w600,
                       fontSize: 17,
                     ),
@@ -283,7 +305,7 @@ class _SignUpState extends State<SignUp> {
                           ..onTap =
                               () => Navigator.pushNamed(context, '/login'),
                         style: TextStyle(
-                          color: Colors.red,
+                          color: Theme.of(context).primaryColor,
                           fontWeight: FontWeight.w600,
                           fontSize: 17,
                         ),

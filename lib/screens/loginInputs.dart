@@ -23,7 +23,7 @@ class _LoginInputsState extends State<LoginInputs> {
         Container(
           decoration: BoxDecoration(
             border: Border(
-              bottom: BorderSide(color: Theme.of(context).secondaryHeaderColor),
+              bottom: BorderSide(color: Theme.of(context).dividerColor),
             ),
           ),
           child: IntlPhoneField(
@@ -65,6 +65,7 @@ class _LoginInputsState extends State<LoginInputs> {
             labelText: 'password'.tr().toString(),
             floatingLabelBehavior: FloatingLabelBehavior.always,
             labelStyle: TextStyle(
+              color: Theme.of(context).accentColor,
               fontWeight: FontWeight.w600,
               fontSize: 23,
               height: 0,
@@ -77,15 +78,18 @@ class _LoginInputsState extends State<LoginInputs> {
               },
               child: Icon(
                 _showPassword ? Icons.visibility : Icons.visibility_off,
-                color: Colors.grey,
+                color: Theme.of(context).dividerColor,
               ),
             ),
             border: UnderlineInputBorder(
-                borderSide: new BorderSide(color: Colors.grey[300])),
+                borderSide:
+                    new BorderSide(color: Theme.of(context).dividerColor)),
             enabledBorder: UnderlineInputBorder(
-                borderSide: new BorderSide(color: Colors.grey[300])),
+                borderSide:
+                    new BorderSide(color: Theme.of(context).dividerColor)),
             focusedBorder: UnderlineInputBorder(
-                borderSide: new BorderSide(color: Colors.red)),
+                borderSide:
+                    new BorderSide(color: Theme.of(context).primaryColor)),
           ),
         ),
         SizedBox(height: 20),
@@ -96,7 +100,7 @@ class _LoginInputsState extends State<LoginInputs> {
             child: Text(
               "forgotPassword".tr().toString(),
               style: TextStyle(
-                color: Color(0xffE33134),
+                color: Theme.of(context).primaryColor,
                 fontWeight: FontWeight.w600,
                 fontSize: 17,
               ),
@@ -116,11 +120,11 @@ class _LoginInputsState extends State<LoginInputs> {
             child: Text(
               "login".tr().toString(),
               style: TextStyle(
-                color: Colors.white,
+                color: Theme.of(context).textSelectionColor,
                 fontSize: 18.0,
               ),
             ),
-            color: Color(0xffE43134),
+            color: Theme.of(context).primaryColor,
           ),
         ),
         SizedBox(height: 50),
@@ -131,7 +135,7 @@ class _LoginInputsState extends State<LoginInputs> {
             text: TextSpan(
               text: "dontHaveAccount".tr().toString(),
               style: TextStyle(
-                color: Colors.black,
+                color: Theme.of(context).secondaryHeaderColor,
                 fontWeight: FontWeight.w600,
                 fontSize: 17,
               ),
@@ -142,7 +146,7 @@ class _LoginInputsState extends State<LoginInputs> {
                   recognizer: TapGestureRecognizer()
                     ..onTap = () => Navigator.pushNamed(context, '/signup'),
                   style: TextStyle(
-                    color: Colors.red,
+                    color: Theme.of(context).primaryColor,
                     fontWeight: FontWeight.w600,
                     fontSize: 17,
                   ),

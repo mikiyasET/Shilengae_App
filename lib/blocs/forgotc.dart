@@ -27,8 +27,8 @@ class ForgotBloc {
             msg: jr['msg'],
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.TOP,
-            backgroundColor: Colors.red,
-            textColor: Colors.white,
+            backgroundColor: Theme.of(context).primaryColor,
+            textColor: Theme.of(context).textSelectionColor,
             timeInSecForIosWeb: 1,
             fontSize: 16.0,
           );
@@ -37,8 +37,8 @@ class ForgotBloc {
             msg: jr['msg'],
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.TOP,
-            backgroundColor: Colors.red,
-            textColor: Colors.white,
+            backgroundColor: Theme.of(context).primaryColor,
+            textColor: Theme.of(context).textSelectionColor,
             timeInSecForIosWeb: 1,
             fontSize: 16.0,
           );
@@ -49,8 +49,8 @@ class ForgotBloc {
         msg: "Unexpected Error!" + e.toString(),
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.TOP,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
+        backgroundColor: Theme.of(context).primaryColor,
+        textColor: Theme.of(context).textSelectionColor,
         timeInSecForIosWeb: 1,
         fontSize: 16.0,
       );

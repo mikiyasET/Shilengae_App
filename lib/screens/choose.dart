@@ -49,7 +49,7 @@ class _ChooseState extends State<Choose> {
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.TOP,
           backgroundColor: Colors.green,
-          textColor: Colors.white,
+          textColor: Theme.of(context).textSelectionColor,
           timeInSecForIosWeb: 1,
           fontSize: 16.0,
         );
@@ -60,7 +60,7 @@ class _ChooseState extends State<Choose> {
         //   toastLength: Toast.LENGTH_SHORT,
         //   gravity: ToastGravity.TOP,
         //   backgroundColor: Colors.blue,
-        //   textColor: Colors.white,
+        //   textColor: Theme.of(context).textSelectionColor,
         //   timeInSecForIosWeb: 1,
         //   fontSize: 16.0,
         // );
@@ -72,8 +72,8 @@ class _ChooseState extends State<Choose> {
               "Here\'s the error Facebook gave us: ${result.errorMessage}",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.TOP,
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
+          backgroundColor: Theme.of(context).primaryColor,
+          textColor: Theme.of(context).textSelectionColor,
           timeInSecForIosWeb: 1,
           fontSize: 16.0,
         );
@@ -103,7 +103,7 @@ class _ChooseState extends State<Choose> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: IconThemeData(color: Theme.of(context).secondaryHeaderColor),
         backgroundColor: Colors.transparent,
       ),
       body: SingleChildScrollView(
@@ -114,7 +114,7 @@ class _ChooseState extends State<Choose> {
             children: [
               Text(
                 _message,
-                style: TextStyle(color: Colors.red),
+                style: TextStyle(color: Theme.of(context).primaryColor),
               ),
               Padding(
                 padding:
@@ -147,7 +147,7 @@ class _ChooseState extends State<Choose> {
                             child: Opacity(
                               opacity: .7,
                               child: VerticalDivider(
-                                color: Colors.white,
+                                color: Theme.of(context).textSelectionColor,
                               ),
                             ),
                           ),
@@ -156,7 +156,7 @@ class _ChooseState extends State<Choose> {
                               "connectToFacebook".tr().toString(),
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                color: Colors.white,
+                                color: Theme.of(context).textSelectionColor,
                                 fontSize: 17,
                               ),
                             ),
@@ -195,7 +195,7 @@ class _ChooseState extends State<Choose> {
                 text: TextSpan(
                   text: "newAccount".tr().toString(),
                   style: TextStyle(
-                    color: Colors.black,
+                    color: Theme.of(context).secondaryHeaderColor,
                     fontWeight: FontWeight.w500,
                     fontSize: 14,
                   ),
@@ -221,7 +221,7 @@ class _ChooseState extends State<Choose> {
                   text: "bySigningup".tr().toString(),
                   style: TextStyle(
                     fontSize: 14,
-                    color: Color(0xff686866),
+                    color: Theme.of(context).accentColor,
                     fontWeight: FontWeight.w600,
                   ),
                   children: <TextSpan>[
@@ -238,6 +238,7 @@ class _ChooseState extends State<Choose> {
                     TextSpan(
                       text: 'and'.tr().toString(),
                       style: TextStyle(
+                        color: Theme.of(context).accentColor,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -245,7 +246,7 @@ class _ChooseState extends State<Choose> {
                     TextSpan(
                         text: 'privacyPolicy'.tr().toString(),
                         style: TextStyle(
-                          color: Colors.red,
+                          color: Theme.of(context).primaryColor,
                           fontWeight: FontWeight.w500,
                         ),
                         recognizer: new TapGestureRecognizer()

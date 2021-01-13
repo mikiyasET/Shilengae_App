@@ -22,8 +22,8 @@ class SignupBloc {
           msg: "First Name should be atleast 2 characters long",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.TOP,
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
+          backgroundColor: Theme.of(context).primaryColor,
+          textColor: Theme.of(context).textSelectionColor,
           timeInSecForIosWeb: 1,
           fontSize: 16.0,
         );
@@ -32,8 +32,8 @@ class SignupBloc {
           msg: "Last Name should be atleast 2 characters long",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.TOP,
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
+          backgroundColor: Theme.of(context).primaryColor,
+          textColor: Theme.of(context).textSelectionColor,
           timeInSecForIosWeb: 1,
           fontSize: 16.0,
         );
@@ -44,8 +44,8 @@ class SignupBloc {
           msg: "Please enter a valid email",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.TOP,
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
+          backgroundColor: Theme.of(context).primaryColor,
+          textColor: Theme.of(context).textSelectionColor,
           timeInSecForIosWeb: 1,
           fontSize: 16.0,
         );
@@ -54,8 +54,8 @@ class SignupBloc {
           msg: "Please enter a valid Mobile Number",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.TOP,
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
+          backgroundColor: Theme.of(context).primaryColor,
+          textColor: Theme.of(context).textSelectionColor,
           timeInSecForIosWeb: 1,
           fontSize: 16.0,
         );
@@ -67,8 +67,8 @@ class SignupBloc {
           msg: "Password can contain minimum of 6 and maximum of 15 characters",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.TOP,
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
+          backgroundColor: Theme.of(context).primaryColor,
+          textColor: Theme.of(context).textSelectionColor,
           timeInSecForIosWeb: 1,
           fontSize: 16.0,
         );
@@ -77,8 +77,8 @@ class SignupBloc {
           msg: "Passwords don't match",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.TOP,
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
+          backgroundColor: Theme.of(context).primaryColor,
+          textColor: Theme.of(context).textSelectionColor,
           timeInSecForIosWeb: 1,
           fontSize: 16.0,
         );
@@ -93,8 +93,6 @@ class SignupBloc {
           mobile = number.substring(countrycode.length + 1, number.length);
         } else if (mobile.startsWith('251', 0)) {
           mobile = number.substring(3, number.length);
-
-          
         }
         var otp_url = 'https://test.shilengae.com/api/sendOtp';
         var res = await http.post(otp_url, body: {
@@ -126,8 +124,8 @@ class SignupBloc {
               msg: "Can't send otp to your number",
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.TOP,
-              backgroundColor: Colors.red,
-              textColor: Colors.white,
+              backgroundColor: Theme.of(context).primaryColor,
+              textColor: Theme.of(context).textSelectionColor,
               timeInSecForIosWeb: 1,
               fontSize: 16.0,
             );
@@ -138,8 +136,8 @@ class SignupBloc {
             msg: "Unexpected Error!",
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.TOP,
-            backgroundColor: Colors.red,
-            textColor: Colors.white,
+            backgroundColor: Theme.of(context).primaryColor,
+            textColor: Theme.of(context).textSelectionColor,
             timeInSecForIosWeb: 1,
             fontSize: 16.0,
           );
@@ -164,8 +162,8 @@ class SignupBloc {
       //     msg: msg,
       //     toastLength: Toast.LENGTH_SHORT,
       //     gravity: ToastGravity.TOP,
-      //     backgroundColor: success == 1 ? Colors.green : Colors.red,
-      //     textColor: Colors.white,
+      //     backgroundColor: success == 1 ? Colors.green : Theme.of(context).primaryColor,
+      //     textColor: Theme.of(context).textSelectionColor,
       //     timeInSecForIosWeb: 1,
       //     fontSize: 16.0,
       //   );
@@ -174,8 +172,8 @@ class SignupBloc {
       //     msg: "Couldn't connect to the internet",
       //     toastLength: Toast.LENGTH_SHORT,
       //     gravity: ToastGravity.TOP,
-      //     backgroundColor: Colors.red,
-      //     textColor: Colors.white,
+      //     backgroundColor: Theme.of(context).primaryColor,
+      //     textColor: Theme.of(context).textSelectionColor,
       //     timeInSecForIosWeb: 1,
       //     fontSize: 16.0,
       //   );
@@ -205,7 +203,7 @@ class SignupBloc {
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.TOP,
         backgroundColor: Colors.green,
-        textColor: Colors.white,
+        textColor: Theme.of(context).textSelectionColor,
         timeInSecForIosWeb: 1,
         fontSize: 16.0,
       );
@@ -217,8 +215,8 @@ class SignupBloc {
       //     msg: msg,
       //     toastLength: Toast.LENGTH_SHORT,
       //     gravity: ToastGravity.TOP,
-      //     backgroundColor: success == 1 ? Colors.green : Colors.red,
-      //     textColor: Colors.white,
+      //     backgroundColor: success == 1 ? Colors.green : Theme.of(context).primaryColor,
+      //     textColor: Theme.of(context).textSelectionColor,
       //     timeInSecForIosWeb: 1,
       //     fontSize: 16.0,
       //   );
@@ -227,8 +225,8 @@ class SignupBloc {
       //     msg: "Couldn't connect to the internet",
       //     toastLength: Toast.LENGTH_SHORT,
       //     gravity: ToastGravity.TOP,
-      //     backgroundColor: Colors.red,
-      //     textColor: Colors.white,
+      //     backgroundColor: Theme.of(context).primaryColor,
+      //     textColor: Theme.of(context).textSelectionColor,
       //     timeInSecForIosWeb: 1,
       //     fontSize: 16.0,
       //   );
@@ -238,8 +236,8 @@ class SignupBloc {
         msg: "OTP code not correct",
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.TOP,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
+        backgroundColor: Theme.of(context).primaryColor,
+        textColor: Theme.of(context).textSelectionColor,
         timeInSecForIosWeb: 1,
         fontSize: 16.0,
       );
