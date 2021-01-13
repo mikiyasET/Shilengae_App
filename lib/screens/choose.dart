@@ -1,11 +1,15 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shilingae/screens/privacy_policy.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert' as convert;
 import 'dart:async';
-
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 
 class Choose extends StatefulWidget {
@@ -16,7 +20,7 @@ class Choose extends StatefulWidget {
 class _ChooseState extends State<Choose> {
   static final FacebookLogin facebookSignIn = new FacebookLogin();
 
-  String _message = 'Log in/out by pressing the buttons below.';
+  String _message = "";
 
   Future<void> _login() async {
     final FacebookLoginResult result = await facebookSignIn.logIn(['email']);
@@ -24,20 +28,55 @@ class _ChooseState extends State<Choose> {
     switch (result.status) {
       case FacebookLoginStatus.loggedIn:
         final FacebookAccessToken accessToken = result.accessToken;
-        _showMessage('''
-         Logged in!
-         
-         Token: ${accessToken.token}
-         User id: ${accessToken.userId}
-         Expires: ${accessToken.expires}
-         Permissions: ${accessToken.permissions}
-         Declined permissions: ${accessToken.declinedPermissions}
-         ''');
+        // _showMessage('''
+        //  Logged in!
+
+        //  Token: ${accessToken.token}
+        //  User id: ${accessToken.userId}
+        //  Expires: ${accessToken.expires}
+        //  Permissions: ${accessToken.permissions}
+        //  Declined permissions: ${accessToken.declinedPermissions}
+        //  ''');
+        var url =
+            "https://graph.facebook.com/v2.12/me?fields=name,first_name,last_name,email&access_token=${accessToken.token}";
+        var graphResponse = await http.get(url);
+
+        var profile = json.decode(graphResponse.body);
+        print(profile.toString());
+        Fluttertoast.showToast(
+          msg:
+              "Dear ${profile['name']} you have Successfully logged in to Facebook",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.TOP,
+          backgroundColor: Colors.green,
+          textColor: Colors.white,
+          timeInSecForIosWeb: 1,
+          fontSize: 16.0,
+        );
         break;
       case FacebookLoginStatus.cancelledByUser:
+        // Fluttertoast.showToast(
+        //   msg: "Login cancelled by the user",
+        //   toastLength: Toast.LENGTH_SHORT,
+        //   gravity: ToastGravity.TOP,
+        //   backgroundColor: Colors.blue,
+        //   textColor: Colors.white,
+        //   timeInSecForIosWeb: 1,
+        //   fontSize: 16.0,
+        // );
         _showMessage('Login cancelled by the user.');
         break;
       case FacebookLoginStatus.error:
+        Fluttertoast.showToast(
+          msg: "Something went wrong with the login process.\n"
+              "Here\'s the error Facebook gave us: ${result.errorMessage}",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.TOP,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          timeInSecForIosWeb: 1,
+          fontSize: 16.0,
+        );
         _showMessage('Something went wrong with the login process.\n'
             'Here\'s the error Facebook gave us: ${result.errorMessage}');
         break;
@@ -73,10 +112,10 @@ class _ChooseState extends State<Choose> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // Text(
-              //   _message,
-              //   style: TextStyle(color: Colors.red),
-              // ),
+              Text(
+                _message,
+                style: TextStyle(color: Colors.red),
+              ),
               Padding(
                 padding:
                     const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 0.0),
