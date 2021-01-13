@@ -16,6 +16,7 @@ class _LoginInputsState extends State<LoginInputs> {
   TextEditingController passwordController = TextEditingController();
   String countrycode;
   // final login = LoginBloc();
+  FocusNode phoneNode = FocusNode();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -36,9 +37,17 @@ class _LoginInputsState extends State<LoginInputs> {
             onTap: () {
               print("hi");
             },
+            onCountry: (value) {
+              print(value);
+              phoneController.clear();
+              phoneNode.requestFocus();
+            },
+            focusNode: phoneNode,
+            maxLength: 12,
             controller: phoneController,
             showDropdownIcon: false,
             decoration: InputDecoration(
+              counterText: "",
               border: InputBorder.none,
               enabledBorder: InputBorder.none,
               focusedBorder: InputBorder.none,
@@ -46,6 +55,7 @@ class _LoginInputsState extends State<LoginInputs> {
             keyboardType: TextInputType.number,
             initialCountryCode: 'ET',
             onChanged: (phone) {
+              print("changed");
               countrycode = phone.countryCode;
             },
           ),
@@ -84,7 +94,7 @@ class _LoginInputsState extends State<LoginInputs> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 15.0),
+              padding: const EdgeInsets.only(top: 10.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [

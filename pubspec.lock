@@ -178,9 +178,9 @@ packages:
   intl_phone_field:
     dependency: "direct main"
     description:
-      name: intl_phone_field
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "../intl_phone_field"
+      relative: true
+    source: path
     version: "1.4.2"
   matcher:
     dependency: transitive

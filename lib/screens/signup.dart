@@ -21,6 +21,7 @@ class _SignUpState extends State<SignUp> {
   TextEditingController passwordController = TextEditingController();
 
   String countrycode;
+  FocusNode phoneNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -159,15 +160,25 @@ class _SignUpState extends State<SignUp> {
                   onTap: () {
                     print("hi");
                   },
+                  onCountry: (value) {
+                    print(value);
+                    phoneController.clear();
+                    phoneNode.requestFocus();
+                  },
+                  focusNode: phoneNode,
+                  maxLength: 12,
                   controller: phoneController,
                   showDropdownIcon: false,
                   decoration: InputDecoration(
+                    counterText: "",
                     border: InputBorder.none,
                     enabledBorder: InputBorder.none,
                     focusedBorder: InputBorder.none,
                   ),
+                  keyboardType: TextInputType.number,
                   initialCountryCode: 'ET',
                   onChanged: (phone) {
+                    print("changed");
                     countrycode = phone.countryCode;
                   },
                 ),
