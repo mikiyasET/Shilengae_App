@@ -60,7 +60,7 @@ class _SignUpState extends State<SignUp> {
                   labelStyle: TextStyle(
                     color: Theme.of(context).accentColor,
                     fontWeight: FontWeight.w600,
-                    fontSize: 23,
+                    fontSize: 20,
                     height: .6,
                   ),
                   border: UnderlineInputBorder(
@@ -90,7 +90,7 @@ class _SignUpState extends State<SignUp> {
                   labelStyle: TextStyle(
                     color: Theme.of(context).accentColor,
                     fontWeight: FontWeight.w600,
-                    fontSize: 23,
+                    fontSize: 20,
                     height: .6,
                   ),
                   border: UnderlineInputBorder(
@@ -121,7 +121,7 @@ class _SignUpState extends State<SignUp> {
                   labelStyle: TextStyle(
                     color: Theme.of(context).accentColor,
                     fontWeight: FontWeight.w600,
-                    fontSize: 23,
+                    fontSize: 20,
                     height: .6,
                   ),
                   border: UnderlineInputBorder(
@@ -141,7 +141,7 @@ class _SignUpState extends State<SignUp> {
                 style: TextStyle(
                   color: Theme.of(context).accentColor,
                   fontWeight: FontWeight.w600,
-                  fontSize: 17,
+                  fontSize: 15,
                 ),
               ),
               Container(
@@ -202,7 +202,7 @@ class _SignUpState extends State<SignUp> {
                       labelStyle: TextStyle(
                         color: Theme.of(context).accentColor,
                         fontWeight: FontWeight.w600,
-                        fontSize: 23,
+                        fontSize: 20,
                         height: 0,
                       ),
                       border: UnderlineInputBorder(
@@ -256,7 +256,7 @@ class _SignUpState extends State<SignUp> {
                       labelStyle: TextStyle(
                         color: Theme.of(context).accentColor,
                         fontWeight: FontWeight.w600,
-                        fontSize: 23,
+                        fontSize: 20,
                         height: 0,
                       ),
                       border: UnderlineInputBorder(
