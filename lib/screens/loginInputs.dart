@@ -51,46 +51,58 @@ class _LoginInputsState extends State<LoginInputs> {
           ),
         ),
         SizedBox(height: 20),
-        TextFormField(
-          controller: passwordController,
-          obscureText: _showPassword ? false : true,
-          style: TextStyle(
-            fontSize: 17,
-            height: 1.3,
-            fontWeight: FontWeight.w700,
-          ),
-          cursorColor: Colors.teal,
-          scrollPadding: EdgeInsets.only(left: 40.0),
-          decoration: InputDecoration(
-            labelText: 'password'.tr().toString(),
-            floatingLabelBehavior: FloatingLabelBehavior.always,
-            labelStyle: TextStyle(
-              color: Theme.of(context).accentColor,
-              fontWeight: FontWeight.w600,
-              fontSize: 23,
-              height: 0,
-            ),
-            suffixIcon: GestureDetector(
-              onTap: () {
-                setState(() {
-                  _showPassword = !_showPassword;
-                });
-              },
-              child: Icon(
-                _showPassword ? Icons.visibility : Icons.visibility_off,
-                color: Theme.of(context).dividerColor,
+        Stack(
+          children: [
+            TextFormField(
+              controller: passwordController,
+              obscureText: _showPassword ? false : true,
+              style: TextStyle(
+                fontSize: 17,
+                height: 1.3,
+                fontWeight: FontWeight.w700,
+              ),
+              cursorColor: Colors.teal,
+              scrollPadding: EdgeInsets.only(left: 40.0),
+              decoration: InputDecoration(
+                labelText: 'password'.tr().toString(),
+                floatingLabelBehavior: FloatingLabelBehavior.always,
+                labelStyle: TextStyle(
+                  color: Theme.of(context).accentColor,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 23,
+                  height: 0,
+                ),
+                border: UnderlineInputBorder(
+                    borderSide:
+                        new BorderSide(color: Theme.of(context).dividerColor)),
+                enabledBorder: UnderlineInputBorder(
+                    borderSide:
+                        new BorderSide(color: Theme.of(context).dividerColor)),
+                focusedBorder: UnderlineInputBorder(
+                    borderSide:
+                        new BorderSide(color: Theme.of(context).primaryColor)),
               ),
             ),
-            border: UnderlineInputBorder(
-                borderSide:
-                    new BorderSide(color: Theme.of(context).dividerColor)),
-            enabledBorder: UnderlineInputBorder(
-                borderSide:
-                    new BorderSide(color: Theme.of(context).dividerColor)),
-            focusedBorder: UnderlineInputBorder(
-                borderSide:
-                    new BorderSide(color: Theme.of(context).primaryColor)),
-          ),
+            Padding(
+              padding: const EdgeInsets.only(top: 15.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  IconButton(
+                    icon: Icon(_showPassword
+                        ? Icons.visibility
+                        : Icons.visibility_off),
+                    color: Theme.of(context).dividerColor,
+                    onPressed: () {
+                      setState(() {
+                        _showPassword = !_showPassword;
+                      });
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
         SizedBox(height: 20),
         GestureDetector(
