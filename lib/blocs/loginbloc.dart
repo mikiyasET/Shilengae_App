@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 import 'dart:async';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter/material.dart';
 
 class LoginBloc {
@@ -22,6 +23,7 @@ class LoginBloc {
 
       var url = 'https://test.shilengae.com/api/login';
 
+      EasyLoading.show(maskType: EasyLoadingMaskType.black);
       var response = await http.post(url, body: {
         'mobile': mobile,
         'password': pass,
@@ -29,7 +31,19 @@ class LoginBloc {
         'app_country': "ET",
         'device_id': "1"
       });
+      EasyLoading.dismiss();
       print(response.statusCode);
+      if (mobile.length < 7) {
+        Fluttertoast.showToast(
+          msg: "Please enter a valid phone number",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.TOP,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          timeInSecForIosWeb: 1,
+          fontSize: 16.0,
+        );
+      }
       if (response.statusCode == 200 || response.statusCode == 400) {
         var jsonResponse = convert.jsonDecode(response.body);
         int success = jsonResponse['success'];

@@ -1,3 +1,4 @@
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 import 'dart:async';
@@ -16,8 +17,10 @@ class SignupBloc {
       String mobile = phone.text;
       String pass1 = password1.text;
       String pass2 = password2.text;
-      print("yebereke almlak");
+
+      EasyLoading.show(maskType: EasyLoadingMaskType.black);
       if (firstName.length < 2) {
+        EasyLoading.dismiss();
         Fluttertoast.showToast(
           msg: "First Name should be atleast 2 characters long",
           toastLength: Toast.LENGTH_SHORT,
@@ -28,6 +31,7 @@ class SignupBloc {
           fontSize: 16.0,
         );
       } else if (lastName.length < 2) {
+        EasyLoading.dismiss();
         Fluttertoast.showToast(
           msg: "Last Name should be atleast 2 characters long",
           toastLength: Toast.LENGTH_SHORT,
@@ -40,6 +44,7 @@ class SignupBloc {
       } else if (!RegExp(
               r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
           .hasMatch(email)) {
+        EasyLoading.dismiss();
         Fluttertoast.showToast(
           msg: "Please enter a valid email",
           toastLength: Toast.LENGTH_SHORT,
@@ -50,6 +55,7 @@ class SignupBloc {
           fontSize: 16.0,
         );
       } else if (!RegExp(r'(^(?:[+0]9)?[0-9]{7,12}$)').hasMatch(mobile)) {
+        EasyLoading.dismiss();
         Fluttertoast.showToast(
           msg: "Please enter a valid Mobile Number",
           toastLength: Toast.LENGTH_SHORT,
@@ -63,6 +69,7 @@ class SignupBloc {
           pass1.length > 15 ||
           pass2.length < 6 ||
           pass2.length > 15) {
+        EasyLoading.dismiss();
         Fluttertoast.showToast(
           msg: "Password can contain minimum of 6 and maximum of 15 characters",
           toastLength: Toast.LENGTH_SHORT,
@@ -73,6 +80,7 @@ class SignupBloc {
           fontSize: 16.0,
         );
       } else if (pass1 != pass2) {
+        EasyLoading.dismiss();
         Fluttertoast.showToast(
           msg: "Passwords don't match",
           toastLength: Toast.LENGTH_SHORT,
@@ -83,6 +91,7 @@ class SignupBloc {
           fontSize: 16.0,
         );
       } else {
+        EasyLoading.dismiss();
         print("hello");
         String countrycode =
             code.toString().substring(1, code.toString().length);
@@ -106,6 +115,7 @@ class SignupBloc {
         if (res.statusCode == 200 || res.statusCode == 400) {
           var jr = convert.jsonDecode(res.body);
           if (jr['success'] == 1) {
+            EasyLoading.dismiss();
             Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -120,6 +130,7 @@ class SignupBloc {
                         app_country: "ET",
                         for_type: "0")));
           } else {
+            EasyLoading.dismiss();
             Fluttertoast.showToast(
               msg: "Can't send otp to your number",
               toastLength: Toast.LENGTH_SHORT,
@@ -132,6 +143,7 @@ class SignupBloc {
           }
           print(res.body);
         } else {
+          EasyLoading.dismiss();
           Fluttertoast.showToast(
             msg: "Unexpected Error!",
             toastLength: Toast.LENGTH_SHORT,
@@ -186,6 +198,8 @@ class SignupBloc {
   static Future<void> OTP(context, first, last, email, countrycode, mobile,
       pass, newotp, otp) async {
     if (newotp.toString() == otp.toString()) {
+      EasyLoading.show(maskType: EasyLoadingMaskType.black);
+
       var url = 'https://test.shilengae.com/api/register';
       print("Loading...");
       var response = await http.post(url, body: {
@@ -211,6 +225,7 @@ class SignupBloc {
       //   var jsonResponse = convert.jsonDecode(response.body);
       //   int success = jsonResponse['success'];
       //   String msg = jsonResponse['msg'];
+      //   EasyLoading.dismiss();
       //   Fluttertoast.showToast(
       //     msg: msg,
       //     toastLength: Toast.LENGTH_SHORT,
@@ -221,6 +236,7 @@ class SignupBloc {
       //     fontSize: 16.0,
       //   );
       // } else {
+      //   EasyLoading.dismiss();
       //   Fluttertoast.showToast(
       //     msg: "Couldn't connect to the internet",
       //     toastLength: Toast.LENGTH_SHORT,
@@ -232,6 +248,7 @@ class SignupBloc {
       //   );
       // }
     } else {
+      EasyLoading.dismiss();
       Fluttertoast.showToast(
         msg: "OTP code not correct",
         toastLength: Toast.LENGTH_SHORT,

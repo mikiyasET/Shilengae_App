@@ -79,7 +79,7 @@ class _LoginInputsState extends State<LoginInputs> {
                 labelStyle: TextStyle(
                   color: Theme.of(context).accentColor,
                   fontWeight: FontWeight.w600,
-                  fontSize: 23,
+                  fontSize: 20,
                   height: 0,
                 ),
                 border: UnderlineInputBorder(

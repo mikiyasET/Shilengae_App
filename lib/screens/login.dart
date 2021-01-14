@@ -35,7 +35,7 @@ class _LoginState extends State<Login> {
                 style: TextStyle(
                   color: Theme.of(context).accentColor,
                   fontWeight: FontWeight.w600,
-                  fontSize: 17,
+                  fontSize: 15,
                 ),
               ),
               LoginInputs()
