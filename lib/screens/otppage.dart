@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:shilingae/blocs/signupc.dart';
@@ -150,7 +151,7 @@ class _otpPageState extends State<otpPage> {
                     TextSpan(
                       text: ' Continue as Guest',
                       recognizer: TapGestureRecognizer()
-                        ..onTap = () => Navigator.pushNamed(context, '/login'),
+                        ..onTap = () => Get.toNamed('/login'),
                       style: TextStyle(
                         color: Theme.of(context).primaryColor,
                         fontWeight: FontWeight.w600,

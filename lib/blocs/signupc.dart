@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
 import 'package:shilingae/screens/otppage.dart';
+import 'package:get/get.dart';
 
 class SignupBloc {
   static Future<void> SignUp(
@@ -116,19 +117,19 @@ class SignupBloc {
           var jr = convert.jsonDecode(res.body);
           if (jr['success'] == 1) {
             EasyLoading.dismiss();
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => otpPage(
-                        firstname: firstName,
-                        lastname: lastName,
-                        otp: jr['otp'],
-                        email: email,
-                        mobile: mobile,
-                        password: pass2,
-                        calling_code: countrycode,
-                        app_country: "ET",
-                        for_type: "0")));
+            Get.to(
+              otpPage(
+                firstname: firstName,
+                lastname: lastName,
+                otp: jr['otp'],
+                email: email,
+                mobile: mobile,
+                password: pass2,
+                calling_code: countrycode,
+                app_country: "ET",
+                for_type: "0",
+              ),
+            );
           } else {
             EasyLoading.dismiss();
             Fluttertoast.showToast(

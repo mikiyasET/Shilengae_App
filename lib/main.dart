@@ -3,6 +3,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:shilingae/blocs/values.dart';
+import 'package:shilingae/screens/Private/home.dart';
 import 'package:shilingae/screens/choose.dart';
 import 'package:shilingae/screens/error.dart';
 import 'package:shilingae/screens/forgot.dart';
@@ -12,9 +13,10 @@ import 'package:shilingae/screens/signup.dart';
 import 'package:shilingae/screens/splash_screen.dart';
 import 'package:shilingae/services/localizationservice.dart';
 import 'package:shilingae/utils/theme.dart';
-// popup message localization tobe done
+import 'package:get_storage/get_storage.dart';
 
-void main() {
+void main() async {
+  await GetStorage.init();
   runApp(
     ChangeNotifierProvider(
       create: (context) => SetValues(),
@@ -23,7 +25,12 @@ void main() {
   );
 }
 
-class Shilenga extends StatelessWidget {
+class Shilenga extends StatefulWidget {
+  @override
+  _ShilengaState createState() => _ShilengaState();
+}
+
+class _ShilengaState extends State<Shilenga> {
   @override
   Widget build(BuildContext context) {
     EasyLoading.instance
@@ -44,6 +51,7 @@ class Shilenga extends StatelessWidget {
     return GetMaterialApp(
       theme: basicTheme(),
       darkTheme: darkTheme(),
+      debugShowCheckedModeBanner: false,
       home: SplashScreen(),
       locale: LocalizationService.locale,
       fallbackLocale: LocalizationService.fallbackLocale,
@@ -55,7 +63,7 @@ class Shilenga extends StatelessWidget {
           page: () => SplashScreen(),
         ),
         GetPage(
-          name: '/Fpage',
+          name: '/fpage',
           transition: Transition.cupertino,
           page: () => Fpage(),
         ),
@@ -83,6 +91,12 @@ class Shilenga extends StatelessWidget {
           name: '/validate',
           transition: Transition.cupertino,
           page: () => SetValues().GetValue("token") != null ? Fpage() : Login(),
+        ),
+        // Pravate Pages
+        GetPage(
+          name: '/home',
+          transition: Transition.cupertino,
+          page: () => HomePage(),
         ),
       ],
       builder: EasyLoading.init(),

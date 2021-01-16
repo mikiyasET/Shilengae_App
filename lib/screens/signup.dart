@@ -337,8 +337,7 @@ class _SignUpState extends State<SignUp> {
                       TextSpan(
                         text: 'login'.tr,
                         recognizer: TapGestureRecognizer()
-                          ..onTap =
-                              () => Navigator.pushNamed(context, '/login'),
+                          ..onTap = () => Get.toNamed('/login'),
                         style: TextStyle(
                           color: Theme.of(context).primaryColor,
                           fontWeight: FontWeight.w600,

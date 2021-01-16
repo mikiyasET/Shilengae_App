@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:shilingae/screens/fpage.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:get/get.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -26,7 +27,13 @@ class StartState extends State<SplashScreen> {
   }
 
   route() {
-    Navigator.pushReplacementNamed(context, '/validate');
+    final userData = GetStorage();
+
+    userData.writeIfNull('loggedIn', false);
+
+    userData.read('loggedIn')
+        ? Get.offAllNamed('/home')
+        : Get.offAllNamed('/fpage');
 
     //      Consumer<String>(
     //   builder: (context, data, child) {

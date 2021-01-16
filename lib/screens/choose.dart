@@ -3,8 +3,10 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:shilingae/screens/privacy_policy.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' as http;
@@ -23,6 +25,8 @@ class _ChooseState extends State<Choose> {
   String _message = "";
 
   Future<void> _login() async {
+    EasyLoading.show(maskType: EasyLoadingMaskType.black);
+
     final FacebookLoginResult result = await facebookSignIn.logIn(['email']);
 
     switch (result.status) {
@@ -37,34 +41,57 @@ class _ChooseState extends State<Choose> {
         //  Permissions: ${accessToken.permissions}
         //  Declined permissions: ${accessToken.declinedPermissions}
         //  ''');
+        print(accessToken.token);
+        print(accessToken.userId);
+
         var url =
-            "https://graph.facebook.com/v2.12/me?fields=name,first_name,last_name,email&access_token=${accessToken.token}";
+            "https://graph.facebook.com/v2.12/me?fields=name,first_name,last_name,email,picture&access_token=${accessToken.token}";
+
         var graphResponse = await http.get(url);
 
         var profile = json.decode(graphResponse.body);
-        print(profile.toString());
-        Fluttertoast.showToast(
-          msg:
-              "Dear ${profile['name']} you have Successfully logged in to Facebook",
-          toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.TOP,
-          backgroundColor: Colors.green,
-          textColor: Theme.of(context).textSelectionColor,
-          timeInSecForIosWeb: 1,
-          fontSize: 16.0,
-        );
-        break;
-      case FacebookLoginStatus.cancelledByUser:
+        final userData = GetStorage();
+        userData.write('token', accessToken.token);
+        userData.write('first_name', profile['first_name']);
+        userData.write('last_name', profile['last_name']);
+        userData.write('email', profile['email']);
+        userData.write('profile', profile['picture']['data']['url']);
+        userData.write('loggedIn', true);
+        EasyLoading.dismiss();
+
+        Get.offAllNamed('/home');
+        // print(profile.toString());
+        // _showMessage('''
+        //  Logged in!
+
+        //  Token: ${accessToken.token}
+        //  User id: ${accessToken.userId}
+        //  Expires: ${accessToken.expires}
+        //  Permissions: ${accessToken.permissions}
+        //  Declined permissions: ${accessToken.declinedPermissions}
+        //  ''');
         // Fluttertoast.showToast(
-        //   msg: "Login cancelled by the user",
+        //   msg:
+        //       "Dear ${profile['picture']} you have Successfully logged in to Facebook",
         //   toastLength: Toast.LENGTH_SHORT,
         //   gravity: ToastGravity.TOP,
-        //   backgroundColor: Colors.blue,
+        //   backgroundColor: Colors.green,
         //   textColor: Theme.of(context).textSelectionColor,
         //   timeInSecForIosWeb: 1,
         //   fontSize: 16.0,
         // );
-        _showMessage('Login cancelled by the user.');
+        break;
+      case FacebookLoginStatus.cancelledByUser:
+        Fluttertoast.showToast(
+          msg: "Login cancelled by the user",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.TOP,
+          backgroundColor: Colors.blue,
+          textColor: Theme.of(context).textSelectionColor,
+          timeInSecForIosWeb: 1,
+          fontSize: 16.0,
+        );
+        // _showMessage('Login cancelled by the user.');
         break;
       case FacebookLoginStatus.error:
         Fluttertoast.showToast(
@@ -77,16 +104,16 @@ class _ChooseState extends State<Choose> {
           timeInSecForIosWeb: 1,
           fontSize: 16.0,
         );
-        _showMessage('Something went wrong with the login process.\n'
-            'Here\'s the error Facebook gave us: ${result.errorMessage}');
+        // _showMessage('Something went wrong with the login process.\n'
+        //     'Here\'s the error Facebook gave us: ${result.errorMessage}');
         break;
     }
   }
 
-  Future<Null> _logOut() async {
-    await facebookSignIn.logOut();
-    _showMessage('Logged out.');
-  }
+  // Future<Null> _logOut() async {
+  //   await facebookSignIn.logOut();
+  //   _showMessage('Logged out.');
+  // }
 
   void _showMessage(String message) {
     setState(() {
@@ -112,10 +139,6 @@ class _ChooseState extends State<Choose> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                _message,
-                style: TextStyle(color: Theme.of(context).primaryColor),
-              ),
               Padding(
                 padding:
                     const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 0.0),
@@ -168,7 +191,7 @@ class _ChooseState extends State<Choose> {
               SizedBox(height: 10),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, '/login');
+                  Get.toNamed('/login');
                 },
                 child: Container(
                   alignment: AlignmentDirectional.center,
@@ -204,8 +227,7 @@ class _ChooseState extends State<Choose> {
                     TextSpan(
                         text: 'register'.tr,
                         recognizer: TapGestureRecognizer()
-                          ..onTap =
-                              () => Navigator.pushNamed(context, '/signup'),
+                          ..onTap = () => Get.toNamed('/signup'),
                         style: TextStyle(
                           color: Theme.of(context).primaryColor,
                           fontWeight: FontWeight.w500,

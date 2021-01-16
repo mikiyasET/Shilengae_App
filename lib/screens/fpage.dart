@@ -21,29 +21,29 @@ class _FpageState extends State<Fpage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Consumer<SetValues>(
-              builder: (context, value, child) {
-                String token;
-                return Text("Total price: ${value.gValues()}");
-              },
-            ),
-            FlatButton(
-              child: Text("Add"),
-              color: Colors.red,
-              textColor: Colors.white,
-              onPressed: () {
-                Provider.of<SetValues>(context, listen: false)
-                    .SetValue('token', '21038122012');
-              },
-            ),
-            FlatButton(
-              child: Text("Clear"),
-              color: Colors.blue,
-              textColor: Colors.white,
-              onPressed: () {
-                Provider.of<SetValues>(context, listen: false).ClearAllValues();
-              },
-            ),
+            // Consumer<SetValues>(
+            //   builder: (context, value, child) {
+            //     String token;
+            //     return Text("Total price: ${value.gValues()}");
+            //   },
+            // ),
+            // FlatButton(
+            //   child: Text("Add"),
+            //   color: Colors.red,
+            //   textColor: Colors.white,
+            //   onPressed: () {
+            //     Provider.of<SetValues>(context, listen: false)
+            //         .SetValue('token', '21038122012');
+            //   },
+            // ),
+            // FlatButton(
+            //   child: Text("Clear"),
+            //   color: Colors.blue,
+            //   textColor: Colors.white,
+            //   onPressed: () {
+            //     Provider.of<SetValues>(context, listen: false).ClearAllValues();
+            //   },
+            // ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Column(
@@ -123,7 +123,7 @@ class _FpageState extends State<Fpage> {
                 // updates dropdown selected value
                 // gets language and changes the locale
                 LocalizationService().changeLocale(_language);
-                Navigator.pushNamed(context, '/choose');
+                Get.toNamed('/choose');
               },
               child: Text(
                 "continue".tr,

@@ -1,4 +1,5 @@
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 import 'dart:async';
@@ -57,6 +58,7 @@ class LoginBloc {
           timeInSecForIosWeb: 1,
           fontSize: 16.0,
         );
+        Get.offAllNamed('/home');
       } else {
         Fluttertoast.showToast(
           msg: "Couldn't connect to the internet",

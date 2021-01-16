@@ -116,7 +116,7 @@ class _LoginInputsState extends State<LoginInputs> {
         ),
         SizedBox(height: 20),
         GestureDetector(
-          onTap: () => Navigator.pushNamed(context, '/forgot'),
+          onTap: () => Get.toNamed('/forgot'),
           child: Container(
             width: MediaQuery.of(context).size.width,
             child: Text(
@@ -166,7 +166,7 @@ class _LoginInputsState extends State<LoginInputs> {
                 TextSpan(
                   text: 'signup'.tr,
                   recognizer: TapGestureRecognizer()
-                    ..onTap = () => Navigator.pushNamed(context, '/signup'),
+                    ..onTap = () => Get.toNamed('/signup'),
                   style: TextStyle(
                     color: Theme.of(context).primaryColor,
                     fontWeight: FontWeight.w600,
