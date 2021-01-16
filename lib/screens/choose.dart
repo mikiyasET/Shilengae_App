@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:get/get.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shilingae/screens/privacy_policy.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -119,7 +119,7 @@ class _ChooseState extends State<Choose> {
               Padding(
                 padding:
                     const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 0.0),
-                child: Image.asset("logo_fpage".tr().toString()),
+                child: Image.asset("logo_fpage".tr),
               ),
               // SizedBox(height: 50),
               InkWell(
@@ -153,7 +153,7 @@ class _ChooseState extends State<Choose> {
                           ),
                           Expanded(
                             child: Text(
-                              "connectToFacebook".tr().toString(),
+                              "connectToFacebook".tr,
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Theme.of(context).textSelectionColor,
@@ -180,7 +180,7 @@ class _ChooseState extends State<Choose> {
                         color: Theme.of(context).primaryColor,
                       )),
                   child: Text(
-                    "login".tr().toString(),
+                    "login".tr,
                     style: TextStyle(
                         color: Theme.of(context).primaryColor,
                         fontSize: 17,
@@ -193,7 +193,7 @@ class _ChooseState extends State<Choose> {
               SizedBox(height: 50),
               RichText(
                 text: TextSpan(
-                  text: "newAccount".tr().toString(),
+                  text: "newAccount".tr,
                   style: TextStyle(
                     color: Theme.of(context).secondaryHeaderColor,
                     fontWeight: FontWeight.w500,
@@ -202,7 +202,7 @@ class _ChooseState extends State<Choose> {
                   children: <TextSpan>[
                     TextSpan(text: " "),
                     TextSpan(
-                        text: 'register'.tr().toString(),
+                        text: 'register'.tr,
                         recognizer: TapGestureRecognizer()
                           ..onTap =
                               () => Navigator.pushNamed(context, '/signup'),
@@ -218,7 +218,7 @@ class _ChooseState extends State<Choose> {
               RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
-                  text: "bySigningup".tr().toString(),
+                  text: "bySigningup".tr,
                   style: TextStyle(
                     fontSize: 14,
                     color: Theme.of(context).accentColor,
@@ -227,7 +227,7 @@ class _ChooseState extends State<Choose> {
                   children: <TextSpan>[
                     TextSpan(text: " "),
                     TextSpan(
-                        text: 'termsAndCondition'.tr().toString(),
+                        text: 'termsAndCondition'.tr,
                         style: TextStyle(
                           color: Theme.of(context).primaryColor,
                           fontWeight: FontWeight.w500,
@@ -236,7 +236,7 @@ class _ChooseState extends State<Choose> {
                           ..onTap = () => _launchURL2()),
                     TextSpan(text: " "),
                     TextSpan(
-                      text: 'and'.tr().toString(),
+                      text: 'and'.tr,
                       style: TextStyle(
                         color: Theme.of(context).accentColor,
                         fontWeight: FontWeight.w500,
@@ -244,7 +244,7 @@ class _ChooseState extends State<Choose> {
                     ),
                     TextSpan(text: " "),
                     TextSpan(
-                        text: 'privacyPolicy'.tr().toString(),
+                        text: 'privacyPolicy'.tr,
                         style: TextStyle(
                           color: Theme.of(context).primaryColor,
                           fontWeight: FontWeight.w500,

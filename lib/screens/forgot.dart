@@ -1,6 +1,6 @@
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:flutter/material.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:get/get.dart';
 import 'package:shilingae/blocs/forgotc.dart';
 
 class ForgetPassword extends StatefulWidget {
@@ -28,7 +28,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "forgotPassword".tr().toString(),
+                "forgotPassword".tr,
                 style: TextStyle(
                   color: Theme.of(context).secondaryHeaderColor,
                   fontSize: 30.0,
@@ -37,7 +37,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
               ),
               SizedBox(height: 20),
               Text(
-                "mobileNumber".tr().toString(),
+                "mobileNumber".tr,
                 style: TextStyle(
                   color: Theme.of(context).accentColor,
                   fontWeight: FontWeight.w600,
@@ -94,7 +94,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                     ForgotBloc.password(context, phoneController, countrycode);
                   },
                   child: Text(
-                    "continue".tr().toString(),
+                    "continue".tr,
                     style: TextStyle(
                       color: Theme.of(context).textSelectionColor,
                       fontSize: 18.0,

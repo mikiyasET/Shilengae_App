@@ -26,8 +26,13 @@ class StartState extends State<SplashScreen> {
   }
 
   route() {
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => Fpage()));
+    Navigator.pushReplacementNamed(context, '/validate');
+
+    //      Consumer<String>(
+    //   builder: (context, data, child) {
+    //     return null;
+    //   },
+    // );
   }
 
   initScreen(BuildContext context) {

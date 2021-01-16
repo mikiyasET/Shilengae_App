@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:shilingae/blocs/signupc.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:get/get.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -38,7 +38,7 @@ class _SignUpState extends State<SignUp> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "signup".tr().toString(),
+                "signup".tr,
                 style: TextStyle(
                     color: Theme.of(context).secondaryHeaderColor,
                     fontSize: 35.0,
@@ -55,7 +55,7 @@ class _SignUpState extends State<SignUp> {
                 cursorColor: Colors.teal,
                 scrollPadding: EdgeInsets.only(left: 40.0),
                 decoration: InputDecoration(
-                  labelText: 'firstName'.tr().toString(),
+                  labelText: 'firstName'.tr,
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   labelStyle: TextStyle(
                     color: Theme.of(context).accentColor,
@@ -85,7 +85,7 @@ class _SignUpState extends State<SignUp> {
                 cursorColor: Colors.teal,
                 scrollPadding: EdgeInsets.only(left: 40.0),
                 decoration: InputDecoration(
-                  labelText: 'lastName'.tr().toString(),
+                  labelText: 'lastName'.tr,
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   labelStyle: TextStyle(
                     color: Theme.of(context).accentColor,
@@ -116,7 +116,7 @@ class _SignUpState extends State<SignUp> {
                 keyboardType: TextInputType.emailAddress,
                 scrollPadding: EdgeInsets.only(left: 40.0),
                 decoration: InputDecoration(
-                  labelText: 'email'.tr().toString(),
+                  labelText: 'email'.tr,
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   labelStyle: TextStyle(
                     color: Theme.of(context).accentColor,
@@ -137,7 +137,7 @@ class _SignUpState extends State<SignUp> {
               ),
               SizedBox(height: 20),
               Text(
-                "mobileNumber".tr().toString(),
+                "mobileNumber".tr,
                 style: TextStyle(
                   color: Theme.of(context).accentColor,
                   fontWeight: FontWeight.w600,
@@ -197,7 +197,7 @@ class _SignUpState extends State<SignUp> {
                     cursorColor: Colors.teal,
                     scrollPadding: EdgeInsets.only(left: 40.0),
                     decoration: InputDecoration(
-                      labelText: 'password'.tr().toString(),
+                      labelText: 'password'.tr,
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       labelStyle: TextStyle(
                         color: Theme.of(context).accentColor,
@@ -251,7 +251,7 @@ class _SignUpState extends State<SignUp> {
                     cursorColor: Colors.teal,
                     scrollPadding: EdgeInsets.only(left: 40.0),
                     decoration: InputDecoration(
-                      labelText: 'confirmNewPassword'.tr().toString(),
+                      labelText: 'confirmNewPassword'.tr,
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       labelStyle: TextStyle(
                         color: Theme.of(context).accentColor,
@@ -311,7 +311,7 @@ class _SignUpState extends State<SignUp> {
                     );
                   },
                   child: Text(
-                    "continue".tr().toString(),
+                    "continue".tr,
                     style: TextStyle(
                       color: Theme.of(context).textSelectionColor,
                       fontSize: 18.0,
@@ -326,7 +326,7 @@ class _SignUpState extends State<SignUp> {
                 child: RichText(
                   textAlign: TextAlign.center,
                   text: TextSpan(
-                    text: "alreadyHaveAccount".tr().toString(),
+                    text: "alreadyHaveAccount".tr,
                     style: TextStyle(
                       color: Theme.of(context).secondaryHeaderColor,
                       fontWeight: FontWeight.w600,
@@ -335,7 +335,7 @@ class _SignUpState extends State<SignUp> {
                     children: [
                       TextSpan(text: " "),
                       TextSpan(
-                        text: 'login'.tr().toString(),
+                        text: 'login'.tr,
                         recognizer: TapGestureRecognizer()
                           ..onTap =
                               () => Navigator.pushNamed(context, '/login'),

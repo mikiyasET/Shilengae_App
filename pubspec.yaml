@@ -35,6 +35,9 @@ dependencies:
   intl_phone_field:
      path: ../intl_phone_field
   flutter_easyloading: ^2.2.2
+  shared_preferences: ^0.5.12+4
+  provider: ^4.3.2+4
+  get: ^3.24.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -61,8 +64,6 @@ flutter:
     - assets/ic_facebook_logo@3x.png
     - assets/splash_screen_android.png
     - assets/amharic_logo.png
-    - resources/langs/en-EN.json
-    - resources/langs/am-AM.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

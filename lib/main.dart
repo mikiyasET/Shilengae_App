@@ -1,28 +1,26 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:get/get.dart';
+import 'package:provider/provider.dart';
+import 'package:shilingae/blocs/values.dart';
 import 'package:shilingae/screens/choose.dart';
 import 'package:shilingae/screens/error.dart';
 import 'package:shilingae/screens/forgot.dart';
 import 'package:shilingae/screens/fpage.dart';
 import 'package:shilingae/screens/login.dart';
 import 'package:shilingae/screens/signup.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:shilingae/screens/splash_screen.dart';
+import 'package:shilingae/services/localizationservice.dart';
 import 'package:shilingae/utils/theme.dart';
-
 // popup message localization tobe done
 
 void main() {
-  runApp(EasyLocalization(
-    path: "resources/langs",
-    child: Shilenga(),
-    saveLocale: true,
-    supportedLocales: [
-      Locale('en', 'EN'),
-      Locale('am', 'AM'),
-    ],
-  ));
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => SetValues(),
+      child: Shilenga(),
+    ),
+  );
 }
 
 class Shilenga extends StatelessWidget {
@@ -43,48 +41,50 @@ class Shilenga extends StatelessWidget {
       ..userInteractions = false
       ..dismissOnTap = false;
 
-    return MaterialApp(
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-      debugShowCheckedModeBanner: false,
-      darkTheme: darkTheme(),
-      // theme: ThemeData(
-      //   primaryColor: Color(0xffE33134),
-      //   secondaryHeaderColor: Color(0xffD8D8D8),
-      //   backgroundColor: Color(0xffE33134),
-      //   scaffoldBackgroundColor: Theme.of(context).textSelectionColor,
-      //   textTheme: TextTheme(
-      //     headline1: TextStyle(color: Color(0xffAFAFAF)), // Gray Color
-      //     headline2: TextStyle(color: Color(0xffFFFFFF)), // Pure White
-      //     headline3: TextStyle(color: Color(0xffE33134)), // Red Color
-      //     headline4: TextStyle(color: Color(0xffAFAFAF)), // Gray Color
-      //     headline5: TextStyle(color: Color(0xffFFFFFF)), // Pure White
-      //     headline6: TextStyle(color: Color(0xff3E5F97)), // Blue Color
-      //     bodyText1: TextStyle(color: Color(0xff3E5F97)), // Blue Color
-      //     bodyText2: TextStyle(color: Color(0xff000000)), // Blue Color
-      //   ),
-      // ),
+    return GetMaterialApp(
       theme: basicTheme(),
-      title: 'Shilenga', // Title of the app
-      onGenerateRoute: (settings) {
-        if (settings.name == '/') {
-          // routing
-          return MaterialPageRoute(builder: (context) => SplashScreen());
-        } else if (settings.name == '/Fpage') {
-          return MaterialPageRoute(builder: (context) => Fpage());
-        } else if (settings.name == '/choose') {
-          return MaterialPageRoute(builder: (context) => Choose());
-        } else if (settings.name == '/login') {
-          return MaterialPageRoute(builder: (context) => Login());
-        } else if (settings.name == '/signup') {
-          return MaterialPageRoute(builder: (context) => SignUp());
-        } else if (settings.name == '/forgot') {
-          return MaterialPageRoute(builder: (context) => ForgetPassword());
-        }
-
-        return MaterialPageRoute(builder: (context) => UnknownScreen());
-      },
+      darkTheme: darkTheme(),
+      home: SplashScreen(),
+      locale: LocalizationService.locale,
+      fallbackLocale: LocalizationService.fallbackLocale,
+      translations: LocalizationService(),
+      getPages: [
+        GetPage(
+          name: '/',
+          transition: Transition.cupertino,
+          page: () => SplashScreen(),
+        ),
+        GetPage(
+          name: '/Fpage',
+          transition: Transition.cupertino,
+          page: () => Fpage(),
+        ),
+        GetPage(
+          name: '/choose',
+          transition: Transition.cupertino,
+          page: () => Choose(),
+        ),
+        GetPage(
+          name: '/login',
+          transition: Transition.cupertino,
+          page: () => Login(),
+        ),
+        GetPage(
+          name: '/signup',
+          transition: Transition.cupertino,
+          page: () => SignUp(),
+        ),
+        GetPage(
+          name: '/forgot',
+          transition: Transition.cupertino,
+          page: () => ForgetPassword(),
+        ),
+        GetPage(
+          name: '/validate',
+          transition: Transition.cupertino,
+          page: () => SetValues().GetValue("token") != null ? Fpage() : Login(),
+        ),
+      ],
       builder: EasyLoading.init(),
     );
   }

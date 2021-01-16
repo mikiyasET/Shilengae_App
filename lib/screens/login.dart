@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shilingae/screens/loginInputs.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:get/get.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -23,7 +23,7 @@ class _LoginState extends State<Login> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "login".tr().toString(),
+                "login".tr,
                 style: TextStyle(
                     color: Theme.of(context).secondaryHeaderColor,
                     fontSize: 35.0,
@@ -31,7 +31,7 @@ class _LoginState extends State<Login> {
               ),
               SizedBox(height: 40),
               Text(
-                "mobileNumber".tr().toString(),
+                "mobileNumber".tr,
                 style: TextStyle(
                   color: Theme.of(context).accentColor,
                   fontWeight: FontWeight.w600,

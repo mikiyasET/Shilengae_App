@@ -3,7 +3,7 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shilingae/blocs/loginbloc.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:get/get.dart';
 
 class LoginInputs extends StatefulWidget {
   @override
@@ -74,7 +74,7 @@ class _LoginInputsState extends State<LoginInputs> {
               cursorColor: Colors.teal,
               scrollPadding: EdgeInsets.only(left: 40.0),
               decoration: InputDecoration(
-                labelText: 'password'.tr().toString(),
+                labelText: 'password'.tr,
                 floatingLabelBehavior: FloatingLabelBehavior.always,
                 labelStyle: TextStyle(
                   color: Theme.of(context).accentColor,
@@ -120,7 +120,7 @@ class _LoginInputsState extends State<LoginInputs> {
           child: Container(
             width: MediaQuery.of(context).size.width,
             child: Text(
-              "forgotPassword".tr().toString(),
+              "forgotPassword".tr,
               style: TextStyle(
                 color: Theme.of(context).primaryColor,
                 fontWeight: FontWeight.w600,
@@ -140,7 +140,7 @@ class _LoginInputsState extends State<LoginInputs> {
               LoginBloc.LogIn(countrycode, phoneController, passwordController);
             },
             child: Text(
-              "login".tr().toString(),
+              "login".tr,
               style: TextStyle(
                 color: Theme.of(context).textSelectionColor,
                 fontSize: 18.0,
@@ -155,7 +155,7 @@ class _LoginInputsState extends State<LoginInputs> {
           child: RichText(
             textAlign: TextAlign.center,
             text: TextSpan(
-              text: "dontHaveAccount".tr().toString(),
+              text: "dontHaveAccount".tr,
               style: TextStyle(
                 color: Theme.of(context).secondaryHeaderColor,
                 fontWeight: FontWeight.w600,
@@ -164,7 +164,7 @@ class _LoginInputsState extends State<LoginInputs> {
               children: [
                 TextSpan(text: " "),
                 TextSpan(
-                  text: 'signup'.tr().toString(),
+                  text: 'signup'.tr,
                   recognizer: TapGestureRecognizer()
                     ..onTap = () => Navigator.pushNamed(context, '/signup'),
                   style: TextStyle(

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:provider/provider.dart';
+import 'package:shilingae/blocs/values.dart';
+import 'package:get/get.dart';
+import 'package:shilingae/services/localizationservice.dart';
 
 class Fpage extends StatefulWidget {
   @override
@@ -8,7 +11,7 @@ class Fpage extends StatefulWidget {
 
 class _FpageState extends State<Fpage> {
   String country = "Ethiopia";
-  String language = "English";
+  String _language = LocalizationService.langs.first;
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +21,37 @@ class _FpageState extends State<Fpage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Consumer<SetValues>(
+              builder: (context, value, child) {
+                String token;
+                return Text("Total price: ${value.gValues()}");
+              },
+            ),
+            FlatButton(
+              child: Text("Add"),
+              color: Colors.red,
+              textColor: Colors.white,
+              onPressed: () {
+                Provider.of<SetValues>(context, listen: false)
+                    .SetValue('token', '21038122012');
+              },
+            ),
+            FlatButton(
+              child: Text("Clear"),
+              color: Colors.blue,
+              textColor: Colors.white,
+              onPressed: () {
+                Provider.of<SetValues>(context, listen: false).ClearAllValues();
+              },
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Column(
                 children: [
-                  Image.asset("logo_fpage".tr().toString()),
+                  Image.asset(
+                    "logo_fpage".tr,
+                    height: 313.0,
+                  ),
                 ],
               ),
             ),
@@ -73,29 +102,15 @@ class _FpageState extends State<Fpage> {
                   icon: Icon(Icons.keyboard_arrow_down),
                   elevation: 6,
                   isExpanded: true,
-                  value: language,
-                  items:
-                      <String>['English', 'አማርኛ'].map<DropdownMenuItem<String>>(
-                    (String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    },
-                  ).toList(),
-                  onChanged: (String input) {
-                    language = input;
-                    if (language == "አማርኛ") {
-                      setState(() {
-                        EasyLocalization.of(context).locale =
-                            Locale('am', 'AM');
-                      });
-                    } else if (language == "English") {
-                      setState(() {
-                        EasyLocalization.of(context).locale =
-                            Locale('en', 'EN');
-                      });
-                    }
+                  value: _language,
+                  items: LocalizationService.langs.map((String lang) {
+                    return DropdownMenuItem(value: lang, child: Text(lang));
+                  }).toList(),
+                  onChanged: (String value) {
+                    // updates dropdown selected value
+                    setState(() => _language = value);
+                    // gets language and changes the locale
+                    LocalizationService().changeLocale(value);
                   },
                 ),
               ),
@@ -105,19 +120,13 @@ class _FpageState extends State<Fpage> {
               height: 55,
               minWidth: MediaQuery.of(context).size.width,
               onPressed: () {
-                if (language == "English") {
-                  setState(() {
-                    EasyLocalization.of(context).locale = Locale('en', 'EN');
-                  });
-                } else if (language == "አማርኛ") {
-                  setState(() {
-                    EasyLocalization.of(context).locale = Locale('am', 'AM');
-                  });
-                }
+                // updates dropdown selected value
+                // gets language and changes the locale
+                LocalizationService().changeLocale(_language);
                 Navigator.pushNamed(context, '/choose');
               },
               child: Text(
-                "continue".tr().toString(),
+                "continue".tr,
                 style: TextStyle(
                   color: Theme.of(context).textSelectionColor,
                   fontSize: 18.0,
