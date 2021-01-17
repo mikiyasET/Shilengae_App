@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 Widget HomeBottomBar() {
   int _page = 0;
@@ -120,11 +124,18 @@ Widget HomeBottomBar() {
     backgroundColor: Colors.transparent,
     animationCurve: Curves.easeInOut,
     animationDuration: Duration(milliseconds: 600),
-    onTap: (index) {
-      // setState(() {
-      //   _page = index;
-      // });
+    onTap: (index) async {
+      final userData = GetStorage();
+
+      EasyLoading.show(maskType: EasyLoadingMaskType.black);
+
+      final FacebookLogin facebookSignIn = new FacebookLogin();
+      await facebookSignIn.logOut();
+      userData.erase();
+      userData.write('loggedIn', false);
+      EasyLoading.dismiss();
+      Get.offAllNamed('/fpage');
     },
-    letIndexChange: (index) => false,
+    letIndexChange: (index) => true,
   );
 }

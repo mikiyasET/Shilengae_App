@@ -82,6 +82,8 @@ class _ChooseState extends State<Choose> {
         // );
         break;
       case FacebookLoginStatus.cancelledByUser:
+        EasyLoading.dismiss();
+
         Fluttertoast.showToast(
           msg: "Login cancelled by the user",
           toastLength: Toast.LENGTH_SHORT,
@@ -94,6 +96,8 @@ class _ChooseState extends State<Choose> {
         // _showMessage('Login cancelled by the user.');
         break;
       case FacebookLoginStatus.error:
+        EasyLoading.dismiss();
+
         Fluttertoast.showToast(
           msg: "Something went wrong with the login process.\n"
               "Here\'s the error Facebook gave us: ${result.errorMessage}",
