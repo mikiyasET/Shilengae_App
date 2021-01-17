@@ -35,12 +35,13 @@ Widget HomeAppBar() {
                 children: [
                   Container(),
                   Positioned(
-                    top: -1.0,
+                    top: -5.0,
                     child: Text(
                       "Location",
                       style: TextStyle(
                         color: Colors.grey[300],
-                        fontSize: 11.0,
+                        fontSize: 13,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                   ),
@@ -100,7 +101,7 @@ Widget HomeAppBar() {
           ),
           child: TextField(
             decoration: InputDecoration(
-              prefixIcon: Icon(Icons.search),
+              prefixIcon: Icon(Icons.search, color: Colors.grey[400], size: 22),
               hintText: 'What are you looking for?',
               hintStyle: TextStyle(
                 fontWeight: FontWeight.bold,

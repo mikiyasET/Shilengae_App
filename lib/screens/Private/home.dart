@@ -32,8 +32,9 @@ class _HomePageState extends State<HomePage> {
             child: Text(
               "Trending Ads",
               style: TextStyle(
+                fontWeight: FontWeight.w700,
                 color: Colors.black87,
-                fontSize: 14,
+                fontSize: 17,
               ),
             ),
           ),

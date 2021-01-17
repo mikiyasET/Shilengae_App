@@ -89,16 +89,16 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-     - family: Copperplate
-       fonts:
-         - asset: fonts/OPTICopperplate.otf
-     - family: Gelion
-       fonts:
-         - asset: fonts/Gelion-Regular.ttf
-         - asset: fonts/Gelion-RegularItalic.ttf
-           style: italic
-         - asset: fonts/Gelion-Bold.ttf
-           weight: 700
+      - family: circular
+        fonts:
+          - asset: fonts/circular-book.otf
+            weight: 100
+          - asset: fonts/circular-medium.otf
+            weight: 300
+          - asset: fonts/circular-bold.otf
+            weight: 500
+          - asset: fonts/circular-black.otf
+            weight: 700
 
   #
   # For details regarding fonts from package dependencies,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter/widgets.dart';
 
 Widget HomeBottomBar() {
   int _page = 0;
@@ -17,10 +18,13 @@ Widget HomeBottomBar() {
             width: 25.0,
           ),
           Padding(
-            padding: const EdgeInsets.all(0),
+            padding: const EdgeInsets.only(top: 3.0),
             child: Text(
               "Home",
-              style: TextStyle(fontSize: 9.0, color: Color(0xffc0c0c0)),
+              style: TextStyle(
+                  fontSize: 10.5,
+                  color: Color(0xffc0c0c0),
+                  fontWeight: FontWeight.w500),
             ),
           ),
         ],
@@ -33,10 +37,13 @@ Widget HomeBottomBar() {
             width: 25.0,
           ),
           Padding(
-            padding: const EdgeInsets.all(0),
+            padding: const EdgeInsets.only(top: 3.0),
             child: Text(
               "Chat",
-              style: TextStyle(fontSize: 9.0, color: Color(0xffc0c0c0)),
+              style: TextStyle(
+                  fontSize: 10.5,
+                  color: Color(0xffc0c0c0),
+                  fontWeight: FontWeight.w500),
             ),
           ),
         ],
@@ -60,9 +67,9 @@ Widget HomeBottomBar() {
                 Text(
                   "Post ad",
                   style: TextStyle(
-                    fontSize: 9.0,
-                    color: Colors.white,
-                  ),
+                      fontSize: 9.0,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700),
                 ),
               ],
             ),
@@ -77,10 +84,13 @@ Widget HomeBottomBar() {
             width: 25.0,
           ),
           Padding(
-            padding: const EdgeInsets.all(0),
+            padding: const EdgeInsets.only(top: 3.0),
             child: Text(
               "My Ads",
-              style: TextStyle(fontSize: 9.0, color: Color(0xffc0c0c0)),
+              style: TextStyle(
+                  fontSize: 10.5,
+                  color: Color(0xffc0c0c0),
+                  fontWeight: FontWeight.w500),
             ),
           ),
         ],
@@ -93,10 +103,13 @@ Widget HomeBottomBar() {
             width: 25.0,
           ),
           Padding(
-            padding: const EdgeInsets.all(0),
+            padding: const EdgeInsets.only(top: 2.0),
             child: Text(
               "Profile",
-              style: TextStyle(fontSize: 9.0, color: Color(0xffc0c0c0)),
+              style: TextStyle(
+                  fontSize: 10.5,
+                  color: Color(0xffc0c0c0),
+                  fontWeight: FontWeight.w500),
             ),
           ),
         ],
@@ -112,6 +125,6 @@ Widget HomeBottomBar() {
       //   _page = index;
       // });
     },
-    letIndexChange: (index) => true,
+    letIndexChange: (index) => false,
   );
 }

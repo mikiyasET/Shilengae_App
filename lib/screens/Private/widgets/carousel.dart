@@ -58,8 +58,8 @@ class _CarouselState extends State<Carousel> {
                         "Get 50% off",
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                     ),
@@ -78,9 +78,9 @@ class _CarouselState extends State<Carousel> {
                             child: Text(
                               "National Museum of Ethiopia",
                               style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12.0,
-                              ),
+                                  color: Colors.white,
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.w700),
                             ),
                           ),
                         ),
@@ -106,7 +106,7 @@ class _CarouselState extends State<Carousel> {
                         style: TextStyle(
                             color: Colors.white,
                             fontFamily: 'Mb',
-                            fontSize: 12.0,
+                            fontSize: 13.0,
                             fontWeight: FontWeight.w500),
                       ),
                     )
@@ -148,8 +148,8 @@ class _CarouselState extends State<Carousel> {
                         "Get 50% off",
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                     ),
@@ -168,9 +168,9 @@ class _CarouselState extends State<Carousel> {
                             child: Text(
                               "National Museum of Ethiopia",
                               style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12.0,
-                              ),
+                                  color: Colors.white,
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.w700),
                             ),
                           ),
                         ),
@@ -196,7 +196,7 @@ class _CarouselState extends State<Carousel> {
                         style: TextStyle(
                             color: Colors.white,
                             fontFamily: 'Mb',
-                            fontSize: 12.0,
+                            fontSize: 13.0,
                             fontWeight: FontWeight.w500),
                       ),
                     )
@@ -224,9 +224,9 @@ class _CarouselState extends State<Carousel> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              width: 8.0,
-              height: 8.0,
-              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+              width: 7.0,
+              height: 7.0,
+              margin: EdgeInsets.symmetric(vertical: 18.0, horizontal: 2.0),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: _current == 0
@@ -234,9 +234,10 @@ class _CarouselState extends State<Carousel> {
                     : Theme.of(context).dividerColor,
               ),
             ),
+            SizedBox(width: 10),
             Container(
-              width: 8.0,
-              height: 8.0,
+              width: 7.0,
+              height: 7.0,
               margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,

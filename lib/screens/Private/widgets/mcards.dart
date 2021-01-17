@@ -5,7 +5,7 @@ class MCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 20.0),
+      padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
       child: GridView(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
@@ -38,17 +38,18 @@ class MCards extends StatelessWidget {
                   "5,948,000 ብር",
                   textAlign: TextAlign.start,
                   style: TextStyle(
-                    fontFamily: 'Mb',
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                     color: Colors.red,
-                    fontSize: 13.0,
+                    fontSize: 14.0,
                   ),
                 ),
                 SizedBox(height: 3),
                 Text(
                   "Ranch Style House",
-                  style:
-                      TextStyle(fontFamily: 'Mb', fontWeight: FontWeight.w500),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14.0,
+                  ),
                 ),
                 SizedBox(height: 5),
                 Row(
@@ -61,15 +62,16 @@ class MCards extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.location_on,
-                              size: 17.0,
+                              size: 14.0,
                               color: Colors.grey,
                             ),
                             Text(
                               "Addis Ababa, Addis Ababa",
                               style: TextStyle(
-                                  fontFamily: 'Mb',
-                                  fontSize: 14.0,
-                                  color: Colors.grey),
+                                fontSize: 13.0,
+                                fontWeight: FontWeight.w300,
+                                color: Colors.grey,
+                              ),
                             ),
                           ],
                         ),
@@ -104,17 +106,18 @@ class MCards extends StatelessWidget {
                   "5,948,000 ብር",
                   textAlign: TextAlign.start,
                   style: TextStyle(
-                    fontFamily: 'Mb',
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                     color: Colors.red,
-                    fontSize: 13.0,
+                    fontSize: 14.0,
                   ),
                 ),
                 SizedBox(height: 3),
                 Text(
                   "Ranch Style House",
-                  style:
-                      TextStyle(fontFamily: 'Mb', fontWeight: FontWeight.w500),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14.0,
+                  ),
                 ),
                 SizedBox(height: 5),
                 Row(
@@ -127,15 +130,16 @@ class MCards extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.location_on,
-                              size: 17.0,
+                              size: 14.0,
                               color: Colors.grey,
                             ),
                             Text(
                               "Addis Ababa, Addis Ababa",
                               style: TextStyle(
-                                  fontFamily: 'Mb',
-                                  fontSize: 14.0,
-                                  color: Colors.grey),
+                                fontSize: 13.0,
+                                fontWeight: FontWeight.w300,
+                                color: Colors.grey,
+                              ),
                             ),
                           ],
                         ),
@@ -170,17 +174,18 @@ class MCards extends StatelessWidget {
                   "5,948,000 ብር",
                   textAlign: TextAlign.start,
                   style: TextStyle(
-                    fontFamily: 'Mb',
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                     color: Colors.red,
-                    fontSize: 13.0,
+                    fontSize: 14.0,
                   ),
                 ),
                 SizedBox(height: 3),
                 Text(
                   "Ranch Style House",
-                  style:
-                      TextStyle(fontFamily: 'Mb', fontWeight: FontWeight.w500),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14.0,
+                  ),
                 ),
                 SizedBox(height: 5),
                 Row(
@@ -193,15 +198,16 @@ class MCards extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.location_on,
-                              size: 17.0,
+                              size: 14.0,
                               color: Colors.grey,
                             ),
                             Text(
                               "Addis Ababa, Addis Ababa",
                               style: TextStyle(
-                                  fontFamily: 'Mb',
-                                  fontSize: 14.0,
-                                  color: Colors.grey),
+                                fontSize: 13.0,
+                                fontWeight: FontWeight.w300,
+                                color: Colors.grey,
+                              ),
                             ),
                           ],
                         ),
@@ -236,17 +242,18 @@ class MCards extends StatelessWidget {
                   "5,948,000 ብር",
                   textAlign: TextAlign.start,
                   style: TextStyle(
-                    fontFamily: 'Mb',
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                     color: Colors.red,
-                    fontSize: 13.0,
+                    fontSize: 14.0,
                   ),
                 ),
                 SizedBox(height: 3),
                 Text(
                   "Ranch Style House",
-                  style:
-                      TextStyle(fontFamily: 'Mb', fontWeight: FontWeight.w500),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14.0,
+                  ),
                 ),
                 SizedBox(height: 5),
                 Row(
@@ -259,15 +266,16 @@ class MCards extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.location_on,
-                              size: 17.0,
+                              size: 14.0,
                               color: Colors.grey,
                             ),
                             Text(
                               "Addis Ababa, Addis Ababa",
                               style: TextStyle(
-                                  fontFamily: 'Mb',
-                                  fontSize: 14.0,
-                                  color: Colors.grey),
+                                fontSize: 13.0,
+                                fontWeight: FontWeight.w300,
+                                color: Colors.grey,
+                              ),
                             ),
                           ],
                         ),
@@ -302,17 +310,18 @@ class MCards extends StatelessWidget {
                   "5,948,000 ብር",
                   textAlign: TextAlign.start,
                   style: TextStyle(
-                    fontFamily: 'Mb',
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                     color: Colors.red,
-                    fontSize: 13.0,
+                    fontSize: 14.0,
                   ),
                 ),
                 SizedBox(height: 3),
                 Text(
                   "Ranch Style House",
-                  style:
-                      TextStyle(fontFamily: 'Mb', fontWeight: FontWeight.w500),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14.0,
+                  ),
                 ),
                 SizedBox(height: 5),
                 Row(
@@ -325,15 +334,16 @@ class MCards extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.location_on,
-                              size: 17.0,
+                              size: 14.0,
                               color: Colors.grey,
                             ),
                             Text(
                               "Addis Ababa, Addis Ababa",
                               style: TextStyle(
-                                  fontFamily: 'Mb',
-                                  fontSize: 14.0,
-                                  color: Colors.grey),
+                                fontSize: 13.0,
+                                fontWeight: FontWeight.w300,
+                                color: Colors.grey,
+                              ),
                             ),
                           ],
                         ),
@@ -368,17 +378,18 @@ class MCards extends StatelessWidget {
                   "5,948,000 ብር",
                   textAlign: TextAlign.start,
                   style: TextStyle(
-                    fontFamily: 'Mb',
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                     color: Colors.red,
-                    fontSize: 13.0,
+                    fontSize: 14.0,
                   ),
                 ),
                 SizedBox(height: 3),
                 Text(
                   "Ranch Style House",
-                  style:
-                      TextStyle(fontFamily: 'Mb', fontWeight: FontWeight.w500),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14.0,
+                  ),
                 ),
                 SizedBox(height: 5),
                 Row(
@@ -391,15 +402,16 @@ class MCards extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.location_on,
-                              size: 17.0,
+                              size: 14.0,
                               color: Colors.grey,
                             ),
                             Text(
                               "Addis Ababa, Addis Ababa",
                               style: TextStyle(
-                                  fontFamily: 'Mb',
-                                  fontSize: 14.0,
-                                  color: Colors.grey),
+                                fontSize: 13.0,
+                                fontWeight: FontWeight.w300,
+                                color: Colors.grey,
+                              ),
                             ),
                           ],
                         ),
@@ -434,17 +446,18 @@ class MCards extends StatelessWidget {
                   "5,948,000 ብር",
                   textAlign: TextAlign.start,
                   style: TextStyle(
-                    fontFamily: 'Mb',
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                     color: Colors.red,
-                    fontSize: 13.0,
+                    fontSize: 14.0,
                   ),
                 ),
                 SizedBox(height: 3),
                 Text(
                   "Ranch Style House",
-                  style:
-                      TextStyle(fontFamily: 'Mb', fontWeight: FontWeight.w500),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14.0,
+                  ),
                 ),
                 SizedBox(height: 5),
                 Row(
@@ -457,15 +470,16 @@ class MCards extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.location_on,
-                              size: 17.0,
+                              size: 14.0,
                               color: Colors.grey,
                             ),
                             Text(
                               "Addis Ababa, Addis Ababa",
                               style: TextStyle(
-                                  fontFamily: 'Mb',
-                                  fontSize: 14.0,
-                                  color: Colors.grey),
+                                fontSize: 13.0,
+                                fontWeight: FontWeight.w300,
+                                color: Colors.grey,
+                              ),
                             ),
                           ],
                         ),
@@ -500,17 +514,18 @@ class MCards extends StatelessWidget {
                   "5,948,000 ብር",
                   textAlign: TextAlign.start,
                   style: TextStyle(
-                    fontFamily: 'Mb',
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                     color: Colors.red,
-                    fontSize: 13.0,
+                    fontSize: 14.0,
                   ),
                 ),
                 SizedBox(height: 3),
                 Text(
                   "Ranch Style House",
-                  style:
-                      TextStyle(fontFamily: 'Mb', fontWeight: FontWeight.w500),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14.0,
+                  ),
                 ),
                 SizedBox(height: 5),
                 Row(
@@ -523,15 +538,16 @@ class MCards extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.location_on,
-                              size: 17.0,
+                              size: 14.0,
                               color: Colors.grey,
                             ),
                             Text(
                               "Addis Ababa, Addis Ababa",
                               style: TextStyle(
-                                  fontFamily: 'Mb',
-                                  fontSize: 14.0,
-                                  color: Colors.grey),
+                                fontSize: 13.0,
+                                fontWeight: FontWeight.w300,
+                                color: Colors.grey,
+                              ),
                             ),
                           ],
                         ),

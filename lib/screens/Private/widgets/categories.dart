@@ -10,7 +10,10 @@ class Categories extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Category(file: '1.png', label: 'Motors'),
+            Category(
+              file: '1.png',
+              label: 'Motors',
+            ),
             Category(file: '2.png', label: 'Classifieds'),
             Category(file: '3.png', label: 'Property'),
             Category(file: '4.png', label: 'Jobs'),
@@ -38,7 +41,7 @@ class Category extends StatelessWidget {
         ),
         Text(
           label,
-          style: TextStyle(fontSize: 9.0),
+          style: TextStyle(fontWeight: FontWeight.w700, fontSize: 10.0),
         )
       ],
     );
