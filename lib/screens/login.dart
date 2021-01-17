@@ -15,6 +15,7 @@ class _LoginState extends State<Login> {
         elevation: 0,
         iconTheme: IconThemeData(color: Theme.of(context).secondaryHeaderColor),
         backgroundColor: Colors.transparent,
+        brightness: Brightness.light,
       ),
       body: SingleChildScrollView(
         child: Container(

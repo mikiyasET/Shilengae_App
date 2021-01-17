@@ -122,5 +122,6 @@ Widget HomeAppBar() {
       ),
     ),
     backgroundColor: Color(0xffE43134),
+    brightness: Brightness.dark,
   );
 }

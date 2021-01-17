@@ -30,6 +30,7 @@ class _SignUpState extends State<SignUp> {
         elevation: 0,
         iconTheme: IconThemeData(color: Theme.of(context).secondaryHeaderColor),
         backgroundColor: Colors.transparent,
+        brightness: Brightness.light,
       ),
       body: SingleChildScrollView(
         child: Container(

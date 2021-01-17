@@ -56,7 +56,8 @@ class _otpPageState extends State<otpPage> {
           style: TextStyle(color: Theme.of(context).secondaryHeaderColor),
         ),
         centerTitle: true,
-        backgroundColor: Theme.of(context).textSelectionColor,
+        backgroundColor: Colors.transparent,
+        brightness: Brightness.light,
       ),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),

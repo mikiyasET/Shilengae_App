@@ -20,6 +20,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
         elevation: 0,
         iconTheme: IconThemeData(color: Theme.of(context).secondaryHeaderColor),
         backgroundColor: Colors.transparent,
+        brightness: Brightness.light,
       ),
       body: SingleChildScrollView(
         child: Container(

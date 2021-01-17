@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -47,7 +48,11 @@ class _ShilengaState extends State<Shilenga> {
       ..textColor = Colors.yellow
       ..userInteractions = false
       ..dismissOnTap = false;
-
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+      statusBarBrightness: Brightness.dark,
+    ));
     return GetMaterialApp(
       theme: basicTheme(),
       darkTheme: darkTheme(),

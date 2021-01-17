@@ -25,10 +25,8 @@ class _ChooseState extends State<Choose> {
   String _message = "";
 
   Future<void> _login() async {
-    EasyLoading.show(maskType: EasyLoadingMaskType.black);
-
     final FacebookLoginResult result = await facebookSignIn.logIn(['email']);
-
+    EasyLoading.show(maskType: EasyLoadingMaskType.black);
     switch (result.status) {
       case FacebookLoginStatus.loggedIn:
         final FacebookAccessToken accessToken = result.accessToken;
@@ -135,7 +133,8 @@ class _ChooseState extends State<Choose> {
       appBar: AppBar(
         elevation: 0,
         iconTheme: IconThemeData(color: Theme.of(context).secondaryHeaderColor),
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.transparent, // status bar color
+        brightness: Brightness.light, // status bar brightness
       ),
       body: SingleChildScrollView(
         child: Padding(
