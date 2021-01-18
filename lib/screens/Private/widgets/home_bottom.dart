@@ -125,16 +125,16 @@ Widget HomeBottomBar() {
     animationCurve: Curves.easeInOut,
     animationDuration: Duration(milliseconds: 600),
     onTap: (index) async {
-      final userData = GetStorage();
+      // final userData = GetStorage();
 
-      EasyLoading.show(maskType: EasyLoadingMaskType.black);
+      // EasyLoading.show(maskType: EasyLoadingMaskType.black);
 
-      final FacebookLogin facebookSignIn = new FacebookLogin();
-      await facebookSignIn.logOut();
-      userData.erase();
-      userData.write('loggedIn', false);
-      EasyLoading.dismiss();
-      Get.offAllNamed('/fpage');
+      // final FacebookLogin facebookSignIn = new FacebookLogin();
+      // await facebookSignIn.logOut();
+      // userData.erase();
+      // userData.write('loggedIn', false);
+      // EasyLoading.dismiss();
+      // Get.offAllNamed('/fpage');
     },
     letIndexChange: (index) => true,
   );

@@ -1,27 +1,28 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:shilingae/model/signupmodel.dart';
 import 'package:shilingae/screens/Private/widgets/carousel.dart';
 import 'package:shilingae/screens/Private/widgets/categories.dart';
 import 'package:shilingae/screens/Private/widgets/home_appbar.dart';
 import 'package:shilingae/screens/Private/widgets/home_bottom.dart';
 import 'package:shilingae/screens/Private/widgets/mcards.dart';
+import 'package:shilingae/screens/fpage.dart';
 
-class HomePage extends StatefulWidget {
+class Home extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _HomeState createState() => _HomeState();
 }
 
-class _HomePageState extends State<HomePage> {
-  // final userData = GetStorage();
-
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: HomeAppBar(),
-      bottomNavigationBar: HomeBottomBar(),
       body: ListView(
         scrollDirection: Axis.vertical,
         children: <Widget>[
@@ -41,6 +42,7 @@ class _HomePageState extends State<HomePage> {
           MCards(),
         ],
       ),
+
       // Center(
       //   child: Column(
       //     mainAxisAlignment: MainAxisAlignment.center,

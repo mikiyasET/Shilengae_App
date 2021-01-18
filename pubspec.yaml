@@ -72,10 +72,7 @@ flutter:
     - assets/4.png
     - assets/5.png
     - assets/cover.jpg
-    - assets/icons/ic_home_inactive@3x.png
-    - assets/icons/ic_chat_inactive@3x.png
-    - assets/icons/ic_profile_inactive@3x.png
-    - assets/icons/ic_ads_inactive@3x.png
+    - assets/icons/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

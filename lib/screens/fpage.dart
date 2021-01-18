@@ -18,10 +18,15 @@ class _FpageState extends State<Fpage> {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.dark,
-      statusBarBrightness: Brightness.dark,
+      statusBarIconBrightness: Brightness.light,
+      statusBarBrightness: Brightness.light,
     ));
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        brightness: Brightness.light,
+      ),
       body: Padding(
         padding: const EdgeInsets.only(left: 30.0, right: 30.0, top: 50.0),
         child: Column(

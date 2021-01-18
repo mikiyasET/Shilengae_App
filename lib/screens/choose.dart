@@ -53,7 +53,7 @@ class _ChooseState extends State<Choose> {
         userData.write('first_name', profile['first_name']);
         userData.write('last_name', profile['last_name']);
         userData.write('email', profile['email']);
-        userData.write('profile', profile['picture']['data']['url']);
+        userData.write('socialProfileImage', profile['picture']['data']['url']);
         userData.write('loggedIn', true);
         EasyLoading.dismiss();
 
