@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:shilingae/utils/flags.dart';
 
 class Profile extends StatefulWidget {
@@ -23,11 +24,37 @@ class _ProfileState extends State<Profile> {
       );
     }
 
+    Widget appactionbutton() {
+      return Padding(
+        padding: const EdgeInsets.only(right: 20.0, top: 5),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            IconButton(
+              icon: Icon(
+                Icons.edit_outlined,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                print("heelo");
+                Get.toNamed('/settings');
+              },
+            ),
+            SizedBox(width: 10),
+            Icon(
+              Icons.settings_outlined,
+              color: Colors.white,
+            ),
+          ],
+        ),
+      );
+    }
+
     Widget profilePicture() {
       return Center(
         child: Container(
-          width: 140.0,
-          height: 140.0,
+          width: 120.0,
+          height: 120.0,
           decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/cover.jpg'),
@@ -35,7 +62,7 @@ class _ProfileState extends State<Profile> {
               ),
               borderRadius: BorderRadius.circular(80.0),
               border: Border.all(
-                color: Colors.white,
+                color: Theme.of(context).scaffoldBackgroundColor,
                 width: 3,
               )),
         ),
@@ -207,8 +234,9 @@ class _ProfileState extends State<Profile> {
                 SafeArea(
                   child: Column(
                     children: [
+                      appactionbutton(),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height / 13.5,
+                        height: MediaQuery.of(context).size.height / 25,
                       ),
                       profilePicture(),
                       SizedBox(height: 12),

@@ -97,8 +97,7 @@ class _ChooseState extends State<Choose> {
         EasyLoading.dismiss();
 
         Fluttertoast.showToast(
-          msg: "Something went wrong with the login process.\n"
-              "Here\'s the error Facebook gave us: ${result.errorMessage}",
+          msg: "Something went wrong with the login process.",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.TOP,
           backgroundColor: Theme.of(context).primaryColor,
