@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class Settings extends StatefulWidget {
   @override
@@ -6,28 +10,79 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  Widget _settingBuilder({text, icon}) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 5),
-      decoration: BoxDecoration(
-          border: Border(
-        bottom: BorderSide(
-          color: Theme.of(context).dividerColor,
-        ),
-      )),
-      padding: EdgeInsets.symmetric(vertical: 20),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            text,
-            style: TextStyle(
-              fontWeight: FontWeight.w500,
-              fontSize: 17,
+  bool _switchval = true;
+  Widget _settingBuilder({text, icon, type = 0}) {
+    return GestureDetector(
+      onTap: () {
+        showDialog(
+          barrierDismissible: false,
+          context: context,
+          builder: (_) => AlertDialog(
+            titlePadding: EdgeInsets.only(left: 15.0, top: 20.0),
+            contentPadding: EdgeInsets.only(left: 15.0, top: 10, bottom: 20),
+            title: Text("Logout"),
+            content: Text(
+              "Are you sure you want to logout?",
+              style: TextStyle(fontSize: 15.6),
             ),
+            actions: [
+              FlatButton(
+                child: Text("CANCLE"),
+                textColor: Colors.black,
+                onPressed: () {
+                  Get.back();
+                },
+              ),
+              FlatButton(
+                child: Text("LOGOUT"),
+                textColor: Colors.black,
+                onPressed: () async {
+                  final userData = GetStorage();
+                  EasyLoading.show(maskType: EasyLoadingMaskType.black);
+                  final FacebookLogin facebookSignIn = new FacebookLogin();
+                  await facebookSignIn.logOut();
+                  userData.erase();
+                  userData.write('loggedIn', false);
+                  EasyLoading.dismiss();
+                  Get.offAndToNamed('/fpage');
+                },
+              ),
+            ],
           ),
-          icon == 1 ? Icon(Icons.navigate_next) : SizedBox()
-        ],
+        );
+        // Get.defaultDialog(
+        //   title: "Logout",
+
+        //   content: Text("Are you sure you want to logout?"),
+        //   actions: [
+        //     Text("CANCEL"),
+        //     Text("LOGOUT"),
+        //   ],
+        //   barrierDismissible: true,
+        // );
+      },
+      child: Container(
+        margin: EdgeInsets.symmetric(vertical: 5),
+        decoration: BoxDecoration(
+            border: Border(
+          bottom: BorderSide(
+            color: Theme.of(context).dividerColor,
+          ),
+        )),
+        padding: EdgeInsets.symmetric(vertical: 20),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              text,
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 17,
+              ),
+            ),
+            icon == 1 ? Icon(Icons.navigate_next) : SizedBox()
+          ],
+        ),
       ),
     );
   }
@@ -43,7 +98,7 @@ class _SettingsState extends State<Settings> {
           color: Theme.of(context).dividerColor,
         ),
       )),
-      padding: EdgeInsets.symmetric(vertical: 20),
+      padding: EdgeInsets.symmetric(vertical: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -54,10 +109,14 @@ class _SettingsState extends State<Settings> {
               fontSize: 17,
             ),
           ),
-          Icon(
-            Icons.toggle_on_sharp,
-            size: 40,
-            color: Theme.of(context).primaryColor,
+          Switch(
+            value: _switchval,
+            onChanged: (val) {
+              setState(() {
+                _switchval = !_switchval;
+              });
+            },
+            activeColor: Theme.of(context).primaryColor,
           )
         ],
       ),
@@ -79,7 +138,7 @@ class _SettingsState extends State<Settings> {
           _settingBuilder(text: "Help & Support", icon: 1),
           _settingBuilder(text: "FAQ", icon: 1),
           _settingBuilder(text: "Contact Us", icon: 1),
-          _settingBuilder(text: "Logout", icon: 0),
+          _settingBuilder(text: "Logout", icon: 0, type: 1),
         ],
       ),
     );

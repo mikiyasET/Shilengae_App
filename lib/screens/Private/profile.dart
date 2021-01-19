@@ -26,7 +26,7 @@ class _ProfileState extends State<Profile> {
 
     Widget appactionbutton() {
       return Padding(
-        padding: const EdgeInsets.only(right: 20.0, top: 5),
+        padding: const EdgeInsets.only(right: 5.0, top: 5),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -36,14 +36,17 @@ class _ProfileState extends State<Profile> {
                 color: Colors.white,
               ),
               onPressed: () {
-                print("heelo");
-                Get.toNamed('/settings');
+                // Get.toNamed('/edit_profile');
               },
             ),
-            SizedBox(width: 10),
-            Icon(
-              Icons.settings_outlined,
-              color: Colors.white,
+            IconButton(
+              icon: Icon(
+                Icons.settings_outlined,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                Get.toNamed('/settings');
+              },
             ),
           ],
         ),
@@ -55,6 +58,7 @@ class _ProfileState extends State<Profile> {
         child: Container(
           width: 120.0,
           height: 120.0,
+          padding: EdgeInsets.symmetric(vertical: 90),
           decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/cover.jpg'),
@@ -63,6 +67,7 @@ class _ProfileState extends State<Profile> {
               borderRadius: BorderRadius.circular(80.0),
               border: Border.all(
                 color: Theme.of(context).scaffoldBackgroundColor,
+                style: BorderStyle.solid,
                 width: 3,
               )),
         ),

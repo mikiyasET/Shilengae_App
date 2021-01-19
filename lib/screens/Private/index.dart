@@ -25,7 +25,6 @@ class _HomePageState extends State<HomePage> {
   ]; // to store nested tabs
   final PageStorageBucket bucket = PageStorageBucket();
   Widget currentScreen = Home(); // Our first view in viewport
-  final userData = GetStorage();
 
   @override
   Widget build(BuildContext context) {
@@ -160,14 +159,7 @@ class _HomePageState extends State<HomePage> {
                   MaterialButton(
                     minWidth: 40,
                     onPressed: () async {
-                      // EasyLoading.show(maskType: EasyLoadingMaskType.black);
-                      // final FacebookLogin facebookSignIn = new FacebookLogin();
-                      // await facebookSignIn.logOut();
                       setState(() {
-                        // userData.erase();
-                        // userData.write('loggedIn', false);
-                        // EasyLoading.dismiss();
-                        // Get.offAllNamed('/fpage');
                         currentScreen =
                             Profile(); // if user taps on this dashboard tab will be active
                         currentTab = 3;
