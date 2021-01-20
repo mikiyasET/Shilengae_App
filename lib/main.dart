@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:shilingae/blocs/values.dart';
 import 'package:shilingae/screens/Private/index.dart';
+import 'package:shilingae/screens/Private/postad.dart';
 import 'package:shilingae/screens/Private/settings.dart';
 import 'package:shilingae/screens/choose.dart';
 import 'package:shilingae/screens/forgot.dart';
@@ -107,6 +108,11 @@ class _ShilengaState extends State<Shilenga> {
           name: '/settings',
           transition: Transition.cupertino,
           page: () => Settings(),
+        ),
+        GetPage(
+          name: '/postad',
+          transition: Transition.cupertino,
+          page: () => PostAd(),
         ),
       ],
       builder: EasyLoading.init(),

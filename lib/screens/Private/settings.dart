@@ -3,6 +3,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:shilingae/screens/Private/changer.dart';
 
 class Settings extends StatefulWidget {
   @override
@@ -11,45 +12,51 @@ class Settings extends StatefulWidget {
 
 class _SettingsState extends State<Settings> {
   bool _switchval = true;
-  Widget _settingBuilder({text, icon, type = 0}) {
+  Widget _settingBuilder({text, icon, type = 0, page}) {
     return GestureDetector(
       onTap: () {
-        showDialog(
-          barrierDismissible: false,
-          context: context,
-          builder: (_) => AlertDialog(
-            titlePadding: EdgeInsets.only(left: 15.0, top: 20.0),
-            contentPadding: EdgeInsets.only(left: 15.0, top: 10, bottom: 20),
-            title: Text("Logout"),
-            content: Text(
-              "Are you sure you want to logout?",
-              style: TextStyle(fontSize: 15.6),
-            ),
-            actions: [
-              FlatButton(
-                child: Text("CANCLE"),
-                textColor: Colors.black,
-                onPressed: () {
-                  Get.back();
-                },
-              ),
-              FlatButton(
-                child: Text("LOGOUT"),
-                textColor: Colors.black,
-                onPressed: () async {
-                  final userData = GetStorage();
-                  EasyLoading.show(maskType: EasyLoadingMaskType.black);
-                  final FacebookLogin facebookSignIn = new FacebookLogin();
-                  await facebookSignIn.logOut();
-                  userData.erase();
-                  userData.write('loggedIn', false);
-                  EasyLoading.dismiss();
-                  Get.offAndToNamed('/fpage');
-                },
-              ),
-            ],
-          ),
-        );
+        type == 0
+            ? Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return ChangeEveryThing(title: text, page: page);
+              }))
+            : showDialog(
+                barrierDismissible: false,
+                context: context,
+                builder: (_) => AlertDialog(
+                  titlePadding: EdgeInsets.only(left: 15.0, top: 20.0),
+                  contentPadding:
+                      EdgeInsets.only(left: 15.0, top: 10, bottom: 20),
+                  title: Text("Logout"),
+                  content: Text(
+                    "Are you sure you want to logout?",
+                    style: TextStyle(fontSize: 15.6),
+                  ),
+                  actions: [
+                    FlatButton(
+                      child: Text("CANCLE"),
+                      textColor: Colors.black,
+                      onPressed: () {
+                        Get.back();
+                      },
+                    ),
+                    FlatButton(
+                      child: Text("LOGOUT"),
+                      textColor: Colors.black,
+                      onPressed: () async {
+                        final userData = GetStorage();
+                        EasyLoading.show(maskType: EasyLoadingMaskType.black);
+                        final FacebookLogin facebookSignIn =
+                            new FacebookLogin();
+                        await facebookSignIn.logOut();
+                        userData.erase();
+                        userData.write('loggedIn', false);
+                        EasyLoading.dismiss();
+                        Get.offAndToNamed('/fpage');
+                      },
+                    ),
+                  ],
+                ),
+              );
         // Get.defaultDialog(
         //   title: "Logout",
 
@@ -128,16 +135,16 @@ class _SettingsState extends State<Settings> {
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Column(
         children: [
-          _settingBuilder(text: "Change Password", icon: 1),
+          _settingBuilder(text: "Change Password", icon: 1, page: 1),
           _settingnotiBuilder(text: "Notifications"),
-          _settingBuilder(text: "Language", icon: 1),
-          _settingBuilder(text: "Change Phone Number", icon: 1),
-          _settingBuilder(text: "Change Email Adress", icon: 1),
-          _settingBuilder(text: "Term & Condition", icon: 1),
-          _settingBuilder(text: "Privacy Policy", icon: 1),
-          _settingBuilder(text: "Help & Support", icon: 1),
-          _settingBuilder(text: "FAQ", icon: 1),
-          _settingBuilder(text: "Contact Us", icon: 1),
+          _settingBuilder(text: "Language", icon: 1, page: 3),
+          _settingBuilder(text: "Change Phone Number", icon: 1, page: 4),
+          _settingBuilder(text: "Change Email Adress", icon: 1, page: 5),
+          _settingBuilder(text: "Term & Condition", icon: 1, page: 6),
+          _settingBuilder(text: "Privacy Policy", icon: 1, page: 7),
+          _settingBuilder(text: "Help & Support", icon: 1, page: 8),
+          _settingBuilder(text: "FAQ", icon: 1, page: 9),
+          _settingBuilder(text: "Contact Us", icon: 1, page: 10),
           _settingBuilder(text: "Logout", icon: 0, type: 1),
         ],
       ),

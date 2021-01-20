@@ -36,7 +36,9 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         backgroundColor: Theme.of(context).primaryColor,
-        onPressed: () {},
+        onPressed: () {
+          Get.toNamed('/postad');
+        },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(

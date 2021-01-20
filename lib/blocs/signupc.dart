@@ -95,49 +95,65 @@ class SignupBloc {
           fontSize: 16.0,
         );
       } else {
-        EasyLoading.dismiss();
-        print("hello");
-        String countrycode =
-            code.toString().substring(1, code.toString().length);
-        String number = mobile;
-        if ((number[0] + number[1]) == "09") {
-          mobile = number.substring(1, number.length);
-        } else if (number[0] == "+") {
-          mobile = number.substring(countrycode.length + 1, number.length);
-        } else if (mobile.startsWith('251', 0)) {
-          mobile = number.substring(3, number.length);
-        }
-        var otp_url = 'https://test.shilengae.com/api/sendOtp';
-        var res = await http.post(otp_url, body: {
-          'email': email,
-          'mobile': mobile,
-          'password': pass2,
-          'calling_code': countrycode,
-          'app_country': "ET",
-          'for_type': "1"
-        });
-        var jr = convert.jsonDecode(res.body);
-
-        if (res.statusCode == 200 || res.statusCode == 400) {
-          if (jr['success'] == 1) {
-            EasyLoading.dismiss();
-            Get.to(
-              otpPage(
-                firstname: firstName,
-                lastname: lastName,
-                otp: jr['otp'],
-                email: email,
-                mobile: mobile,
-                password: pass2,
-                calling_code: countrycode,
-                app_country: "ET",
-                for_type: "1",
-              ),
-            );
+        try {
+          // EasyLoading.dismiss();
+          // print("hello");
+          String countrycode =
+              code.toString().substring(1, code.toString().length);
+          String number = mobile;
+          if ((number[0] + number[1]) == "09") {
+            mobile = number.substring(1, number.length);
+          } else if (number[0] == "+") {
+            mobile = number.substring(countrycode.length + 1, number.length);
+          } else if (mobile.startsWith('251', 0)) {
+            mobile = number.substring(3, number.length);
+          }
+          var otp_url = 'https://test.shilengae.com/api/sendOtp';
+          print("been 1");
+          var res = await http.post(otp_url, body: {
+            'email': email,
+            'mobile': mobile,
+            'password': pass2,
+            'calling_code': countrycode,
+            'app_country': "ET",
+            'for_type': "1"
+          });
+          print("been 1");
+          var jr = convert.jsonDecode(res.body);
+          print(res.statusCode);
+          if (res.statusCode == 200 || res.statusCode == 400) {
+            if (jr['success'] == 1) {
+              EasyLoading.dismiss();
+              Get.to(
+                otpPage(
+                  firstname: firstName,
+                  lastname: lastName,
+                  otp: jr['otp'],
+                  email: email,
+                  mobile: mobile,
+                  password: pass2,
+                  calling_code: countrycode,
+                  app_country: "ET",
+                  for_type: "1",
+                ),
+              );
+            } else {
+              EasyLoading.dismiss();
+              Fluttertoast.showToast(
+                msg: jr['msg'],
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.TOP,
+                backgroundColor: Theme.of(context).primaryColor,
+                textColor: Theme.of(context).textSelectionColor,
+                timeInSecForIosWeb: 1,
+                fontSize: 16.0,
+              );
+            }
+            print(res.body);
           } else {
             EasyLoading.dismiss();
             Fluttertoast.showToast(
-              msg: jr['msg'],
+              msg: jr['msg'].toString(),
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.TOP,
               backgroundColor: Theme.of(context).primaryColor,
@@ -146,11 +162,10 @@ class SignupBloc {
               fontSize: 16.0,
             );
           }
-          print(res.body);
-        } else {
+        } catch (e) {
           EasyLoading.dismiss();
           Fluttertoast.showToast(
-            msg: jr['msg'].toString(),
+            msg: "Please try later",
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.TOP,
             backgroundColor: Theme.of(context).primaryColor,
