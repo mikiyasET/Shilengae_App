@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class PostAd extends StatefulWidget {
   @override
@@ -79,6 +80,36 @@ class _PostAdState extends State<PostAd> {
             );
     }
 
+    Widget _HeaderPost() {
+      return Center(
+        child: Column(
+          children: [
+            GestureDetector(
+              onTap: () {
+                Get.back();
+              },
+              child: Image.asset(
+                "./assets/icons/ic_big_cross_red@3x.png",
+                width: 70,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                  top: 10.0, left: 57, right: 57, bottom: 20.0),
+              child: Text(
+                "SELECT THE CATEGORY RELEVANT TO YOUR AD",
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.w700,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
     Widget _AllCards() {
       return Column(
         children: [
@@ -107,28 +138,7 @@ class _PostAdState extends State<PostAd> {
         padding: EdgeInsets.only(top: 30),
         child: Column(
           children: [
-            Center(
-              child: Column(
-                children: [
-                  Image.asset(
-                    "./assets/icons/ic_big_cross_red@3x.png",
-                    width: 70,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        top: 10.0, left: 57, right: 57, bottom: 20.0),
-                    child: Text(
-                      "SELECT THE CATEGORY RELEVANT TO YOUR AD",
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.w700,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            _HeaderPost(),
             Container(
               padding: EdgeInsets.only(bottom: 25),
               child: _AllCards(),

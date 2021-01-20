@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 Widget HomeAppBar() {
   List<DropdownMenuItem<int>> mklistDrop = [];
@@ -84,7 +85,9 @@ Widget HomeAppBar() {
                   Icons.notifications_none,
                   color: Colors.white,
                 ),
-                onPressed: null)
+                onPressed: () {
+                  Get.toNamed("/notification");
+                })
           ],
         ),
       ),
