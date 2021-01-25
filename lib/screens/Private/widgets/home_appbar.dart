@@ -103,6 +103,11 @@ Widget HomeAppBar() {
             color: Colors.green,
           ),
           child: TextField(
+            onTap: () {
+              print("hello");
+              Get.toNamed("/search");
+            },
+            readOnly: true,
             decoration: InputDecoration(
               prefixIcon: Icon(Icons.search, color: Colors.grey[400], size: 22),
               hintText: 'What are you looking for?',

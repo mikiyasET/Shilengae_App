@@ -7,6 +7,7 @@ ThemeData basicTheme() {
     textTheme: ThemeData.light().textTheme.apply(
           fontFamily: 'circular',
         ),
+    scaffoldBackgroundColor: Colors.white,
     textSelectionColor: Color(0xffffffff), // white
     primaryColor: Color(0xffE33134), // red
     secondaryHeaderColor: Color(0xff000000), // black

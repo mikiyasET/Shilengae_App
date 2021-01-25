@@ -7,6 +7,7 @@ import 'package:shilingae/blocs/values.dart';
 import 'package:shilingae/screens/Private/index.dart';
 import 'package:shilingae/screens/Private/notification.dart';
 import 'package:shilingae/screens/Private/postad.dart';
+import 'package:shilingae/screens/Private/search.dart';
 import 'package:shilingae/screens/Private/settings.dart';
 import 'package:shilingae/screens/choose.dart';
 import 'package:shilingae/screens/forgot.dart';
@@ -114,6 +115,11 @@ class _ShilengaState extends State<Shilenga> {
           name: '/postad',
           transition: Transition.cupertino,
           page: () => PostAd(),
+        ),
+        GetPage(
+          name: '/search',
+          transition: Transition.cupertino,
+          page: () => Searcher(),
         ),
         GetPage(
           name: '/notification',
