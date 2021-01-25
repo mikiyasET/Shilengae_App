@@ -22,52 +22,52 @@ Widget HomeAppBar() {
   return AppBar(
     toolbarHeight: 120.0,
     elevation: 0.0,
-    title: Stack(
-      overflow: Overflow.visible,
-      children: [
-        Container(),
-        Positioned(
-          top: -15.0,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+    title: Padding(
+      padding: const EdgeInsets.only(top: 15.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Stack(
+            overflow: Overflow.visible,
             children: [
-              Stack(
-                overflow: Overflow.visible,
-                children: [
-                  Container(),
-                  Positioned(
-                    top: -5.0,
-                    child: Text(
-                      "Location",
-                      style: TextStyle(
-                        color: Colors.grey[300],
-                        fontSize: 13,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
+              Container(),
+              Positioned(
+                top: -5.0,
+                child: Text(
+                  "Location",
+                  style: TextStyle(
+                    color: Colors.grey[300],
+                    fontSize: 13,
+                    fontWeight: FontWeight.w700,
                   ),
-                ],
-              ),
-              DropdownButtonHideUnderline(
-                child: DropdownButton(
-                  elevation: 0,
-                  icon: Icon(
-                    Icons.keyboard_arrow_down,
-                    color: Colors.white,
-                  ),
-                  style: TextStyle(color: Colors.black),
-                  hint: Text(
-                    "A3, Addis Ababa, Ethiopia",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  items: mklistDrop,
-                  onChanged: (value) => print("You have selected $value"),
                 ),
               ),
             ],
           ),
-        ),
-      ],
+          GestureDetector(
+            behavior: HitTestBehavior.translucent,
+            onTap: () {
+              Get.toNamed("/location");
+            },
+            child: DropdownButtonHideUnderline(
+              child: DropdownButton(
+                elevation: 0,
+                icon: Icon(
+                  Icons.keyboard_arrow_down,
+                  color: Colors.white,
+                ),
+                style: TextStyle(color: Colors.black),
+                hint: Text(
+                  "A3, Addis Ababa, Ethiopia",
+                  style: TextStyle(color: Colors.white),
+                ),
+                items: mklistDrop,
+                onChanged: (value) => print("You have selected $value"),
+              ),
+            ),
+          ),
+        ],
+      ),
     ),
     actions: [
       Padding(

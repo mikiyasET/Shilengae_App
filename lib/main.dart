@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:shilingae/blocs/values.dart';
 import 'package:shilingae/screens/Private/index.dart';
+import 'package:shilingae/screens/Private/location.dart';
 import 'package:shilingae/screens/Private/notification.dart';
 import 'package:shilingae/screens/Private/postad.dart';
 import 'package:shilingae/screens/Private/search.dart';
@@ -68,62 +69,80 @@ class _ShilengaState extends State<Shilenga> {
         GetPage(
           name: '/',
           transition: Transition.cupertino,
+          transitionDuration: Duration(seconds: 1),
           page: () => SplashScreen(),
         ),
         GetPage(
           name: '/fpage',
           transition: Transition.cupertino,
+          transitionDuration: Duration(seconds: 1),
           page: () => Fpage(),
         ),
         GetPage(
           name: '/choose',
           transition: Transition.cupertino,
+          transitionDuration: Duration(seconds: 1),
           page: () => Choose(),
         ),
         GetPage(
           name: '/login',
           transition: Transition.cupertino,
+          transitionDuration: Duration(seconds: 1),
           page: () => Login(),
         ),
         GetPage(
           name: '/signup',
           transition: Transition.cupertino,
+          transitionDuration: Duration(seconds: 1),
           page: () => SignUp(),
         ),
         GetPage(
           name: '/forgot',
           transition: Transition.cupertino,
+          transitionDuration: Duration(seconds: 1),
           page: () => ForgetPassword(),
         ),
         GetPage(
           name: '/validate',
           transition: Transition.cupertino,
+          transitionDuration: Duration(seconds: 1),
           page: () => SetValues().GetValue("token") != null ? Fpage() : Login(),
         ),
         // Pravate Pages
         GetPage(
           name: '/home',
           transition: Transition.cupertino,
+          transitionDuration: Duration(seconds: 1),
           page: () => HomePage(),
         ),
         GetPage(
           name: '/settings',
           transition: Transition.cupertino,
+          transitionDuration: Duration(seconds: 1),
           page: () => Settings(),
         ),
         GetPage(
           name: '/postad',
           transition: Transition.cupertino,
+          transitionDuration: Duration(seconds: 1),
           page: () => PostAd(),
         ),
         GetPage(
           name: '/search',
           transition: Transition.cupertino,
+          transitionDuration: Duration(seconds: 1),
           page: () => Searcher(),
+        ),
+        GetPage(
+          name: '/location',
+          transition: Transition.cupertino,
+          transitionDuration: Duration(seconds: 1),
+          page: () => LocationFinder(),
         ),
         GetPage(
           name: '/notification',
           transition: Transition.cupertino,
+          transitionDuration: Duration(seconds: 1),
           page: () => AppNotification(),
         ),
       ],
