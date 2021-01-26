@@ -1,8 +1,10 @@
-import 'package:http/http.dart' as http;
-import 'dart:convert' as convert;
 import 'dart:async';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'dart:convert' as convert;
+
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:http/http.dart' as http;
+import 'package:shilingae/utils/links.dart';
 
 class ForgotBloc {
   static Future<void> password(context, phone, code) async {
@@ -17,7 +19,7 @@ class ForgotBloc {
       } else if (mobile.startsWith('251', 0)) {
         mobile = number.substring(3, number.length);
       }
-      var otp_url = 'https://test.shilengae.com/api/forgot_password';
+      var otp_url = '${testUrl + forgotPassword}';
       var res = await http
           .post(otp_url, body: {'mobile': mobile, 'calling_code': countrycode});
       if (res.statusCode == 200 || res.statusCode == 400) {

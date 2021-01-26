@@ -1,12 +1,13 @@
-import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'dart:async';
+import 'dart:convert' as convert;
+
+import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
-import 'dart:convert' as convert;
-import 'dart:async';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:flutter/material.dart';
+import 'package:shilingae/utils/links.dart';
 
 class LoginBloc {
   static Future<void> LogIn(code, phone, password) async {
@@ -60,7 +61,7 @@ class LoginBloc {
           print("10");
         }
         print("11");
-        var url = 'https://test.shilengae.com/api/login';
+        var url = '${testUrl + login}';
         if (mobile.length < 7) {
           EasyLoading.dismiss();
           Fluttertoast.showToast(
@@ -179,4 +180,4 @@ class LoginBloc {
   }
 }
 
-// https://test.shilengae.com/api/login?password=12345678&mobile=934252740&calling_code=251&app_country=ET&device_id=1
+// ${testUrl}login?password=12345678&mobile=934252740&calling_code=251&app_country=ET&device_id=1

@@ -1,14 +1,14 @@
+import 'dart:async';
 import 'dart:convert' as convert;
 
+import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
-import 'dart:async';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:flutter/material.dart';
-import 'package:shilingae/model/signupmodel.dart';
 import 'package:shilingae/screens/otppage.dart';
-import 'package:get/get.dart';
+import 'package:shilingae/utils/links.dart';
 
 class SignupBloc {
   static Future<void> SignUp(
@@ -108,7 +108,7 @@ class SignupBloc {
           } else if (mobile.startsWith('251', 0)) {
             mobile = number.substring(3, number.length);
           }
-          var otp_url = 'https://test.shilengae.com/api/sendOtp';
+          var otp_url = '${testUrl + requestOTP}';
           print("been 1");
           var res = await http.post(otp_url, body: {
             'email': email,
@@ -176,7 +176,7 @@ class SignupBloc {
         }
       }
 
-      // var url2 = 'https://test.shilengae.com/api/sendOtp';
+      // var url2 = '${testUrl + requestOTP}';
       // var response2 = await http.post(url, body: {
       //   'email': email,
       //   'mobile': mobile,
@@ -221,7 +221,7 @@ class SignupBloc {
       if (newotp.toString() == otp.toString()) {
         EasyLoading.show(maskType: EasyLoadingMaskType.black);
 
-        var url = 'https://test.shilengae.com/api/register';
+        var url = '${testUrl + register}';
         print("Loading...");
         var response = await http.post(url, body: {
           'email': email.toString(),
@@ -341,4 +341,4 @@ class SignupBloc {
   }
 }
 
-// https://test.shilengae.com/api/login?password=12345678&mobile=934252740&calling_code=251&app_country=ET&device_id=1
+// ${testUrl}login?password=12345678&mobile=934252740&calling_code=251&app_country=ET&device_id=1

@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:shilingae/services/localizationservice.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
 class ChangeEveryThing extends StatefulWidget {
   final String title;
