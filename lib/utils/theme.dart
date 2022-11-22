@@ -8,7 +8,9 @@ ThemeData basicTheme() {
           fontFamily: 'circular',
         ),
     scaffoldBackgroundColor: Colors.white,
-    textSelectionColor: Color(0xffffffff), // white
+    textSelectionTheme: TextSelectionThemeData(
+      selectionHandleColor: Color(0xffffffff),
+    ), // white
     primaryColor: Color(0xffE33134), // red
     secondaryHeaderColor: Color(0xff000000), // black
     accentColor: Color(0xff686866), // grey
@@ -21,7 +23,9 @@ ThemeData darkTheme() {
     textTheme: ThemeData.light().textTheme.apply(
           fontFamily: 'circular',
         ),
-    textSelectionColor: Color(0xffffffff), // white
+    textSelectionTheme: TextSelectionThemeData(
+      selectionHandleColor: Color(0xffffffff),
+    ),
     primaryColor: Color(0xffE33134), // red
     secondaryHeaderColor: Color(0xffffffff), // white
     accentColor: Color(0xfff7f7f7), // light

@@ -20,8 +20,8 @@ class ForgotBloc {
         mobile = number.substring(3, number.length);
       }
       var otp_url = '${testUrl + forgotPassword}';
-      var res = await http
-          .post(otp_url, body: {'mobile': mobile, 'calling_code': countrycode});
+      var res = await http.post(Uri.parse(otp_url),
+          body: {'mobile': mobile, 'calling_code': countrycode});
       if (res.statusCode == 200 || res.statusCode == 400) {
         var jr = convert.jsonDecode(res.body);
         if (jr['successs'] == 1) {
@@ -30,7 +30,8 @@ class ForgotBloc {
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.TOP,
             backgroundColor: Theme.of(context).primaryColor,
-            textColor: Theme.of(context).textSelectionColor,
+            textColor:
+                Theme.of(context).textSelectionTheme.selectionHandleColor,
             timeInSecForIosWeb: 1,
             fontSize: 16.0,
           );
@@ -40,7 +41,8 @@ class ForgotBloc {
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.TOP,
             backgroundColor: Theme.of(context).primaryColor,
-            textColor: Theme.of(context).textSelectionColor,
+            textColor:
+                Theme.of(context).textSelectionTheme.selectionHandleColor,
             timeInSecForIosWeb: 1,
             fontSize: 16.0,
           );
@@ -52,7 +54,7 @@ class ForgotBloc {
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.TOP,
         backgroundColor: Theme.of(context).primaryColor,
-        textColor: Theme.of(context).textSelectionColor,
+        textColor: Theme.of(context).textSelectionTheme.selectionHandleColor,
         timeInSecForIosWeb: 1,
         fontSize: 16.0,
       );

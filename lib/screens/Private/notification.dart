@@ -18,7 +18,8 @@ class _AppNotificationState extends State<AppNotification> {
             color: Theme.of(context).secondaryHeaderColor,
           ),
         ),
-        backgroundColor: Theme.of(context).textSelectionColor,
+        backgroundColor:
+            Theme.of(context).textSelectionTheme.selectionHandleColor,
         centerTitle: true,
         leading: IconButton(
           icon:

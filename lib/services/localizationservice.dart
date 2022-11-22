@@ -34,13 +34,13 @@ class LocalizationService extends Translations {
       };
 
   // Gets locale from language, and updates the locale
-  void changeLocale(String lang) {
-    final locale = _getLocaleFromLanguage(lang);
+  void changeLocale(String? lang) {
+    final locale = _getLocaleFromLanguage(lang)!;
     Get.updateLocale(locale);
   }
 
   // Finds language in `langs` list and returns it as Locale
-  Locale _getLocaleFromLanguage(String lang) {
+  Locale? _getLocaleFromLanguage(String? lang) {
     for (int i = 0; i < langs.length; i++) {
       if (lang == langs[i]) return locales[i];
     }

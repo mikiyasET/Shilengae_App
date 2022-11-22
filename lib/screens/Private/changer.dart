@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:shilingae/services/localizationservice.dart';
 
 class ChangeEveryThing extends StatefulWidget {
-  final String title;
-  final int page;
+  final String? title;
+  final int? page;
   ChangeEveryThing({this.title, this.page});
   @override
   _ChangeEveryThingState createState() => _ChangeEveryThingState();
@@ -52,14 +51,15 @@ class _ChangeEveryThingState extends State<ChangeEveryThing> {
           ),
           Container(
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(40)),
-            child: FlatButton(
+            child: MaterialButton(
               height: 55,
               minWidth: MediaQuery.of(context).size.width,
               onPressed: () {},
               child: Text(
                 "Save".tr,
                 style: TextStyle(
-                  color: Theme.of(context).textSelectionColor,
+                  color:
+                      Theme.of(context).textSelectionTheme.selectionHandleColor,
                   fontSize: 18.0,
                 ),
               ),
@@ -235,14 +235,15 @@ class _ChangeEveryThingState extends State<ChangeEveryThing> {
           ),
           Container(
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(40)),
-            child: FlatButton(
+            child: MaterialButton(
               height: 55,
               minWidth: MediaQuery.of(context).size.width,
               onPressed: () {},
               child: Text(
                 "Save".tr,
                 style: TextStyle(
-                  color: Theme.of(context).textSelectionColor,
+                  color:
+                      Theme.of(context).textSelectionTheme.selectionHandleColor,
                   fontSize: 18.0,
                 ),
               ),
@@ -265,15 +266,19 @@ class _ChangeEveryThingState extends State<ChangeEveryThing> {
               decoration: BoxDecoration(
                   color: LocalizationService.locales[index] == Get.locale
                       ? Theme.of(context).primaryColor
-                      : Theme.of(context).textSelectionColor,
+                      : Theme.of(context)
+                          .textSelectionTheme
+                          .selectionHandleColor,
                   border: Border(
-                      bottom: BorderSide(color: Colors.grey[400], width: 1))),
+                      bottom: BorderSide(color: Colors.grey[400]!, width: 1))),
               padding: EdgeInsets.all(25),
               child: Text(
                 LocalizationService.langs[index].toString(),
                 style: TextStyle(
                   color: LocalizationService.locales[index] == Get.locale
-                      ? Theme.of(context).textSelectionColor
+                      ? Theme.of(context)
+                          .textSelectionTheme
+                          .selectionHandleColor
                       : Theme.of(context).secondaryHeaderColor,
                   fontSize: 16,
                 ),
@@ -316,13 +321,13 @@ class _ChangeEveryThingState extends State<ChangeEveryThing> {
                   onTap: () {
                     print("hi");
                   },
-                  onCountry: (value) {
+                  onCountryChanged: (value) {
                     print(value);
                     //phoneController.clear();
                     //phoneNode.requestFocus();
                   },
                   // focusNode: phoneNode,
-                  maxLength: 12,
+                  // maxLength: 12,
                   // controller: phoneController,
                   showDropdownIcon: false,
                   decoration: InputDecoration(
@@ -343,14 +348,15 @@ class _ChangeEveryThingState extends State<ChangeEveryThing> {
           ),
           Container(
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(40)),
-            child: FlatButton(
+            child: MaterialButton(
               height: 55,
               minWidth: MediaQuery.of(context).size.width,
               onPressed: () {},
               child: Text(
                 "Save".tr,
                 style: TextStyle(
-                  color: Theme.of(context).textSelectionColor,
+                  color:
+                      Theme.of(context).textSelectionTheme.selectionHandleColor,
                   fontSize: 18.0,
                 ),
               ),
@@ -362,6 +368,7 @@ class _ChangeEveryThingState extends State<ChangeEveryThing> {
     }
 
     Widget _TermAndCondition() {
+      return Text("Term and condition");
       // return FutureBuilder(
       //   future: http.get("https://test.shilenga.com/api/terms-conditions"),
       //   // return response;,
@@ -389,14 +396,14 @@ class _ChangeEveryThingState extends State<ChangeEveryThing> {
     //     children: [
     //       Container(
     //         decoration: BoxDecoration(borderRadius: BorderRadius.circular(40)),
-    //         child: FlatButton(
+    //         child: MaterialButton(
     //           height: 55,
     //           minWidth: MediaQuery.of(context).size.width,
     //           onPressed: () {},
     //           child: Text(
     //             "Save".tr,
     //             style: TextStyle(
-    //               color: Theme.of(context).textSelectionColor,
+    //               color: Theme.of(context).textSelectionTheme.selectionHandleColor,
     //               fontSize: 18.0,
     //             ),
     //           ),
@@ -407,7 +414,7 @@ class _ChangeEveryThingState extends State<ChangeEveryThing> {
     //   );
     // }
 
-    Widget _selectedWidget;
+    Widget? _selectedWidget;
     switch (widget.page) {
       case 1:
         _selectedWidget = Padding(
@@ -443,7 +450,7 @@ class _ChangeEveryThingState extends State<ChangeEveryThing> {
         elevation: 1,
         iconTheme: IconThemeData(color: Theme.of(context).secondaryHeaderColor),
         title: Text(
-          widget.title,
+          widget.title!,
           style: TextStyle(color: Theme.of(context).secondaryHeaderColor),
         ),
         centerTitle: true,

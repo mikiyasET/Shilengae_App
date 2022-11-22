@@ -1,17 +1,15 @@
-import 'dart:collection';
-
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SetValues extends ChangeNotifier {
-  String token;
+  String? token;
 
   Future<SharedPreferences> newMethod() async =>
       await SharedPreferences.getInstance();
-  String _val;
-  String gValues() => _val;
+  String? _val;
+  String? gValues() => _val;
 
-  Future<String> GetValue(String value) async {
+  Future<void> GetValue(String value) async {
     final prefs = await SharedPreferences.getInstance();
     token = prefs.getString(value);
     if (token == null) {
@@ -22,21 +20,21 @@ class SetValues extends ChangeNotifier {
     _val = token;
   }
 
-  Future<String> SetValue(name, value) async {
+  Future<void> SetValue(name, value) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(name, value);
     GetValue(name);
     notifyListeners();
   }
 
-  Future<String> ClearValue(value) async {
+  Future<void> ClearValue(value) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove(value);
     GetValue(value);
     notifyListeners();
   }
 
-  Future<String> ClearAllValues() async {
+  Future<void> ClearAllValues() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.clear();
     GetValue("sdds");

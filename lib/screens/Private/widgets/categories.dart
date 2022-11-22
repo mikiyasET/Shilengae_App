@@ -29,7 +29,7 @@ class Category extends StatelessWidget {
   final String file;
   final String label;
 
-  Category({@required this.file, @required this.label});
+  Category({required this.file, required this.label});
   @override
   Widget build(BuildContext context) {
     return Column(

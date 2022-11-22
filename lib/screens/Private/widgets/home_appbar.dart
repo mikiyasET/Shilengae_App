@@ -28,7 +28,7 @@ Widget HomeAppBar() {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Stack(
-            overflow: Overflow.visible,
+            // overflow: Overflow.visible,
             children: [
               Container(),
               Positioned(
@@ -62,7 +62,7 @@ Widget HomeAppBar() {
                   style: TextStyle(color: Colors.white),
                 ),
                 items: mklistDrop,
-                onChanged: (value) => print("You have selected $value"),
+                onChanged: (dynamic value) => print("You have selected $value"),
               ),
             ),
           ),

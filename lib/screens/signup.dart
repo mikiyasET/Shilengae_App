@@ -1,8 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:shilingae/blocs/signupc.dart';
-import 'package:get/get.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -20,7 +20,7 @@ class _SignUpState extends State<SignUp> {
   TextEditingController pass2Controller = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  String countrycode;
+  String? countrycode;
   FocusNode phoneNode = FocusNode();
 
   @override
@@ -161,13 +161,13 @@ class _SignUpState extends State<SignUp> {
                   onTap: () {
                     print("hi");
                   },
-                  onCountry: (value) {
+                  onCountryChanged: (value) {
                     print(value);
                     phoneController.clear();
                     phoneNode.requestFocus();
                   },
                   focusNode: phoneNode,
-                  maxLength: 12,
+                  // maxLength: 12,
                   controller: phoneController,
                   showDropdownIcon: false,
                   decoration: InputDecoration(
@@ -296,7 +296,7 @@ class _SignUpState extends State<SignUp> {
               Container(
                 decoration:
                     BoxDecoration(borderRadius: BorderRadius.circular(40)),
-                child: FlatButton(
+                child: MaterialButton(
                   height: 55,
                   minWidth: MediaQuery.of(context).size.width,
                   onPressed: () {
@@ -314,7 +314,9 @@ class _SignUpState extends State<SignUp> {
                   child: Text(
                     "continue".tr,
                     style: TextStyle(
-                      color: Theme.of(context).textSelectionColor,
+                      color: Theme.of(context)
+                          .textSelectionTheme
+                          .selectionHandleColor,
                       fontSize: 18.0,
                     ),
                   ),

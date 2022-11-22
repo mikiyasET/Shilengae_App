@@ -96,7 +96,7 @@ class _CarouselState extends State<Carousel> {
                           ),
                         )
                       ],
-                      overflow: Overflow.visible,
+                      // overflow: Overflow.visible,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(
@@ -186,7 +186,7 @@ class _CarouselState extends State<Carousel> {
                           ),
                         )
                       ],
-                      overflow: Overflow.visible,
+                      // overflow: Overflow.visible,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(

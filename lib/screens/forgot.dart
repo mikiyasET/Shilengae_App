@@ -1,6 +1,6 @@
-import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:shilingae/blocs/forgotc.dart';
 
 class ForgetPassword extends StatefulWidget {
@@ -10,7 +10,7 @@ class ForgetPassword extends StatefulWidget {
 
 class _ForgetPasswordState extends State<ForgetPassword> {
   TextEditingController phoneController = TextEditingController();
-  String countrycode;
+  String? countrycode;
   FocusNode phoneNode = FocusNode();
 
   @override
@@ -61,13 +61,13 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                   onTap: () {
                     print("hi");
                   },
-                  onCountry: (value) {
+                  onCountryChanged: (value) {
                     print(value);
                     phoneController.clear();
                     phoneNode.requestFocus();
                   },
                   focusNode: phoneNode,
-                  maxLength: 12,
+                  // maxLength: 12,
                   controller: phoneController,
                   showDropdownIcon: false,
                   decoration: InputDecoration(
@@ -88,7 +88,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
               Container(
                 decoration:
                     BoxDecoration(borderRadius: BorderRadius.circular(40)),
-                child: FlatButton(
+                child: MaterialButton(
                   height: 55,
                   minWidth: MediaQuery.of(context).size.width,
                   onPressed: () {
@@ -97,7 +97,9 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                   child: Text(
                     "continue".tr,
                     style: TextStyle(
-                      color: Theme.of(context).textSelectionColor,
+                      color: Theme.of(context)
+                          .textSelectionTheme
+                          .selectionHandleColor,
                       fontSize: 18.0,
                     ),
                   ),

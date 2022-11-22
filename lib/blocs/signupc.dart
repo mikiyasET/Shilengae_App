@@ -15,12 +15,12 @@ class SignupBloc {
       context, first, last, emailad, code, phone, password1, password2) async {
     try {
       String firstName = first.text;
-      String lastName = last.text;
+      String? lastName = last.text;
 
-      String email = emailad.text;
-      String mobile = phone.text;
-      String pass1 = password1.text;
-      String pass2 = password2.text;
+      String? email = emailad.text;
+      String? mobile = phone.text;
+      String? pass1 = password1.text;
+      String? pass2 = password2.text;
 
       EasyLoading.show(maskType: EasyLoadingMaskType.black);
       if (firstName.length < 2) {
@@ -30,48 +30,48 @@ class SignupBloc {
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.TOP,
           backgroundColor: Theme.of(context).primaryColor,
-          textColor: Theme.of(context).textSelectionColor,
+          textColor: Theme.of(context).textSelectionTheme.selectionHandleColor,
           timeInSecForIosWeb: 1,
           fontSize: 16.0,
         );
-      } else if (lastName.length < 2) {
+      } else if (lastName!.length < 2) {
         EasyLoading.dismiss();
         Fluttertoast.showToast(
           msg: "Last Name should be atleast 2 characters long",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.TOP,
           backgroundColor: Theme.of(context).primaryColor,
-          textColor: Theme.of(context).textSelectionColor,
+          textColor: Theme.of(context).textSelectionTheme.selectionHandleColor,
           timeInSecForIosWeb: 1,
           fontSize: 16.0,
         );
       } else if (!RegExp(
               r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
-          .hasMatch(email)) {
+          .hasMatch(email!)) {
         EasyLoading.dismiss();
         Fluttertoast.showToast(
           msg: "Please enter a valid email",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.TOP,
           backgroundColor: Theme.of(context).primaryColor,
-          textColor: Theme.of(context).textSelectionColor,
+          textColor: Theme.of(context).textSelectionTheme.selectionHandleColor,
           timeInSecForIosWeb: 1,
           fontSize: 16.0,
         );
-      } else if (!RegExp(r'(^(?:[+0]9)?[0-9]{7,12}$)').hasMatch(mobile)) {
+      } else if (!RegExp(r'(^(?:[+0]9)?[0-9]{7,12}$)').hasMatch(mobile!)) {
         EasyLoading.dismiss();
         Fluttertoast.showToast(
           msg: "Please enter a valid Mobile Number",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.TOP,
           backgroundColor: Theme.of(context).primaryColor,
-          textColor: Theme.of(context).textSelectionColor,
+          textColor: Theme.of(context).textSelectionTheme.selectionHandleColor,
           timeInSecForIosWeb: 1,
           fontSize: 16.0,
         );
-      } else if (pass1.length < 6 ||
+      } else if (pass1!.length < 6 ||
           pass1.length > 15 ||
-          pass2.length < 6 ||
+          pass2!.length < 6 ||
           pass2.length > 15) {
         EasyLoading.dismiss();
         Fluttertoast.showToast(
@@ -79,7 +79,7 @@ class SignupBloc {
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.TOP,
           backgroundColor: Theme.of(context).primaryColor,
-          textColor: Theme.of(context).textSelectionColor,
+          textColor: Theme.of(context).textSelectionTheme.selectionHandleColor,
           timeInSecForIosWeb: 1,
           fontSize: 16.0,
         );
@@ -90,7 +90,7 @@ class SignupBloc {
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.TOP,
           backgroundColor: Theme.of(context).primaryColor,
-          textColor: Theme.of(context).textSelectionColor,
+          textColor: Theme.of(context).textSelectionTheme.selectionHandleColor,
           timeInSecForIosWeb: 1,
           fontSize: 16.0,
         );
@@ -110,7 +110,7 @@ class SignupBloc {
           }
           var otp_url = '${testUrl + requestOTP}';
           print("been 1");
-          var res = await http.post(otp_url, body: {
+          var res = await http.post(Uri.parse(otp_url), body: {
             'email': email,
             'mobile': mobile,
             'password': pass2,
@@ -144,7 +144,8 @@ class SignupBloc {
                 toastLength: Toast.LENGTH_SHORT,
                 gravity: ToastGravity.TOP,
                 backgroundColor: Theme.of(context).primaryColor,
-                textColor: Theme.of(context).textSelectionColor,
+                textColor:
+                    Theme.of(context).textSelectionTheme.selectionHandleColor,
                 timeInSecForIosWeb: 1,
                 fontSize: 16.0,
               );
@@ -157,7 +158,8 @@ class SignupBloc {
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.TOP,
               backgroundColor: Theme.of(context).primaryColor,
-              textColor: Theme.of(context).textSelectionColor,
+              textColor:
+                  Theme.of(context).textSelectionTheme.selectionHandleColor,
               timeInSecForIosWeb: 1,
               fontSize: 16.0,
             );
@@ -169,7 +171,8 @@ class SignupBloc {
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.TOP,
             backgroundColor: Theme.of(context).primaryColor,
-            textColor: Theme.of(context).textSelectionColor,
+            textColor:
+                Theme.of(context).textSelectionTheme.selectionHandleColor,
             timeInSecForIosWeb: 1,
             fontSize: 16.0,
           );
@@ -195,7 +198,7 @@ class SignupBloc {
       //     toastLength: Toast.LENGTH_SHORT,
       //     gravity: ToastGravity.TOP,
       //     backgroundColor: success == 1 ? Colors.green : Theme.of(context).primaryColor,
-      //     textColor: Theme.of(context).textSelectionColor,
+      //     textColor: Theme.of(context).textSelectionTheme.selectionHandleColor,
       //     timeInSecForIosWeb: 1,
       //     fontSize: 16.0,
       //   );
@@ -205,7 +208,7 @@ class SignupBloc {
       //     toastLength: Toast.LENGTH_SHORT,
       //     gravity: ToastGravity.TOP,
       //     backgroundColor: Theme.of(context).primaryColor,
-      //     textColor: Theme.of(context).textSelectionColor,
+      //     textColor: Theme.of(context).textSelectionTheme.selectionHandleColor,
       //     timeInSecForIosWeb: 1,
       //     fontSize: 16.0,
       //   );
@@ -223,7 +226,7 @@ class SignupBloc {
 
         var url = '${testUrl + register}';
         print("Loading...");
-        var response = await http.post(url, body: {
+        var response = await http.post(Uri.parse(url), body: {
           'email': email.toString(),
           'mobile': mobile.toString(),
           'password': pass.toString(),
@@ -238,15 +241,15 @@ class SignupBloc {
         //   toastLength: Toast.LENGTH_SHORT,
         //   gravity: ToastGravity.TOP,
         //   backgroundColor: Colors.green,
-        //   textColor: Theme.of(context).textSelectionColor,
+        //   textColor: Theme.of(context).textSelectionTheme.selectionHandleColor,
         //   timeInSecForIosWeb: 1,
         //   fontSize: 16.0,
         // );
-        Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
+        Map<String, dynamic>? jsonResponse = convert.jsonDecode(response.body);
 
         if (response.statusCode == 200 || response.statusCode == 400) {
-          int success = jsonResponse['success'];
-          String msg = jsonResponse['msg'];
+          int? success = jsonResponse!['success'];
+          String? msg = jsonResponse['msg'];
           EasyLoading.dismiss();
           if (success == 1) {
             final users = jsonResponse['user'];
@@ -301,11 +304,12 @@ class SignupBloc {
             Get.offAllNamed('/home');
           } else {
             Fluttertoast.showToast(
-              msg: msg,
+              msg: msg!,
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.TOP,
               backgroundColor: Theme.of(context).primaryColor,
-              textColor: Theme.of(context).textSelectionColor,
+              textColor:
+                  Theme.of(context).textSelectionTheme.selectionHandleColor,
               timeInSecForIosWeb: 1,
               fontSize: 16.0,
             );
@@ -313,11 +317,12 @@ class SignupBloc {
         } else {
           EasyLoading.dismiss();
           Fluttertoast.showToast(
-            msg: jsonResponse['msg'].toString(),
+            msg: jsonResponse!['msg'].toString(),
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.TOP,
             backgroundColor: Theme.of(context).primaryColor,
-            textColor: Theme.of(context).textSelectionColor,
+            textColor:
+                Theme.of(context).textSelectionTheme.selectionHandleColor,
             timeInSecForIosWeb: 1,
             fontSize: 16.0,
           );
@@ -329,7 +334,7 @@ class SignupBloc {
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.TOP,
           backgroundColor: Theme.of(context).primaryColor,
-          textColor: Theme.of(context).textSelectionColor,
+          textColor: Theme.of(context).textSelectionTheme.selectionHandleColor,
           timeInSecForIosWeb: 1,
           fontSize: 16.0,
         );

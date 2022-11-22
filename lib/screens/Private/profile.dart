@@ -85,15 +85,15 @@ class _ProfileState extends State<Profile> {
     }
 
     Widget localfacbookStatuss() {
-      return FlatButton.icon(
+      return MaterialButton(
         padding: EdgeInsets.only(left: 5.0, right: 15, top: 10, bottom: 10),
         color: Color(0xff3b5998),
-        icon: Image.asset(
-          "./assets/ic_facebook_logo@3x.png",
-          width: 30.0,
-          height: 20.0,
-        ),
-        label: Text(
+        // icon: Image.asset(
+        //   "./assets/ic_facebook_logo@3x.png",
+        //   width: 30.0,
+        //   height: 20.0,
+        // ),
+        child: Text(
           "Connect to Facebook",
           style: TextStyle(
             color: Colors.white,
@@ -104,7 +104,7 @@ class _ProfileState extends State<Profile> {
     }
 
     Widget localProfileBuilder(
-        {label, text, icon = 0, button = 0, iconpos = 0}) {
+        {required label, required text, icon = 0, button = 0, iconpos = 0}) {
       Map<String, String> _selectedCountry =
           countries.firstWhere((item) => item['code'] == 'ET');
       return Container(
@@ -138,7 +138,7 @@ class _ProfileState extends State<Profile> {
                             child: DecoratedBox(
                               decoration: BoxDecoration(),
                               child: Text(
-                                _selectedCountry['flag'],
+                                _selectedCountry['flag']!,
                                 style: TextStyle(fontSize: 20),
                               ),
                             ),
@@ -156,7 +156,7 @@ class _ProfileState extends State<Profile> {
               ],
             ),
             button == 1
-                ? FlatButton(
+                ? MaterialButton(
                     height: 27,
                     minWidth: 25,
                     onPressed: () {},
@@ -164,7 +164,10 @@ class _ProfileState extends State<Profile> {
                     child: Text(
                       "Verify",
                       style: TextStyle(
-                          color: Theme.of(context).textSelectionColor),
+                        color: Theme.of(context)
+                            .textSelectionTheme
+                            .selectionHandleColor,
+                      ),
                     ),
                   )
                 : Container(),

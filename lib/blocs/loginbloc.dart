@@ -74,7 +74,7 @@ class LoginBloc {
             fontSize: 16.0,
           );
         }
-        var response = await http.post(url, body: {
+        var response = await http.post(Uri.parse(url), body: {
           'mobile': mobile,
           'password': pass,
           'calling_code': countrycode,
@@ -84,8 +84,8 @@ class LoginBloc {
 
         if (response.statusCode == 200 || response.statusCode == 400) {
           var jsonResponse = convert.jsonDecode(response.body);
-          int success = jsonResponse['success'];
-          String msg = jsonResponse['msg'];
+          int? success = jsonResponse['success'];
+          String? msg = jsonResponse['msg'];
 
           if (success == 1) {
             final users = jsonResponse['user'];
@@ -142,7 +142,7 @@ class LoginBloc {
           } else {
             EasyLoading.dismiss();
             Fluttertoast.showToast(
-              msg: msg,
+              msg: msg!,
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.TOP,
               backgroundColor: success == 1 ? Colors.green : Colors.red,

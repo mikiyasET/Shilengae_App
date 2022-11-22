@@ -1,18 +1,10 @@
-import 'dart:convert';
+import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:get_storage/get_storage.dart';
-import 'package:shilingae/screens/privacy_policy.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert' as convert;
-import 'dart:async';
-import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 
 class Choose extends StatefulWidget {
   @override
@@ -20,95 +12,97 @@ class Choose extends StatefulWidget {
 }
 
 class _ChooseState extends State<Choose> {
-  static final FacebookLogin facebookSignIn = new FacebookLogin();
+  // static final FacebookLogin facebookSignIn = new FacebookLogin();
 
   String _message = "";
 
   Future<void> _login() async {
-    final FacebookLoginResult result = await facebookSignIn.logIn(['email']);
-    EasyLoading.show(maskType: EasyLoadingMaskType.black);
-    switch (result.status) {
-      case FacebookLoginStatus.loggedIn:
-        final FacebookAccessToken accessToken = result.accessToken;
-        // _showMessage('''
-        //  Logged in!
+    _showMessage('Not Working');
+    // final FacebookLoginResult result = await facebookSignIn.logIn(['email']);
+    // EasyLoading.show(maskType: EasyLoadingMaskType.black);
 
-        //  Token: ${accessToken.token}
-        //  User id: ${accessToken.userId}
-        //  Expires: ${accessToken.expires}
-        //  Permissions: ${accessToken.permissions}
-        //  Declined permissions: ${accessToken.declinedPermissions}
-        //  ''');
-        print(accessToken.token);
-        print(accessToken.userId);
-
-        var url =
-            "https://graph.facebook.com/v2.12/me?fields=name,first_name,last_name,email,picture&access_token=${accessToken.token}";
-
-        var graphResponse = await http.get(url);
-
-        var profile = json.decode(graphResponse.body);
-        final userData = GetStorage();
-        userData.write('token', accessToken.token);
-        userData.write('first_name', profile['first_name']);
-        userData.write('last_name', profile['last_name']);
-        userData.write('email', profile['email']);
-        userData.write('socialProfileImage', profile['picture']['data']['url']);
-        userData.write('loggedIn', true);
-        EasyLoading.dismiss();
-
-        Get.offAllNamed('/home');
-        // print(profile.toString());
-        // _showMessage('''
-        //  Logged in!
-
-        //  Token: ${accessToken.token}
-        //  User id: ${accessToken.userId}
-        //  Expires: ${accessToken.expires}
-        //  Permissions: ${accessToken.permissions}
-        //  Declined permissions: ${accessToken.declinedPermissions}
-        //  ''');
-        // Fluttertoast.showToast(
-        //   msg:
-        //       "Dear ${profile['picture']} you have Successfully logged in to Facebook",
-        //   toastLength: Toast.LENGTH_SHORT,
-        //   gravity: ToastGravity.TOP,
-        //   backgroundColor: Colors.green,
-        //   textColor: Theme.of(context).textSelectionColor,
-        //   timeInSecForIosWeb: 1,
-        //   fontSize: 16.0,
-        // );
-        break;
-      case FacebookLoginStatus.cancelledByUser:
-        EasyLoading.dismiss();
-
-        Fluttertoast.showToast(
-          msg: "Login cancelled by the user",
-          toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.TOP,
-          backgroundColor: Colors.blue,
-          textColor: Theme.of(context).textSelectionColor,
-          timeInSecForIosWeb: 1,
-          fontSize: 16.0,
-        );
-        // _showMessage('Login cancelled by the user.');
-        break;
-      case FacebookLoginStatus.error:
-        EasyLoading.dismiss();
-
-        Fluttertoast.showToast(
-          msg: "Something went wrong with the login process.",
-          toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.TOP,
-          backgroundColor: Theme.of(context).primaryColor,
-          textColor: Theme.of(context).textSelectionColor,
-          timeInSecForIosWeb: 1,
-          fontSize: 16.0,
-        );
-        // _showMessage('Something went wrong with the login process.\n'
-        //     'Here\'s the error Facebook gave us: ${result.errorMessage}');
-        break;
-    }
+    // switch (result.status) {
+    //   case FacebookLoginStatus.loggedIn:
+    //     final FacebookAccessToken accessToken = result.accessToken;
+    //     // _showMessage('''
+    //     //  Logged in!
+    //
+    //     //  Token: ${accessToken.token}
+    //     //  User id: ${accessToken.userId}
+    //     //  Expires: ${accessToken.expires}
+    //     //  Permissions: ${accessToken.permissions}
+    //     //  Declined permissions: ${accessToken.declinedPermissions}
+    //     //  ''');
+    //     print(accessToken.token);
+    //     print(accessToken.userId);
+    //
+    //     var url =
+    //         "https://graph.facebook.com/v2.12/me?fields=name,first_name,last_name,email,picture&access_token=${accessToken.token}";
+    //
+    //     var graphResponse = await http.get(Uri.parse(url));
+    //
+    //     var profile = json.decode(graphResponse.body);
+    //     final userData = GetStorage();
+    //     userData.write('token', accessToken.token);
+    //     userData.write('first_name', profile['first_name']);
+    //     userData.write('last_name', profile['last_name']);
+    //     userData.write('email', profile['email']);
+    //     userData.write('socialProfileImage', profile['picture']['data']['url']);
+    //     userData.write('loggedIn', true);
+    //     EasyLoading.dismiss();
+    //
+    //     Get.offAllNamed('/home');
+    //     // print(profile.toString());
+    //     // _showMessage('''
+    //     //  Logged in!
+    //
+    //     //  Token: ${accessToken.token}
+    //     //  User id: ${accessToken.userId}
+    //     //  Expires: ${accessToken.expires}
+    //     //  Permissions: ${accessToken.permissions}
+    //     //  Declined permissions: ${accessToken.declinedPermissions}
+    //     //  ''');
+    //     // Fluttertoast.showToast(
+    //     //   msg:
+    //     //       "Dear ${profile['picture']} you have Successfully logged in to Facebook",
+    //     //   toastLength: Toast.LENGTH_SHORT,
+    //     //   gravity: ToastGravity.TOP,
+    //     //   backgroundColor: Colors.green,
+    //     //   textColor: Theme.of(context).textSelectionTheme.selectionHandleColor,
+    //     //   timeInSecForIosWeb: 1,
+    //     //   fontSize: 16.0,
+    //     // );
+    //     break;
+    //   case FacebookLoginStatus.cancelledByUser:
+    //     EasyLoading.dismiss();
+    //
+    //     Fluttertoast.showToast(
+    //       msg: "Login cancelled by the user",
+    //       toastLength: Toast.LENGTH_SHORT,
+    //       gravity: ToastGravity.TOP,
+    //       backgroundColor: Colors.blue,
+    //       textColor: Theme.of(context).textSelectionTheme.selectionHandleColor,
+    //       timeInSecForIosWeb: 1,
+    //       fontSize: 16.0,
+    //     );
+    //     // _showMessage('Login cancelled by the user.');
+    //     break;
+    //   case FacebookLoginStatus.error:
+    //     EasyLoading.dismiss();
+    //
+    //     Fluttertoast.showToast(
+    //       msg: "Something went wrong with the login process.",
+    //       toastLength: Toast.LENGTH_SHORT,
+    //       gravity: ToastGravity.TOP,
+    //       backgroundColor: Theme.of(context).primaryColor,
+    //       textColor: Theme.of(context).textSelectionTheme.selectionHandleColor,
+    //       timeInSecForIosWeb: 1,
+    //       fontSize: 16.0,
+    //     );
+    //     // _showMessage('Something went wrong with the login process.\n'
+    //     //     'Here\'s the error Facebook gave us: ${result.errorMessage}');
+    //     break;
+    // }
   }
 
   // Future<Null> _logOut() async {
@@ -172,7 +166,9 @@ class _ChooseState extends State<Choose> {
                             child: Opacity(
                               opacity: .7,
                               child: VerticalDivider(
-                                color: Theme.of(context).textSelectionColor,
+                                color: Theme.of(context)
+                                    .textSelectionTheme
+                                    .selectionHandleColor,
                               ),
                             ),
                           ),
@@ -181,7 +177,9 @@ class _ChooseState extends State<Choose> {
                               "connectToFacebook".tr,
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                color: Theme.of(context).textSelectionColor,
+                                color: Theme.of(context)
+                                    .textSelectionTheme
+                                    .selectionHandleColor,
                                 fontSize: 17,
                               ),
                             ),

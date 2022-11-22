@@ -1,9 +1,9 @@
 import 'package:flutter/gestures.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:shilingae/blocs/loginbloc.dart';
 import 'package:get/get.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:shilingae/blocs/loginbloc.dart';
 
 class LoginInputs extends StatefulWidget {
   @override
@@ -14,7 +14,7 @@ class _LoginInputsState extends State<LoginInputs> {
   bool _showPassword = false;
   TextEditingController phoneController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  String countrycode;
+  String? countrycode;
   // final login = LoginBloc();
   FocusNode phoneNode = FocusNode();
   @override
@@ -37,13 +37,13 @@ class _LoginInputsState extends State<LoginInputs> {
             onTap: () {
               print("hi");
             },
-            onCountry: (value) {
+            onCountryChanged: (value) {
               print(value);
               phoneController.clear();
               phoneNode.requestFocus();
             },
             focusNode: phoneNode,
-            maxLength: 12,
+            // maxLength: 12,
             controller: phoneController,
             showDropdownIcon: false,
             decoration: InputDecoration(
@@ -133,7 +133,7 @@ class _LoginInputsState extends State<LoginInputs> {
         SizedBox(height: 20),
         Container(
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(40)),
-          child: FlatButton(
+          child: MaterialButton(
             height: 55,
             minWidth: MediaQuery.of(context).size.width,
             onPressed: () {
@@ -142,7 +142,8 @@ class _LoginInputsState extends State<LoginInputs> {
             child: Text(
               "login".tr,
               style: TextStyle(
-                color: Theme.of(context).textSelectionColor,
+                color:
+                    Theme.of(context).textSelectionTheme.selectionHandleColor,
                 fontSize: 18.0,
               ),
             ),

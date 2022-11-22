@@ -19,7 +19,7 @@
 
     <!-- Replace "000000000000" with your Facebook App ID here. -->
     <string name="facebook_app_id">201637728310338</string>
-
+    <string name="facebook_client_token">af855fcc0e7c0bccc4df4ed577279a3e</string>
     <!--
       Replace "000000000000" with your Facebook App ID here.
       **NOTE**: The scheme needs to start with `fb` and then your ID.

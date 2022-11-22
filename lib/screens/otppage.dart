@@ -1,23 +1,22 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:shilingae/blocs/signupc.dart';
 
 class otpPage extends StatefulWidget {
-  int otp;
-  String firstname;
-  String lastname;
-  String email;
-  String mobile;
-  String password;
-  String calling_code;
-  String app_country;
-  String for_type;
+  int? otp;
+  String? firstname;
+  String? lastname;
+  String? email;
+  String? mobile;
+  String? password;
+  String? calling_code;
+  String? app_country;
+  String? for_type;
   otpPage(
-      {Key key,
+      {Key? key,
       this.otp,
       this.firstname,
       this.lastname,
@@ -65,8 +64,8 @@ class _otpPageState extends State<otpPage> {
           children: [
             Text(
               "Enter 6-digit OTP code sent to your mobile no +" +
-                  widget.calling_code +
-                  widget.mobile,
+                  widget.calling_code! +
+                  widget.mobile!,
               style: TextStyle(
                   color: Theme.of(context).secondaryHeaderColor, fontSize: 18),
             ),
@@ -91,7 +90,8 @@ class _otpPageState extends State<otpPage> {
               cursorColor: Theme.of(context).secondaryHeaderColor,
               animationDuration: Duration(milliseconds: 300),
               textStyle: TextStyle(fontSize: 30, height: 1.6),
-              backgroundColor: Theme.of(context).textSelectionColor,
+              backgroundColor:
+                  Theme.of(context).textSelectionTheme.selectionHandleColor,
               enableActiveFill: false,
               controller: otpController,
               keyboardType: TextInputType.number,
@@ -112,7 +112,7 @@ class _otpPageState extends State<otpPage> {
             Container(
               decoration:
                   BoxDecoration(borderRadius: BorderRadius.circular(40)),
-              child: FlatButton(
+              child: MaterialButton(
                 height: 55,
                 minWidth: MediaQuery.of(context).size.width,
                 onPressed: () {
@@ -130,7 +130,9 @@ class _otpPageState extends State<otpPage> {
                 child: Text(
                   "Verify",
                   style: TextStyle(
-                    color: Theme.of(context).textSelectionColor,
+                    color: Theme.of(context)
+                        .textSelectionTheme
+                        .selectionHandleColor,
                     fontSize: 18.0,
                   ),
                 ),

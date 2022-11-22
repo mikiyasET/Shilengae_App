@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
-import 'package:shilingae/blocs/values.dart';
 import 'package:get/get.dart';
 import 'package:shilingae/services/localizationservice.dart';
 
@@ -12,7 +10,7 @@ class Fpage extends StatefulWidget {
 
 class _FpageState extends State<Fpage> {
   String country = "Ethiopia";
-  String _language = LocalizationService.langs.first;
+  String? _language = LocalizationService.langs.first;
 
   @override
   Widget build(BuildContext context) {
@@ -98,7 +96,7 @@ class _FpageState extends State<Fpage> {
                     items: LocalizationService.langs.map((String lang) {
                       return DropdownMenuItem(value: lang, child: Text(lang));
                     }).toList(),
-                    onChanged: (String value) {
+                    onChanged: (String? value) {
                       // updates dropdown selected value
                       setState(() => _language = value);
                       // gets language and changes the locale
@@ -108,7 +106,7 @@ class _FpageState extends State<Fpage> {
                 ),
               ),
               SizedBox(height: 30),
-              FlatButton(
+              MaterialButton(
                 height: 55,
                 minWidth: MediaQuery.of(context).size.width,
                 onPressed: () {
@@ -120,7 +118,9 @@ class _FpageState extends State<Fpage> {
                 child: Text(
                   "continue".tr,
                   style: TextStyle(
-                    color: Theme.of(context).textSelectionColor,
+                    color: Theme.of(context)
+                        .textSelectionTheme
+                        .selectionHandleColor,
                     fontSize: 18.0,
                   ),
                 ),

@@ -11,7 +11,8 @@ class _LocationFinderState extends State<LocationFinder> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).textSelectionColor,
+        backgroundColor:
+            Theme.of(context).textSelectionTheme.selectionHandleColor,
         elevation: 1,
         leading: IconButton(
           icon: Icon(Icons.clear, color: Colors.black),

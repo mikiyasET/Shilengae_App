@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -44,7 +44,8 @@ class StartState extends State<SplashScreen> {
 
   initScreen(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).textSelectionColor,
+      backgroundColor:
+          Theme.of(context).textSelectionTheme.selectionHandleColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
